@@ -88,7 +88,7 @@ public partial class CasinoHackWindow
             // 幸运轮盘
             if (luckyWheelSlot != -1)
             {
-                Locals.WriteLocalAddress("casino_lucky_wheel", 278 + 14, luckyWheelSlot);
+                Locals.WriteLocalAddress("casino_lucky_wheel", 280 + 14, luckyWheelSlot);
             }
 
             // 老虎机
