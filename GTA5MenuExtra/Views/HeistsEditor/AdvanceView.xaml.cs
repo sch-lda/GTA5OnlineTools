@@ -21,11 +21,14 @@ public partial class AdvanceView : UserControl
         if (Locals.LocalAddress("fm_mission_controller") == 0)
             return;
 
-        if (Locals.ReadLocalAddress<int>("fm_mission_controller", 0x6510 / 8) == 0)
+        if (Locals.ReadLocalAddress<int>("fm_mission_controller", 3236) == 0)
             return;
 
-        Locals.WriteLocalAddress("fm_mission_controller", 0x3DDC0 / 8, 264666);
-        Locals.WriteLocalAddress("fm_mission_controller", 0x26880 / 8, 12);
+        for (int i = 0; i <= 3; i++)
+        {
+            Locals.WriteLocalAddress("fm_mission_controller", 19746 + 1232 + 1 + i, 264666);
+        }
+        Locals.WriteLocalAddress("fm_mission_controller", 19746, 12);
     }
 
     /// <summary>
@@ -37,11 +40,14 @@ public partial class AdvanceView : UserControl
         if (Locals.LocalAddress("fm_mission_controller_2020") == 0)
             return;
 
-        if (Locals.ReadLocalAddress<int>("fm_mission_controller_2020", 0x24FF8 / 8) == 0)
+        if (Locals.ReadLocalAddress<int>("fm_mission_controller_2020", 19376) == 0)
             return;
 
-        Locals.WriteLocalAddress("fm_mission_controller_2020", 0x3DDC0 / 8, 264666);
-        Locals.WriteLocalAddress("fm_mission_controller_2020", 0x62338 / 8, 9);
+        for (int i = 0; i <= 3; i++)
+        {
+            Locals.WriteLocalAddress("fm_mission_controller_2020", 50150 + 1770 + 1 + i, 264666);
+        }
+        Locals.WriteLocalAddress("fm_mission_controller_2020", 50150, 9);
     }
 
     /// <summary>
@@ -53,19 +59,20 @@ public partial class AdvanceView : UserControl
         if (Locals.LocalAddress("fmmc_launcher") == 0)
             return;
 
-        if (Locals.ReadLocalAddress<int>("fmmc_launcher", 19331 + 34) == 0)
+        if (Locals.ReadLocalAddress<int>("fmmc_launcher", 19709 + 34) == 0)
             return;
 
-        if (Locals.ReadLocalAddress<int>("fmmc_launcher", 19331 + 15) > 1)
+        if (Locals.ReadLocalAddress<int>("fmmc_launcher", 19709 + 15) > 1)
         {
-            Locals.WriteLocalAddress("fmmc_launcher", 19331 + 15, 1);
-            Globals.Set_Global_Value(794744 + 4 + 1 + (Locals.ReadLocalAddress<int>("fmmc_launcher", 19331 + 34) * 89) + 69, 1);
+            Locals.WriteLocalAddress("fmmc_launcher", 19709 + 15, 1);
+            Globals.Set_Global_Value(794744 + 4 + 1 + (Locals.ReadLocalAddress<int>("fmmc_launcher", 19709 + 34) * 89) + 69, 1);
         }
 
-        Globals.Set_Global_Value(4718592 + 3255 + 1, 1);
-        Globals.Set_Global_Value(4718592 + 176675 + 1, 0);
-        Globals.Set_Global_Value(4718592 + 3252, 1);
-        Globals.Set_Global_Value(4718592 + 3253, 1);
+        Globals.Set_Global_Value(4718592 + 3523 + 1, 1);
+        Globals.Set_Global_Value(4718592 + 3529 + 1, 1);
+        Globals.Set_Global_Value(4718592 + 178821 + 1, 0);
+        Globals.Set_Global_Value(4718592 + 3526, 1);
+        Globals.Set_Global_Value(4718592 + 3526 + 1, 1);
     }
 
     //////////////////////////////////////////////////////

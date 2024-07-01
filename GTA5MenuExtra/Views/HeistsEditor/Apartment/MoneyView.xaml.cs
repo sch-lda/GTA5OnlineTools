@@ -9,7 +9,7 @@ namespace GTA5MenuExtra.Views.HeistsEditor.Apartment;
 public partial class MoneyView : UserControl
 {
     private const int apart_ratio = 1930926 + 3008;     // +1 +2 +3 +4
-    private const int apart_money = 262145 + 9171; //HEIST_FLEECA_JOB_CASH_REWARD
+   /* private const int apart_money = 262145 + 9171; //HEIST_FLEECA_JOB_CASH_REWARD*/
 
     public MoneyView()
     {
@@ -25,11 +25,11 @@ public partial class MoneyView : UserControl
         TextBox_Apart_Player3.Text = Globals.Get_Global_Value<int>(apart_ratio + 3).ToString();
         TextBox_Apart_Player4.Text = Globals.Get_Global_Value<int>(apart_ratio + 4).ToString();
 
-        TextBox_Apart_Fleeca.Text = Globals.Get_Global_Value<int>(apart_money + 0).ToString();
-        TextBox_Apart_PrisonBreak.Text = Globals.Get_Global_Value<int>(apart_money + 1).ToString();
-        TextBox_Apart_HumaneLabs.Text = Globals.Get_Global_Value<int>(apart_money + 2).ToString();
-        TextBox_Apart_SeriesA.Text = Globals.Get_Global_Value<int>(apart_money + 3).ToString();
-        TextBox_Apart_PacificStandard.Text = Globals.Get_Global_Value<int>(apart_money + 4).ToString();
+        TextBox_Apart_Fleeca.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_FLEECA_JOB_CASH_REWARD"))).ToString();
+        TextBox_Apart_PrisonBreak.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_PRISON_BREAK_CASH_REWARD"))).ToString();
+        TextBox_Apart_HumaneLabs.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_HUMANE_LABS_RAID_CASH_REWARD"))).ToString();
+        TextBox_Apart_SeriesA.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_SERIES_A_FUNDING_CASH_REWARD"))).ToString();
+        TextBox_Apart_PacificStandard.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_PACIFIC_STANDARD_JOB_CASH_REWARD"))).ToString();
 
         NotifierHelper.Show(NotifierType.Success, "读取 公寓抢劫 玩家分红数据 成功");
     }
@@ -58,11 +58,11 @@ public partial class MoneyView : UserControl
         Globals.Set_Global_Value(apart_ratio + 3, player3);
         Globals.Set_Global_Value(apart_ratio + 4, player4);
 
-        Globals.Set_Global_Value(apart_money + 0, apart1);
-        Globals.Set_Global_Value(apart_money + 1, apart2);
-        Globals.Set_Global_Value(apart_money + 2, apart3);
-        Globals.Set_Global_Value(apart_money + 3, apart4);
-        Globals.Set_Global_Value(apart_money + 4, apart5);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("HEIST_FLEECA_JOB_CASH_REWARD")), apart1);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("HEIST_PRISON_BREAK_CASH_REWARD")), apart2);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("HEIST_HUMANE_LABS_RAID_CASH_REWARD")), apart3);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("HEIST_SERIES_A_FUNDING_CASH_REWARD")), apart4);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("HEIST_PACIFIC_STANDARD_JOB_CASH_REWARD")), apart5);
 
         NotifierHelper.Show(NotifierType.Success, "写入 公寓抢劫 玩家分红数据 成功");
     }

@@ -63,15 +63,15 @@ public static class Online
     public static void AntiAFK(bool isEnable)
     {
         // STATS::PLAYSTATS_IDLE_KICK
-        Globals.Set_Global_Value(Base.Default + 84, isEnable ? 99999999 : 120000);        // 120000     joaat("IDLEKICK_WARNING1") 
-        Globals.Set_Global_Value(Base.Default + 85, isEnable ? 99999999 : 300000);        // 300000     joaat("IDLEKICK_WARNING2")
-        Globals.Set_Global_Value(Base.Default + 86, isEnable ? 99999999 : 600000);        // 600000     joaat("IDLEKICK_WARNING3")
-        Globals.Set_Global_Value(Base.Default + 87, isEnable ? 99999999 : 900000);        // 900000     joaat("IDLEKICK_KICK")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IDLEKICK_WARNING1")), isEnable ? 99999999 : 120000);        // 120000     joaat("IDLEKICK_WARNING1") 
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IDLEKICK_WARNING2")), isEnable ? 99999999 : 300000);        // 300000     joaat("IDLEKICK_WARNING2")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IDLEKICK_WARNING3")), isEnable ? 99999999 : 600000);        // 600000     joaat("IDLEKICK_WARNING3")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IDLEKICK_KICK")), isEnable ? 99999999 : 900000);        // 900000     joaat("IDLEKICK_KICK")
 
-        Globals.Set_Global_Value(Base.Default + 8413, isEnable ? 2000000000 : 30000);     // 30000      joaat("ConstrainedKick_Warning1")
-        Globals.Set_Global_Value(Base.Default + 8414, isEnable ? 2000000000 : 60000);     // 60000      joaat("ConstrainedKick_Warning2")
-        Globals.Set_Global_Value(Base.Default + 8415, isEnable ? 2000000000 : 90000);     // 90000      joaat("ConstrainedKick_Warning3")
-        Globals.Set_Global_Value(Base.Default + 8416, isEnable ? 2000000000 : 120000);    // 120000     joaat("ConstrainedKick_Kick")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("ConstrainedKick_Warning1")), isEnable ? 2000000000 : 30000);     // 30000      joaat("ConstrainedKick_Warning1")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("ConstrainedKick_Warning2")), isEnable ? 2000000000 : 60000);     // 60000      joaat("ConstrainedKick_Warning2")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("ConstrainedKick_Warning3")), isEnable ? 2000000000 : 90000);     // 90000      joaat("ConstrainedKick_Warning3")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("ConstrainedKick_Kick")), isEnable ? 2000000000 : 120000);    // 120000     joaat("ConstrainedKick_Kick")
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void FreeChangeAppearance(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 18918, isEnable ? 0 : 100000);         // joaat("CHARACTER_APPEARANCE_CHARGE")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("CHARACTER_APPEARANCE_CHARGE")), isEnable ? 0 : 100000);         // joaat("CHARACTER_APPEARANCE_CHARGE")
     }
 
     /// <summary>
@@ -89,7 +89,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void ChangeAppearanceCooldown(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 18919, isEnable ? 0 : 2880000);         // joaat("CHARACTER_APPEARANCE_COOLDOWN")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("CHARACTER_APPEARANCE_COOLDOWN")), isEnable ? 0 : 2880000);         // joaat("CHARACTER_APPEARANCE_COOLDOWN")
     }
 
     /// <summary>
@@ -133,8 +133,8 @@ public static class Online
         if (isEnable)
             Globals.Set_Global_Value(Base.oVMYCar + 6975, 0);      // joaat("XPCATEGORY_ACTION_KILLS")
 
-        Globals.Set_Global_Value(Base.Default + 27968, isEnable ? 1 : 300000);         // 247954694
-        Globals.Set_Global_Value(Base.Default + 27969, isEnable ? 1 : 60000);          // -1771488297
+        Globals.Set_Global_Value(Tunables.Index(247954694), isEnable ? 1 : 300000);         // 247954694
+        Globals.Set_Global_Value(Tunables.Index(-1771488297), isEnable ? 1 : 60000);          // -1771488297
     }
 
     /// <summary>
@@ -143,7 +143,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void OrbitalCooldown(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 22732, isEnable ? 0 : 2880000);         // -1707434973
+        Globals.Set_Global_Value(Tunables.Index(-1707434973), isEnable ? 0 : 2880000);         // -1707434973
     }
 
     /// <summary>
@@ -160,7 +160,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void SessionSnow(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 4413, isEnable ? 1 : 0);            // joaat("turn_snow_on_off")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("turn_snow_on_off")), isEnable ? 1 : 0);            // joaat("turn_snow_on_off")
     }
 
     /// <summary>
@@ -227,7 +227,7 @@ public static class Online
     /// <param name="multiplier"></param>
     public static void RPMultiplier(float multiplier)
     {
-        Globals.Set_Global_Value(Base.Default + 1, multiplier);           // joaat("XP_MULTIPLIER")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("XP_MULTIPLIER")), multiplier);           // joaat("XP_MULTIPLIER")
     }
 
     /// <summary>
@@ -236,7 +236,7 @@ public static class Online
     /// <param name="multiplier"></param>
     public static void APMultiplier(float multiplier)
     {
-        Globals.Set_Global_Value(Base.Default + 25490, multiplier);      // joaat("AP_MULTIPLIER")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("AP_MULTIPLIER")), multiplier);      // joaat("AP_MULTIPLIER")
     }
 
     /// <summary>
@@ -245,14 +245,14 @@ public static class Online
     /// <param name="multiplier"></param>
     public static void REPMultiplier(float multiplier)
     {
-        Globals.Set_Global_Value(Base.Default + 30980, multiplier);        // Street Race         街头比赛        -147149995  joaat("TUNER_STREET_RACE_PLACE_XP_MULTIPLIER")
-        Globals.Set_Global_Value(Base.Default + 30981, multiplier);        // Pursuit Race        追逐赛
-        Globals.Set_Global_Value(Base.Default + 30982, multiplier);        // Scramble            攀登
-        Globals.Set_Global_Value(Base.Default + 30983, multiplier);        // Head 2 Head         头对头          1434998920
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_STREET_RACE_PLACE_XP_MULTIPLIER")), multiplier);        // Street Race         街头比赛        -147149995  joaat("TUNER_STREET_RACE_PLACE_XP_MULTIPLIER")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_PURSUIT_RACE_PLACE_XP_MULTIPLIER")), multiplier);        // Pursuit Race        追逐赛
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_CHECKPOINT_RACE_PLACE_XP_MULTIPLIER")), multiplier);        // Scramble            攀登
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_HEADTOHEAD_RACE_PLACE_XP_MULTIPLIER")), multiplier);        // Head 2 Head         头对头          1434998920
 
-        Globals.Set_Global_Value(Base.Default + 30985, multiplier);        // LS Car Meet         汽车见面会       1819417801  joaat("TUNER_CARCLUB_TIME_XP_MULTIPLIER")
-        Globals.Set_Global_Value(Base.Default + 30986, multiplier);        // LS Car Meet Track
-        Globals.Set_Global_Value(Base.Default + 30987, multiplier);        // LS Car Meet Cloth Shop
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_CARCLUB_TIME_XP_MULTIPLIER")), multiplier);        // LS Car Meet         汽车见面会       1819417801  joaat("TUNER_CARCLUB_TIME_XP_MULTIPLIER")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_SANDBOX_TIME_XP_MULTIPLIER")), multiplier);        // LS Car Meet Track
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_MERCH_PURCHASE_XP_MULTIPLIER")), multiplier);        // LS Car Meet Cloth Shop
     }
 
     /// <summary>
@@ -313,7 +313,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void CEOBuyingCratesCooldown(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 15499, isEnable ? 0 : 300000);          // 153204142 joaat("EXEC_BUY_COOLDOWN")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("EXEC_BUY_COOLDOWN")), isEnable ? 0 : 300000);          // 153204142 joaat("EXEC_BUY_COOLDOWN")
     }
 
     /// <summary>
@@ -322,7 +322,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void CEOSellingCratesCooldown(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 15500, isEnable ? 0 : 1800000);         // 1291620941 joaat("EXEC_SELL_COOLDOWN")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("EXEC_SELL_COOLDOWN")), isEnable ? 0 : 1800000);         // 1291620941 joaat("EXEC_SELL_COOLDOWN")
     }
 
     /// <summary>
@@ -331,7 +331,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void BunkerSupplyDelay(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 21274, isEnable ? 0 : 600);            // -2094564985 joaat("GR_PURCHASE_SUPPLIES_DELAY")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("GR_PURCHASE_SUPPLIES_DELAY")), isEnable ? 0 : 600);            // -2094564985 joaat("GR_PURCHASE_SUPPLIES_DELAY")
     }
 
     /// <summary>
@@ -340,7 +340,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void UnlockBunkerResearch(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 21895, isEnable ? 1 : 0);                // 886070202
+        Globals.Set_Global_Value(Tunables.Index(886070202), isEnable ? 1 : 0);                // 886070202
     }
 
     /// <summary>
@@ -349,7 +349,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void MCSupplyDelay(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 18809, isEnable ? 0 : 600);          // 728170457  joaat("WEBSITE_PEGASSI_FAGGIO_SPORT")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("WEBSITE_PEGASSI_FAGGIO_SPORT")), isEnable ? 0 : 600);          // 728170457  joaat("WEBSITE_PEGASSI_FAGGIO_SPORT")
     }
 
     /// <summary>
@@ -367,10 +367,10 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void ExportVehicleDelay(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 19432, isEnable ? 0 : 1200000);        // 1001423248  tuneables_processing.c
-        Globals.Set_Global_Value(Base.Default + 19433, isEnable ? 0 : 1680000);        // 240134765
-        Globals.Set_Global_Value(Base.Default + 19434, isEnable ? 0 : 2340000);        // 1915379148
-        Globals.Set_Global_Value(Base.Default + 19435, isEnable ? 0 : 2880000);        // -824005590
+        Globals.Set_Global_Value(Tunables.Index(1001423248), isEnable ? 0 : 1200000);        // 1001423248  tuneables_processing.c
+        Globals.Set_Global_Value(Tunables.Index(240134765), isEnable ? 0 : 1680000);        // 240134765
+        Globals.Set_Global_Value(Tunables.Index(1915379148), isEnable ? 0 : 2340000);        // 1915379148
+        Globals.Set_Global_Value(Tunables.Index(-824005590), isEnable ? 0 : 2880000);        // -824005590
     }
 
     /// <summary>
@@ -401,10 +401,10 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void SmugglerRunInDelay(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 22433, isEnable ? 0 : 120000);         // 1278611667  tuneables_processing.c
-        Globals.Set_Global_Value(Base.Default + 22434, isEnable ? 0 : 180000);         // -1424847540
-        Globals.Set_Global_Value(Base.Default + 22435, isEnable ? 0 : 240000);         // -1817541754
-        Globals.Set_Global_Value(Base.Default + 22436, isEnable ? 0 : 60000);          // 1722502526
+        Globals.Set_Global_Value(Tunables.Index(1278611667), isEnable ? 0 : 120000);         // 1278611667  tuneables_processing.c
+        Globals.Set_Global_Value(Tunables.Index(-1424847540), isEnable ? 0 : 180000);         // -1424847540
+        Globals.Set_Global_Value(Tunables.Index(-1817541754), isEnable ? 0 : 240000);         // -1817541754
+        Globals.Set_Global_Value(Tunables.Index(1722502526), isEnable ? 0 : 60000);          // 1722502526
     }
 
     /// <summary>
@@ -413,7 +413,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void SmugglerRunOutDelay(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 22474, isEnable ? 0 : 180000);         // -1525481945  tuneables_processing.c
+        Globals.Set_Global_Value(Tunables.Index(-1525481945), isEnable ? 0 : 180000);         // -1525481945  tuneables_processing.c
     }
 
     /// <summary>
@@ -422,9 +422,9 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void NightclubOutDelay(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 24026, isEnable ? 0 : 300000);         // 1763921019  tuneables_processing.c
-        Globals.Set_Global_Value(Base.Default + 24067, isEnable ? 0 : 300000);         // -1004589438  Global_262145.f_24671 = 300000;
-        Globals.Set_Global_Value(Base.Default + 24068, isEnable ? 0 : 300000);         // 464940095
+        Globals.Set_Global_Value(Tunables.Index(1763921019), isEnable ? 0 : 300000);         // 1763921019  tuneables_processing.c
+        Globals.Set_Global_Value(Tunables.Index(-1004589438), isEnable ? 0 : 300000);         // -1004589438  Global_262145.f_24671 = 300000;
+        Globals.Set_Global_Value(Tunables.Index(464940095), isEnable ? 0 : 300000);         // 464940095
     }
 
     /// <summary>
@@ -434,9 +434,9 @@ public static class Online
     public static void CEOWorkCooldown(bool isEnable)
     {
         // CEO工作
-        Globals.Set_Global_Value(Base.Default + 13059, isEnable ? 0 : 300000);       // -1404265088 joaat("GB_COOLDOWN_UNTIL_NEXT_BOSS_WORK")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("GB_COOLDOWN_UNTIL_NEXT_BOSS_WORK")), isEnable ? 0 : 300000);       // -1404265088 joaat("GB_COOLDOWN_UNTIL_NEXT_BOSS_WORK")
         // 观光客
-        Globals.Set_Global_Value(Base.Default + 12956, isEnable ? 0 : 600000);       // -1911318106 joaat("GB_SIGHTSEER_COOLDOWN")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("GB_SIGHTSEER_COOLDOWN")), isEnable ? 0 : 600000);       // -1911318106 joaat("GB_SIGHTSEER_COOLDOWN")
     }
 
     /// <summary>
@@ -445,11 +445,11 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void ClientJobCooldown(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 24208 + 0, isEnable ? 0 : 300000);       // Between Jobs           -926426916
-        Globals.Set_Global_Value(Base.Default + 24208 + 1, isEnable ? 0 : 1800000);      // Robbery in Progress    1733390598
-        Globals.Set_Global_Value(Base.Default + 24208 + 2, isEnable ? 0 : 1800000);      // Data Sweep             724724668
-        Globals.Set_Global_Value(Base.Default + 24208 + 3, isEnable ? 0 : 1800000);      // Targeted Data          846317886
-        Globals.Set_Global_Value(Base.Default + 24208 + 4, isEnable ? 0 : 1800000);      // Diamond Shopping       443623246
+        Globals.Set_Global_Value(Tunables.Index(-926426916), isEnable ? 0 : 300000);       // Between Jobs           -926426916
+        Globals.Set_Global_Value(Tunables.Index(1733390598), isEnable ? 0 : 1800000);      // Robbery in Progress    1733390598
+        Globals.Set_Global_Value(Tunables.Index(724724668), isEnable ? 0 : 1800000);      // Data Sweep             724724668
+        Globals.Set_Global_Value(Tunables.Index(846317886), isEnable ? 0 : 1800000);      // Targeted Data          846317886
+        Globals.Set_Global_Value(Tunables.Index(443623246), isEnable ? 0 : 1800000);      // Diamond Shopping       443623246
     }
 
     /// <summary>
@@ -458,7 +458,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void SecurityHitCooldown(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 31038, isEnable ? 0 : 300000);           // -1462622971 joaat("FIXER_SECURITY_CONTRACT_COOLDOWN_TIME")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("FIXER_SECURITY_CONTRACT_COOLDOWN_TIME")), isEnable ? 0 : 300000);           // -1462622971 joaat("FIXER_SECURITY_CONTRACT_COOLDOWN_TIME")
     }
 
     /// <summary>
@@ -467,7 +467,7 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void PayphoneHitCooldown(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 31118, isEnable ? 0 : 1200000);          // 1872071131
+        Globals.Set_Global_Value(Tunables.Index(1872071131), isEnable ? 0 : 1200000);          // 1872071131
     }
 
     /// <summary>
@@ -505,6 +505,6 @@ public static class Online
     /// <param name="isEnable"></param>
     public static void KosatkaMissleCooldown(bool isEnable)
     {
-        Globals.Set_Global_Value(Base.Default + 29635, isEnable ? 0 : 60000);           // joaat("IH_SUBMARINE_MISSILES_COOLDOWN")
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_SUBMARINE_MISSILES_COOLDOWN")), isEnable ? 0 : 60000);           // joaat("IH_SUBMARINE_MISSILES_COOLDOWN")
     }
 }

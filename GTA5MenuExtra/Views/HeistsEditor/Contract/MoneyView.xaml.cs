@@ -1,5 +1,6 @@
 ﻿using GTA5Core.Features;
 using GTA5Shared.Helper;
+using NStandard;
 
 namespace GTA5MenuExtra.Views.HeistsEditor.Contract;
 
@@ -8,8 +9,8 @@ namespace GTA5MenuExtra.Views.HeistsEditor.Contract;
 /// </summary>
 public partial class MoneyView : UserControl
 {
-    private const int fixer_ratio = 262145 + 31084;     // -2108119120  joaat("FIXER_FINALE_LEADER_CASH_REWARD")     Global_262145.f_31955
-    private const int tuner_ratio = 262145 + 30338;     // -920277662   joaat("TUNER_ROBBERY_LEADER_CASH_REWARD0")   Global_262145.f_31249[0]
+    /*private const int fixer_ratio = 262145 + 31084;     // -2108119120  joaat("FIXER_FINALE_LEADER_CASH_REWARD")     Global_262145.f_31955
+    private const int tuner_ratio = 262145 + 30338;     // -920277662   joaat("TUNER_ROBBERY_LEADER_CASH_REWARD0")   Global_262145.f_31249[0]*/
 
     public MoneyView()
     {
@@ -20,16 +21,16 @@ public partial class MoneyView : UserControl
     {
         AudioHelper.PlayClickSound();
 
-        TextBox_FIXER_Value.Text = Globals.Get_Global_Value<int>(fixer_ratio).ToString();
+        TextBox_FIXER_Value.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("FIXER_FINALE_LEADER_CASH_REWARD"))).ToString();
 
-        TextBox_TUNER_Value1.Text = Globals.Get_Global_Value<int>(tuner_ratio + 1).ToString();
-        TextBox_TUNER_Value2.Text = Globals.Get_Global_Value<int>(tuner_ratio + 2).ToString();
-        TextBox_TUNER_Value3.Text = Globals.Get_Global_Value<int>(tuner_ratio + 3).ToString();
-        TextBox_TUNER_Value4.Text = Globals.Get_Global_Value<int>(tuner_ratio + 4).ToString();
-        TextBox_TUNER_Value5.Text = Globals.Get_Global_Value<int>(tuner_ratio + 5).ToString();
-        TextBox_TUNER_Value6.Text = Globals.Get_Global_Value<int>(tuner_ratio + 6).ToString();
-        TextBox_TUNER_Value7.Text = Globals.Get_Global_Value<int>(tuner_ratio + 7).ToString();
-        TextBox_TUNER_Value8.Text = Globals.Get_Global_Value<int>(tuner_ratio + 8).ToString();
+        TextBox_TUNER_Value1.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD0"))).ToString();
+        TextBox_TUNER_Value2.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD1"))).ToString();
+        TextBox_TUNER_Value3.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD2"))).ToString();
+        TextBox_TUNER_Value4.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD3"))).ToString();
+        TextBox_TUNER_Value5.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD4"))).ToString();
+        TextBox_TUNER_Value6.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD5"))).ToString();
+        TextBox_TUNER_Value7.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD6"))).ToString();
+        TextBox_TUNER_Value8.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD7"))).ToString();
 
         NotifierHelper.Show(NotifierType.Success, "读取 事所合约 玩家分红数据 成功");
     }
@@ -53,16 +54,16 @@ public partial class MoneyView : UserControl
             return;
         }
 
-        Globals.Set_Global_Value(fixer_ratio, fixer);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("FIXER_FINALE_LEADER_CASH_REWARD")), fixer);
 
-        Globals.Set_Global_Value(tuner_ratio + 1, tuner1);
-        Globals.Set_Global_Value(tuner_ratio + 2, tuner2);
-        Globals.Set_Global_Value(tuner_ratio + 3, tuner3);
-        Globals.Set_Global_Value(tuner_ratio + 4, tuner4);
-        Globals.Set_Global_Value(tuner_ratio + 5, tuner5);
-        Globals.Set_Global_Value(tuner_ratio + 6, tuner6);
-        Globals.Set_Global_Value(tuner_ratio + 7, tuner7);
-        Globals.Set_Global_Value(tuner_ratio + 8, tuner8);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD0")), tuner1);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD1")), tuner2);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD2")), tuner3);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD3")), tuner4);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD4")), tuner5);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD5")), tuner6);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD6")), tuner7);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("TUNER_ROBBERY_LEADER_CASH_REWARD7")), tuner8);
 
         NotifierHelper.Show(NotifierType.Success, "写入 事所合约 玩家分红数据 成功");
     }

@@ -15,11 +15,11 @@ public partial class MoneyView : UserControl
     /// <summary>
     /// 主要目标价值
     /// </summary>
-    private const int target_money = 262145 + 29458;    // 132820683    joaat("IH_PRIMARY_TARGET_VALUE_TEQUILA")     Global_262145.f_30259
+    /*private const int target_money = 262145 + 29458;    // 132820683    joaat("IH_PRIMARY_TARGET_VALUE_TEQUILA")     Global_262145.f_30259*/
     /// <summary>
     /// 背包容量
     /// </summary>
-    private const int bag_size = 262145 + 29211;        // 1859395035   Global_262145.f_30009
+    /*private const int bag_size = 262145 + 29211;        // 1859395035   Global_262145.f_30009*/
 
     public MoneyView()
     {
@@ -35,17 +35,17 @@ public partial class MoneyView : UserControl
         TextBox_Cayo_Player3.Text = Globals.Get_Global_Value<int>(player_ratio + 3).ToString();
         TextBox_Cayo_Player4.Text = Globals.Get_Global_Value<int>(player_ratio + 4).ToString();
 
-        TextBox_Cayo_Tequila.Text = Globals.Get_Global_Value<int>(target_money + 0).ToString();
-        TextBox_Cayo_RubyNecklace.Text = Globals.Get_Global_Value<int>(target_money + 1).ToString();
-        TextBox_Cayo_BearerBonds.Text = Globals.Get_Global_Value<int>(target_money + 2).ToString();
-        TextBox_Cayo_PinkDiamond.Text = Globals.Get_Global_Value<int>(target_money + 3).ToString();
-        TextBox_Cayo_MadrazoFiles.Text = Globals.Get_Global_Value<int>(target_money + 4).ToString();
-        TextBox_Cayo_BlackPanther.Text = Globals.Get_Global_Value<int>(target_money + 5).ToString();
+        TextBox_Cayo_Tequila.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_TEQUILA"))).ToString();
+        TextBox_Cayo_RubyNecklace.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_PEARL_NECKLACE"))).ToString();
+        TextBox_Cayo_BearerBonds.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_BEARER_BONDS"))).ToString();
+        TextBox_Cayo_PinkDiamond.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_PINK_DIAMOND"))).ToString();
+        TextBox_Cayo_MadrazoFiles.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_MADRAZO_FILES"))).ToString();
+        TextBox_Cayo_BlackPanther.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_SAPPHIRE_PANTHER_STATUE"))).ToString();
 
-        TextBox_Cayo_LocalBagSize.Text = Globals.Get_Global_Value<int>(bag_size).ToString();
+        TextBox_Cayo_LocalBagSize.Text = Globals.Get_Global_Value<int>(Tunables.Index(1859395035)).ToString();
 
-        TextBox_Cayo_FencingFee.Text = Globals.Get_Global_Value<float>(target_money + 9).ToString();
-        TextBox_Cayo_PavelCut.Text = Globals.Get_Global_Value<float>(target_money + 10).ToString();
+        TextBox_Cayo_FencingFee.Text = Globals.Get_Global_Value<float>(Tunables.Index(RAGE.JOAAT("IH_DEDUCTION_FENCING_FEE"))).ToString();
+        TextBox_Cayo_PavelCut.Text = Globals.Get_Global_Value<float>(Tunables.Index(RAGE.JOAAT("IH_DEDUCTION_PAVEL_CUT"))).ToString();
 
         NotifierHelper.Show(NotifierType.Success, "读取 佩里克岛 玩家分红数据 成功");
     }
@@ -80,17 +80,17 @@ public partial class MoneyView : UserControl
         Globals.Set_Global_Value(player_ratio + 3, player3);
         Globals.Set_Global_Value(player_ratio + 4, player4);
 
-        Globals.Set_Global_Value(target_money + 0, cayo1);
-        Globals.Set_Global_Value(target_money + 1, cayo2);
-        Globals.Set_Global_Value(target_money + 2, cayo3);
-        Globals.Set_Global_Value(target_money + 3, cayo4);
-        Globals.Set_Global_Value(target_money + 4, cayo5);
-        Globals.Set_Global_Value(target_money + 5, cayo6);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_TEQUILA")), cayo1);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_PEARL_NECKLACE")), cayo2);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_BEARER_BONDS")), cayo3);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_PINK_DIAMOND")), cayo4);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_MADRAZO_FILES")), cayo5);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_PRIMARY_TARGET_VALUE_SAPPHIRE_PANTHER_STATUE")), cayo6);
 
-        Globals.Set_Global_Value(bag_size, bagsize);
+        Globals.Set_Global_Value(Tunables.Index(1859395035), bagsize);
 
-        Globals.Set_Global_Value(target_money + 9, fencingfee);
-        Globals.Set_Global_Value(target_money + 10, pavecut);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_DEDUCTION_FENCING_FEE")), fencingfee);
+        Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("IH_DEDUCTION_PAVEL_CUT")), pavecut);
 
         NotifierHelper.Show(NotifierType.Success, "写入 佩里克岛 玩家分红数据 成功");
     }

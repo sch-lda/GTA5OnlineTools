@@ -127,6 +127,11 @@ public static class Teleport
                 Globals.Set_Global_Value(2672855 + 63 + 22, 0);
                 Globals.Set_Global_Value(4521801 + 945, 20);
 
+                //int m_index = Tunables.Index(-1146554960); // int
+                //int m_index = Tunables.Index(3148412336); // uint32_t
+                //int m_index = Tunables.Index(RAGE.JOAAT("TURN_SNOW_ON_OFF")); // rage::joaat
+                //Globals.Set_Global_Value(m_index, 1);
+
                 while (Globals.Get_Global_Value<int>(4521801 + 945) == 20)
                 {
                 }
