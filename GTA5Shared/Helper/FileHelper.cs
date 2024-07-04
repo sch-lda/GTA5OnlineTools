@@ -19,8 +19,6 @@ public static class FileHelper
     public const string Res_Cache_LSCHax = $"{ResFiles}.Cache.LSCHax.exe";
     public const string Res_Cache_Stat = $"{ResFiles}.Cache.stat.txt";
     public const string Res_Cache_Notepad2 = $"{ResFiles}.Cache.Notepad2.exe";
-    public const string Res_Cache_Xenos64Profile = $"{ResFiles}.Cache.XenosCurrentProfile.xpr";
-    public const string Res_Cache_Xenos64 = $"{ResFiles}.Cache.Xenos64.exe";
 
     public const string Res_YimMenu_YimMenu = $"{ResFiles}.YimMenu.YimMenu.dll";
     public const string Res_YimMenu_IndexCN = $"{ResFiles}.YimMenu.index_cn.json";
@@ -32,6 +30,7 @@ public static class FileHelper
 
     //////////////////////////////////////////////////////////////////
 
+    public static string Dir_CommonAppData { get; private set; }
     public static string Dir_MyDocuments { get; private set; }
 
     public static string Dir_Base { get; private set; }
@@ -89,10 +88,11 @@ public static class FileHelper
 
     static FileHelper()
     {
+        Dir_CommonAppData = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
         Dir_MyDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         Dir_AppData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        Initialization(Dir_MyDocuments);
+        Initialization(Dir_CommonAppData);
     }
 
     /// <summary>

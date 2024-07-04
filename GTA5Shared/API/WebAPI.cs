@@ -12,7 +12,7 @@ public static class WebAPI
     {
         var options = new RestClientOptions()
         {
-            MaxTimeout = 5000
+            Timeout = TimeSpan.FromSeconds(10)
         };
         client = new RestClient(options);
     }

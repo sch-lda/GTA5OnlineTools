@@ -87,7 +87,7 @@
         <!--  面板2  -->
         <DockPanel Grid.Column="1">
             <StackPanel Margin="5,0,5,0" DockPanel.Dock="Top">
-                <TextBlock Style="{StaticResource TextBlockStyle_Title}" Text="老虎机" />
+                <TextBlock Style="{StaticResource TextBlockStyle_Title}" Text="老虎机（风险）" />
                 <Button
                     x:Name="Button_SlotMachineSlot"
                     Click="Button_SlotMachineSlot_Click"
@@ -117,7 +117,7 @@
         <!--  面板3  -->
         <DockPanel Grid.Column="2">
             <StackPanel Margin="5,0,5,0" DockPanel.Dock="Top">
-                <TextBlock Style="{StaticResource TextBlockStyle_Title}" Text="轮盘赌" />
+                <TextBlock Style="{StaticResource TextBlockStyle_Title}" Text="轮盘赌（风险）" />
                 <Button
                     x:Name="Button_RouletteSlot"
                     Click="Button_RouletteSlot_Click"
@@ -201,11 +201,11 @@
             Grid.Column="0"
             Grid.ColumnSpan="4"
             Margin="5">
-            <TextBlock Style="{StaticResource TextBlockStyle_Hint}">
-                提示：进入赌场后在使用此功能，在操作对应目标前先设置奖品。如果要恢复赌场默认设置，请退出赌场黑客并切换战局
+            <TextBlock Foreground="Red" Style="{StaticResource TextBlockStyle_Hint}">
+                警告：平时用来抽个展台车就可以了，不要把它当作刷钱工具，频繁使用和绕过CD限制有封号风险（高风险）
             </TextBlock>
             <TextBlock Style="{StaticResource TextBlockStyle_Hint}">
-                建议：平时用来抽个展台车就可以了，不要把它当作刷钱工具，频繁使用和绕过CD限制有封号风险
+                提示：进入赌场后在使用此功能，在操作对应目标前先设置奖品。如果要恢复赌场默认设置，请退出赌场黑客并切换战局
             </TextBlock>
         </StackPanel>
     </Grid>
