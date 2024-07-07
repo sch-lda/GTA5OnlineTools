@@ -79,7 +79,7 @@ public static class Teleport
     /// <summary>
     /// 传送到导航点（Native）
     /// </summary>
-    public static void TowaypointForceGroundZ(Vector3 blipV3)
+    public static async void TowaypointForceGroundZ(Vector3 blipV3)
     {
         Vector3 vec3;
         vec3.X = blipV3.X;
@@ -120,7 +120,7 @@ public static class Teleport
                 {
                     vec3.Z = (i * 100f) + 20f;
                     SetTeleportCoords(vec3);
-                    Task.Delay(100);
+                    await Task.Delay(100);
                     vec3.Z = -255f;
                     SetTeleportCoords(vec3);
                 }
