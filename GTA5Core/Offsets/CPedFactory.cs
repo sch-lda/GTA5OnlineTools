@@ -91,7 +91,7 @@ public struct CPlayerInfo                               // 0x10A8
     public const int CrossHairY = 0x354;
     public const int CrossHairZ = 0x358;
     public const int WantedCanChange = 0x78C;           // float
-    public const int NPCIgnore = 0x8C0;                 // int32
+    public const int NPCIgnore = 0x8D0;                 // int32
     public const int WantedLevel = 0x8E8;               // int32
     public const int WantedLevelDisplay = 0x8DC;        // int32
     public const int RunSpeed = 0xD50;                  // float
