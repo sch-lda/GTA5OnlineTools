@@ -38,6 +38,7 @@ public static class WeaponHash
         new WeaponInfo(){ Name="战斧", Value="weapon_battleaxe" },
         new WeaponInfo(){ Name="台球杆", Value="weapon_poolcue" },
         new WeaponInfo(){ Name="石斧", Value="weapon_stone_hatchet" },
+        new WeaponInfo(){ Name="电击棒", Value="weapon_stunrod" },
     };
 
     /// <summary>
