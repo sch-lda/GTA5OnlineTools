@@ -335,12 +335,12 @@ public static class Online
     }
 
     /// <summary>
-    /// 解锁地堡所有研究 (临时) //TODO: find a new way or remove it
+    /// 解锁地堡所有研究 (临时)
     /// </summary>
     /// <param name="isEnable"></param>
     public static void UnlockBunkerResearch(bool isEnable)
     {
-        Globals.Set_Global_Value(Tunables.Index(886070202), isEnable ? 1 : 0);                // 886070202
+        //TODO: 原方法早在1.61或更早版本就已经失效
     }
 
     /// <summary>

@@ -166,12 +166,6 @@ public partial class JobHelperView : UserControl
         Online.BunkerSupplyDelay(_options.BunkerSupplyDelay);
     }
 
-    private void CheckBox_UnlockBunkerResearch_Click(object sender, RoutedEventArgs e)
-    {
-        _options.UnlockBunkerResearch = CheckBox_UnlockBunkerResearch.IsChecked == true;
-        Online.UnlockBunkerResearch(_options.UnlockBunkerResearch);
-    }
-
     private void CheckBox_MCSupplyDelay_Click(object sender, RoutedEventArgs e)
     {
         _options.MCSupplyDelay = CheckBox_MCSupplyDelay.IsChecked == true;
