@@ -115,7 +115,7 @@ public static class Vehicle
         {
             if (Game.GetCVehicle(out long pCVehicle))
             {
-                Globals.Set_Global_Value(Base.oVMYCar + 899, 1);       // if (!NETWORK::NETWORK_IS_SCRIPT_ACTIVE("AM_BRU_BOX", PLAYER::PLAYER_ID(), true, 0))
+                Globals.Set_Global_Value(Base.oVMYCar + 914, 1);       // if (!NETWORK::NETWORK_IS_SCRIPT_ACTIVE("AM_BRU_BOX", PLAYER::PLAYER_ID(), true, 0))
 
                 await Task.Delay(1000);
 
@@ -161,8 +161,8 @@ public static class Vehicle
 
                 await Task.Delay(1000);
 
-                if (Globals.Get_Global_Value<int>(Base.oNETTimeHelp + 3690) != 0)
-                    Globals.Set_Global_Value(Base.oNETTimeHelp + 3690, -1);
+                if (Globals.Get_Global_Value<int>(Base.oNETTimeHelp + 3729) != 0)
+                    Globals.Set_Global_Value(Base.oNETTimeHelp + 3729, -1);
             }
         });
     }

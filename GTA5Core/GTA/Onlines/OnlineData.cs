@@ -46,6 +46,8 @@ public static class OnlineData
         new OnlineInfo(){ Name="藏匿屋", Value=845 },
         new OnlineInfo(){ Name="怪胎店", Value=847 },
         new OnlineInfo(){ Name="好麦坞车友俱乐部", Value=857 },
+        new OnlineInfo(){ Name="回收站", Value=867 },
+        new OnlineInfo(){ Name="保金办公室", Value=893 },
     };
 
     public static readonly List<OnlineInfo> Sessions = new()

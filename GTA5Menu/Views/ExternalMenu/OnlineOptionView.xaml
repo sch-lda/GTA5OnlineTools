@@ -129,6 +129,8 @@
                 <Button Click="Button_Blips_Click" Content="事务所" />
                 <Button Click="Button_Blips_Click" Content="竞技场工作室" />
                 <Button Click="Button_Blips_Click" Content="怪胎店" />
+                <Button Click="Button_Blips_Click" Content="回收站" />
+                <Button Click="Button_Blips_Click" Content="保金办公室" />
             </WrapPanel>
             <Separator Margin="8,5,8,5" />
             <WrapPanel Margin="5,0,5,0">
