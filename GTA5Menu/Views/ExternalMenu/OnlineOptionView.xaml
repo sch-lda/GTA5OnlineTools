@@ -128,7 +128,10 @@
                 <Button Click="Button_Blips_Click" Content="改装铺" />
                 <Button Click="Button_Blips_Click" Content="事务所" />
                 <Button Click="Button_Blips_Click" Content="竞技场工作室" />
-                <Button Click="Button_Blips_Click" Content="怪胎店" />
+                <Button
+                    x:Name="Button_Teleport_Freak_Shop"
+                    Click="Button_Teleport_Freak_Shop_Click"
+                    Content="怪胎店" />
                 <Button Click="Button_Blips_Click" Content="回收站" />
                 <Button Click="Button_Blips_Click" Content="保金办公室" />
             </WrapPanel>
@@ -140,7 +143,10 @@
                 <Button Click="Button_Blips_Click" Content="顶级豪华车业" />
                 <Button Click="Button_Blips_Click" Content="好麦坞车友俱乐部" />
                 <Button Click="Button_Blips_Click" Content="录音A工作室" />
-                <Button Click="Button_Blips_Click" Content="枪支厢型车" />
+                <Button
+                    x:Name="Button_Teleport_Gun_Van"
+                    Click="Button_Teleport_Gun_Van_Click"
+                    Content="枪支厢型车" />
                 <Button Click="Button_Blips_Click" Content="街头毒贩" />
             </WrapPanel>
             <Separator Margin="8,5,8,5" />
