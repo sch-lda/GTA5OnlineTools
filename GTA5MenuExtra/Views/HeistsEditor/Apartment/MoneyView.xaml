@@ -35,22 +35,14 @@
             <StackPanel Margin="5">
                 <TextBlock Style="{StaticResource TextBlockStyle_Title}" Text="分红比例" />
                 <UniformGrid Columns="2">
-                    <TextBlock Text="（房主）玩家1" />
+                    <TextBlock Text="本地分红" />
                     <TextBox x:Name="TextBox_Apart_Player1" />
-                    <TextBlock Text="玩家2" />
-                    <TextBox x:Name="TextBox_Apart_Player2" />
-                    <TextBlock Text="玩家3" />
-                    <TextBox x:Name="TextBox_Apart_Player3" />
-                    <TextBlock Text="玩家4" />
-                    <TextBox x:Name="TextBox_Apart_Player4" />
                 </UniformGrid>
 
                 <TextBlock Style="{StaticResource TextBlockStyle_Hint}">
                     类型：整数型INT，范围大于等于0
                 </TextBlock>
-                <TextBlock Style="{StaticResource TextBlockStyle_Hint}">
-                    提示：需要是房主修改才有效
-                </TextBlock>
+                <TextBlock Style="{StaticResource TextBlockStyle_Hint}"><Run Text="提示："/><Run Text="公寓抢劫只能修改自己的本地分红，请在完全进入任务地图后至任务完成动画出现前的任意时间修改。本地分红不会体现在计划面板上。"/></TextBlock>
             </StackPanel>
 
             <StackPanel Margin="5">

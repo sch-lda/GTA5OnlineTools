@@ -122,16 +122,16 @@ public partial class GTA5MenuWindow
     {
         var isUseDelKey = IniHelper.ReadValue("GTA5Menu", "IsUseDelKeyShowMenu").Equals("True", StringComparison.OrdinalIgnoreCase);
         var isTopMost = IniHelper.ReadValue("GTA5Menu", "IsTopMostMenu").Equals("True", StringComparison.OrdinalIgnoreCase);
-        var isShowInTaskbar = IniHelper.ReadValue("GTA5Menu", "IsShowInTaskbarMenu").Equals("True", StringComparison.OrdinalIgnoreCase);
+        var isHideInTaskbar = IniHelper.ReadValue("GTA5Menu", "IsHideInTaskbarMenu").Equals("True", StringComparison.OrdinalIgnoreCase);
 
         RadioButton_ShowMenuKey_Oem3.IsChecked = !isUseDelKey;
         RadioButton_ShowMenuKey_Del.IsChecked = isUseDelKey;
 
         CheckBox_IsTopMost.IsChecked = isTopMost;
-        CheckBox_IsShowInTaskbar.IsChecked = isShowInTaskbar;
+        CheckBox_IsHideInTaskbar.IsChecked = isHideInTaskbar;
 
         this.Topmost = isTopMost;
-        this.ShowInTaskbar = isShowInTaskbar;
+        this.ShowInTaskbar = !isHideInTaskbar;
 
         this.IsUseDelKeyShowMenu = RadioButton_ShowMenuKey_Del.IsChecked == true;
     }
@@ -144,7 +144,7 @@ public partial class GTA5MenuWindow
         IniHelper.WriteValue("GTA5Menu", "IsUseDelKeyShowMenu", $"{RadioButton_ShowMenuKey_Del.IsChecked == true}");
 
         IniHelper.WriteValue("GTA5Menu", "IsTopMostMenu", $"{CheckBox_IsTopMost.IsChecked == true}");
-        IniHelper.WriteValue("GTA5Menu", "IsShowInTaskbarMenu", $"{CheckBox_IsShowInTaskbar.IsChecked == true}");
+        IniHelper.WriteValue("GTA5Menu", "IsHideInTaskbarMenu", $"{CheckBox_IsHideInTaskbar.IsChecked == true}");
     }
 
     /// <summary>
@@ -201,9 +201,9 @@ public partial class GTA5MenuWindow
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void CheckBox_IsShowInTaskbar_Click(object sender, RoutedEventArgs e)
+    private void CheckBox_IsHideInTaskbar_Click(object sender, RoutedEventArgs e)
     {
-        if (CheckBox_IsShowInTaskbar.IsChecked == true)
+        if (CheckBox_IsHideInTaskbar.IsChecked == true)
             this.ShowInTaskbar = false;
         else
             this.ShowInTaskbar = true;

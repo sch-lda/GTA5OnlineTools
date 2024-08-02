@@ -181,6 +181,24 @@ public partial class OnlineOptionView : UserControl
         }
     }
 
+    private void Button_Teleport_Freak_Shop_Click (object sender, RoutedEventArgs e)
+    {
+        AudioHelper.PlayClickSound();
+
+        Teleport.SetTeleportPosition(new Vector3(605.638f, -409.474f, 24.748f));
+    }
+
+    private async void Button_Teleport_Gun_Van_Click(object sender, RoutedEventArgs e)
+    {
+        AudioHelper.PlayClickSound();
+
+        Globals.Set_Global_Value<float>(1949748, -1005.75f); // freemode.ysc return -29.532f, 6435.136f, 31.162f;
+        Globals.Set_Global_Value<float>(1949748 + 1, 25.2f);
+        Globals.Set_Global_Value<float>(1949748 + 2, 49.25f);
+        await Task.Delay(2000);
+        Teleport.SetTeleportPosition(new Vector3(-1001.53f, 25.01f, 52.01f));
+    }
+
     private void Button_MerryweatherServices_Click(object sender, RoutedEventArgs e)
     {
         AudioHelper.PlayClickSound();

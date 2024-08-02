@@ -8,7 +8,7 @@ namespace GTA5MenuExtra.Views.HeistsEditor.Apartment;
 /// </summary>
 public partial class MoneyView : UserControl
 {
-    private const int apart_ratio = 1930926 + 3008;     // +1 +2 +3 +4
+    private const int apart_ratio = 2685444 + 6403;     // +1 +2 +3 +4
    /* private const int apart_money = 262145 + 9171; //HEIST_FLEECA_JOB_CASH_REWARD*/
 
     public MoneyView()
@@ -20,10 +20,7 @@ public partial class MoneyView : UserControl
     {
         AudioHelper.PlayClickSound();
 
-        TextBox_Apart_Player1.Text = Globals.Get_Global_Value<int>(apart_ratio + 1).ToString();
-        TextBox_Apart_Player2.Text = Globals.Get_Global_Value<int>(apart_ratio + 2).ToString();
-        TextBox_Apart_Player3.Text = Globals.Get_Global_Value<int>(apart_ratio + 3).ToString();
-        TextBox_Apart_Player4.Text = Globals.Get_Global_Value<int>(apart_ratio + 4).ToString();
+        TextBox_Apart_Player1.Text = Globals.Get_Global_Value<int>(apart_ratio).ToString();
 
         TextBox_Apart_Fleeca.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_FLEECA_JOB_CASH_REWARD"))).ToString();
         TextBox_Apart_PrisonBreak.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_PRISON_BREAK_CASH_REWARD"))).ToString();
@@ -39,9 +36,6 @@ public partial class MoneyView : UserControl
         AudioHelper.PlayClickSound();
 
         if (!int.TryParse(TextBox_Apart_Player1.Text, out int player1) ||
-            !int.TryParse(TextBox_Apart_Player2.Text, out int player2) ||
-            !int.TryParse(TextBox_Apart_Player3.Text, out int player3) ||
-            !int.TryParse(TextBox_Apart_Player4.Text, out int player4) ||
 
             !int.TryParse(TextBox_Apart_Fleeca.Text, out int apart1) ||
             !int.TryParse(TextBox_Apart_PrisonBreak.Text, out int apart2) ||
@@ -53,10 +47,7 @@ public partial class MoneyView : UserControl
             return;
         }
 
-        Globals.Set_Global_Value(apart_ratio + 1, player1);
-        Globals.Set_Global_Value(apart_ratio + 2, player2);
-        Globals.Set_Global_Value(apart_ratio + 3, player3);
-        Globals.Set_Global_Value(apart_ratio + 4, player4);
+        Globals.Set_Global_Value(apart_ratio, player1);
 
         Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("HEIST_FLEECA_JOB_CASH_REWARD")), apart1);
         Globals.Set_Global_Value(Tunables.Index(RAGE.JOAAT("HEIST_PRISON_BREAK_CASH_REWARD")), apart2);

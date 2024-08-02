@@ -74,8 +74,8 @@
                     Content="窗口置顶"
                     WindowChrome.IsHitTestVisibleInChrome="True" />
                 <CheckBox
-                    x:Name="CheckBox_IsShowInTaskbar"
-                    Click="CheckBox_IsShowInTaskbar_Click"
+                    x:Name="CheckBox_IsHideInTaskbar"
+                    Click="CheckBox_IsHideInTaskbar_Click"
                     Content="隐藏任务栏图标"
                     WindowChrome.IsHitTestVisibleInChrome="True" />
             </StackPanel>
