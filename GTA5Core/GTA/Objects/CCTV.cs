@@ -63,5 +63,7 @@ public static class CCTV
 
         3061645218,     // ch_prop_ch_cctv_cam_02a
         1306601124,     // ch_prop_ch_cctv_cam_01a
+
+        4047557484,     // xm_prop_x17_server_farm_cctv_01
     };
 }
