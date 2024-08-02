@@ -60,5 +60,8 @@ public static class CCTV
         
         2452560208,     // hei_prop_bank_cctv_02
         289451089,      // p_cctv_s
+
+        3061645218,     // ch_prop_ch_cctv_cam_02a
+        1306601124,     // ch_prop_ch_cctv_cam_01a
     };
 }
