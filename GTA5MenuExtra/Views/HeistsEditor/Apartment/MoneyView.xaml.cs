@@ -20,7 +20,7 @@ public partial class MoneyView : UserControl
     {
         AudioHelper.PlayClickSound();
 
-        TextBox_Apart_Player1.Text = Globals.Get_Global_Value<int>(apart_ratio + 1).ToString();
+        TextBox_Apart_Player1.Text = Globals.Get_Global_Value<int>(apart_ratio).ToString();
 
         TextBox_Apart_Fleeca.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_FLEECA_JOB_CASH_REWARD"))).ToString();
         TextBox_Apart_PrisonBreak.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("HEIST_PRISON_BREAK_CASH_REWARD"))).ToString();
