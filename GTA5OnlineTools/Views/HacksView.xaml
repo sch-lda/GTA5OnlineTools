@@ -18,7 +18,7 @@
             Title="Kiddion 外置辅助菜单"
             Description="一款国外UnKnoWnCheaTs论坛Kiddion大佬制作的免费GTA5外置菜单，功能十分实用"
             Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/Kiddion.png"
-            IsOutdated="True">
+            IsOutdated="False">
             <ui:GroupBoxHack.TitleContent>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="5,0,5,0" VerticalAlignment="Center">
