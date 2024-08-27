@@ -28,6 +28,12 @@
         <ProjectReference Include="..\MetroSkin\MetroSkin.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="GTA5OnlineTools-native_invoker">
+        <HintPath>..\lib.dll\GTA5OnlineTools-native_invoker.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 	<ItemGroup>
 		<Resource Include="Assets\Blips\blip_1.png" />
 		<Resource Include="Assets\Blips\blip_100.png" />
