@@ -113,41 +113,11 @@ public static class STATS
     {
         var hash = GET_STAT_HASH(statName);
 
-        //var oldGetIntHash = Memory.Read<uint>(StatGetIntHash());
-        //var oldGetIntValue = Globals.Get_Global_Value<int>(stat_get_int_outvalue);
+        native_invoker invoke = new();
+        __STATS stats = new();
 
-        //var oldSetIntHash = Globals.Get_Global_Value<uint>(stat_set_int_hash);
-        //var oldSetIntValue = Globals.Get_Global_Value<int>(stat_set_int_value);
-
-        //Memory.Write(StatGetIntHash(), hash);
-
-        //Globals.Set_Global_Value(stat_set_int_hash, hash);
-        //Globals.Set_Global_Value(stat_set_int_value, value);
-
-        //Globals.Set_Global_Value(stat_get_int_outvalue, value - 1);
-
-        //for (var i = 0; i < 10; i++)
-        //{
-        //    if (Globals.Get_Global_Value<int>(stat_get_int_outvalue) == value)
-        //        break;
-
-        //    if ((Globals.Get_Global_Value<int>(stat_get_int_case) != 9) & (Globals.Get_Global_Value<int>(stat_set_int_case) != 3) & (Globals.Get_Global_Value<int>(stat_structure) != 3))
-        //        Globals.Set_Global_Value(stat_get_int_case, 9);
-        //    Globals.Set_Global_Value(stat_structure, 3);
-        //    Globals.Set_Global_Value(stat_set_int_case, 3);
-
-        //    await Task.Delay(100);
-
-        //    if (i > 5)
-        //        Globals.Set_Global_Value(stat_get_int_outvalue, value);
-        //}
-
-        //Memory.Write(StatGetIntHash(), oldGetIntHash);
-        //Globals.Set_Global_Value(stat_get_int_outvalue, oldGetIntValue);
-
-        //Globals.Set_Global_Value(stat_set_int_hash, oldSetIntHash);
-        //Globals.Set_Global_Value(stat_set_int_value, oldSetIntValue);
-
+        stats.STAT_SET_INT(hash, value, 1);
+        /*
         var oldSetIntHash = Globals.Get_Global_Value<uint>(stat_set_int_hash);
         var oldSetIntValue = Globals.Get_Global_Value<int>(stat_set_int_value);
 
@@ -164,7 +134,7 @@ public static class STATS
 
         Globals.Set_Global_Value(stat_set_int_hash, oldSetIntHash);
         Globals.Set_Global_Value(stat_set_int_value, oldSetIntValue);
-
+        */
     }
     /// <summary>
     /// 设置INT类型STAT值（旧方法）

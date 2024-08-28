@@ -1,6 +1,9 @@
 ﻿using GTA5Core.Native;
 using GTA5Core.Offsets;
 using GTA5Core.GTA.Vehicles;
+using System.Security.Policy;
+using System.Threading;
+using System.Windows.Media;
 
 namespace GTA5Core.Features;
 
@@ -22,6 +25,32 @@ public static class Vehicle2
         "monstrociti"
     };
 
+    public static bool request_model(string hash)
+	{
+        var hashes = RAGE.JOAAT(hash);
+
+        native_invoker invoke = new();
+        __STREAMING STREAMING = new();
+
+        if (STREAMING.IS_MODEL_VALID(hashes) == 1)
+		{
+            bool model_loaded = (STREAMING.HAS_MODEL_LOADED(hashes) != 0);
+            if (model_loaded)
+                return true;
+
+            do
+            {
+                model_loaded = (STREAMING.HAS_MODEL_LOADED(hashes) != 0);
+                if (!model_loaded)
+                    STREAMING.REQUEST_MODEL(hashes);
+                else
+                    return true;
+
+            } while (!model_loaded);
+		}
+
+		return false;
+	}
     /// <summary>
     /// 刷出线上载具
     /// </summary>
@@ -32,6 +61,45 @@ public static class Vehicle2
     /// <returns></returns>
     public static async Task SpawnVehicle(string model, int[] mods, bool isMax, bool isInRoom = false)
     {
+        await Task.Run(() =>
+        {
+            var hashes = RAGE.JOAAT(model);
+
+            var pCPed = Game.GetCPed();
+            var vector3 = Memory.Read<Vector3>(pCPed + CPed.VisualX);
+
+            var pCNavigation = Memory.Read<long>(pCPed + CPed.CNavigation);
+
+            var sin = Memory.Read<float>(pCNavigation + CNavigation.RightX);
+            var cos = Memory.Read<float>(pCNavigation + CNavigation.ForwardX);
+
+            var dist = 5.0f;
+
+            vector3.X += cos * dist;
+            vector3.Y += sin * dist;
+
+            native_invoker invoke = new();
+            __ENTITY ENTITY = new();
+            __VEHICLE VEHICLE = new();
+            __STREAMING STREAMING = new();
+            __PLAYER PLAYER = new();
+
+            var vehicle = 0;
+
+            if (request_model(model))
+            {
+                vehicle = VEHICLE.CREATE_VEHICLE(hashes, vector3.X, vector3.Y, vector3.Z, ENTITY.GET_ENTITY_HEADING(PLAYER.PLAYER_PED_ID()), 1, 0, 1);
+                STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
+
+                if (isMax && (vehicle != 0))
+                {
+                    VEHICLE.SET_VEHICLE_MOD_KIT(vehicle, 0);
+                    for (var i = 0; i <= 49; i++)
+                        VEHICLE.SET_VEHICLE_MOD(vehicle, i, (VEHICLE.GET_NUM_VEHICLE_MODS(vehicle, i) - 1), 1);
+                    }
+            }
+        });
+        /*
         await Task.Run(() =>
         {
             var dist = 5.0f;
@@ -82,6 +150,7 @@ public static class Vehicle2
             Globals.Set_Global_Value(Base.oVMCreate + 27 + 95, 14);              // 拥有载具标志 Ownerflag
             Globals.Set_Global_Value(Base.oVMCreate + 27 + 94, 2);               // 个人载具标志 Personal car ownerflag
         });
+        */
     }
 
     /// <summary>

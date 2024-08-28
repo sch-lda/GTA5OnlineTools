@@ -57,7 +57,7 @@ public static class Teleport
         if (wayPos == Vector3.Zero)
             return;
 
-        SetTeleportPosition(wayPos);
+        //SetTeleportPosition(wayPos);
         TowaypointForceGroundZ(wayPos);         // 更稳定的native传送
     }
 
@@ -73,7 +73,6 @@ public static class Teleport
             return;
 
         SetTeleportPosition(objPos);
-        SetTeleportCoords(objPos);
     }
 
     /// <summary>
@@ -81,6 +80,62 @@ public static class Teleport
     /// </summary>
     public static async void TowaypointForceGroundZ(Vector3 blipV3)
     {
+        if (blipV3 == Vector3.Zero)
+            return;
+
+        Vector3 vec3;
+        vec3.X = blipV3.X;
+        vec3.Y = blipV3.Y;
+        vec3.Z = -255f;
+
+        native_invoker invoke = new();
+        __MISC MISC = new();
+        __WATER WATER = new();
+
+        SetTeleportPosition(vec3);
+
+        ulong outValue = invoke.alloc_mem(1024); // 分配一个1024字节的内存
+
+        if (WATER.GET_WATER_HEIGHT(vec3.X, vec3.Y, 800f, outValue) == 1)
+        {
+            vec3.Z = Memory.Read<float>((long)outValue);
+            SetTeleportPosition(vec3);
+        }
+        else
+        {
+            if (MISC.GET_GROUND_Z_FOR_3D_COORD(vec3.X, vec3.Y, 800f, outValue, 1, 0) == 0)
+                for (var i = 0; i <= 8; i++)
+                {
+                    vec3.Z = 850f - (i * 100f);
+                    SetTeleportPosition(vec3);
+                    if (MISC.GET_GROUND_Z_FOR_3D_COORD(vec3.X, vec3.Y, 800f, outValue, 1, 0) == 1)
+                        break;
+                }
+
+            vec3.Z = Memory.Read<float>((long)outValue);
+            SetTeleportPosition(vec3);
+        }
+
+        invoke.free_mem(outValue); // 释放一个内存只能是已分配的
+        /*
+        {
+            native_invoker invoke = new();
+            __ENTITY ENTITY = new();
+            __PLAYER PLAYER = new();
+            __STATS STATS = new();
+            __MISC MISC = new();
+
+            ENTITY.SET_ENTITY_COORDS(PLAYER.PLAYER_PED_ID(), 222f, 333f, 233f, 0, 0, 0, 0); // 调用本机 [ped, x, y, z, ...]
+
+            ulong outValue = invoke.alloc_mem(1024); // 分配一个1024字节的内存
+
+            if (STATS.STAT_GET_INT(RAGE.JOAAT("mp0_cas_heist_flow"), outValue, -1) == 1) ; // 使用本机读取 INT 统计数据
+            int value = Memory.Read<int>((long)outValue);
+
+            invoke.free_mem(outValue); // 释放一个内存只能是已分配的
+        }
+        */
+        /*
         Vector3 vec3;
         vec3.X = blipV3.X;
         vec3.Y = blipV3.Y;
@@ -129,6 +184,7 @@ public static class Teleport
                     break;
             }
         }
+        */
     }
 
     /// <summary>
@@ -147,58 +203,29 @@ public static class Teleport
     }
 
     /// <summary>
-    /// 实体传送功能
-    /// </summary>
-    public static void SetTeleportCoords(Vector3 vector3)
-    {
-        if (Globals.IsOnlineMode())
-        {
-            var pCPed = Game.GetCPed();
-            if (!Vehicle.IsInVehicle(pCPed))
-            {
-                Globals.Set_Global_Value(4521801 + 948 + 0, vector3.X);
-                Globals.Set_Global_Value(4521801 + 948 + 1, vector3.Y);
-                Globals.Set_Global_Value(4521801 + 948 + 2, vector3.Z);
-                Globals.Set_Global_Value(2672855 + 63 + 22, 0);
-                Globals.Set_Global_Value(4521801 + 945, 20);
-
-                //int m_index = Tunables.Index(-1146554960); // int
-                //int m_index = Tunables.Index(3148412336); // uint32_t
-                //int m_index = Tunables.Index(RAGE.JOAAT("TURN_SNOW_ON_OFF")); // rage::joaat
-                //Globals.Set_Global_Value(m_index, 1);
-
-                while (Globals.Get_Global_Value<int>(4521801 + 945) == 20)
-                {
-                }
-
-                Globals.Set_Global_Value(4521801 + 945, -1);
-            }
-            else
-            {
-                Globals.Set_Global_Value(2635563 + 505 + 0, vector3.X);
-                Globals.Set_Global_Value(2635563 + 505 + 1, vector3.Y);
-                Globals.Set_Global_Value(2635563 + 505 + 2, vector3.Z);
-                int player = Globals.Get_Global_Value<int>(2672855);
-                Globals.Set_Global_Value(2657971 + 1 + (player * 465) + 233, 7);
-                Globals.Set_Global_Value(2635563 + 45 + 65, 1);
-
-                while (Globals.Get_Global_Value<int>(2657971 + 1 + (player * 465) + 233) == 7)
-                {
-                }
-            }
-        }
-    }
-    /// <summary>
     /// 坐标传送功能
     /// </summary>
     public static void SetTeleportPosition(Vector3 vector3)
     {
         if (vector3 == Vector3.Zero)
             return;
-
+        
         // 禁用越界死亡
         Globals.Set_Global_Value(2738934 + 6958, 1);     // freemode - "TRI_WARP"
 
+        native_invoker invoke = new();
+        __ENTITY ENTITY = new();
+        __PED PED = new();
+        __PLAYER PLAYER = new();
+
+        var pCPed = Game.GetCPed();
+        var pedHandle = PLAYER.PLAYER_PED_ID();
+        if (!Vehicle.IsInVehicle(pCPed))
+            ENTITY.SET_ENTITY_COORDS(pedHandle, vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
+        else
+            ENTITY.SET_ENTITY_COORDS(PED.GET_VEHICLE_PED_IS_IN(pedHandle, 0), vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
+
+        /*
         var pCPed = Game.GetCPed();
 
         if (Vehicle.IsInVehicle(pCPed))
@@ -218,6 +245,7 @@ public static class Teleport
             Memory.Write(pCPed + CPed.VisualX, vector3);
             Memory.Write(pCNavigation + CNavigation.PositionX, vector3);
         }
+        */
     }
 
     /// <summary>
