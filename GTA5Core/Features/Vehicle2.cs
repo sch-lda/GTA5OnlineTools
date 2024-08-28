@@ -83,12 +83,13 @@ public static class Vehicle2
             __VEHICLE VEHICLE = new();
             __STREAMING STREAMING = new();
             __PLAYER PLAYER = new();
+            __PED PED = new();
 
             var vehicle = 0;
-
+            var pedHandle = PLAYER.PLAYER_PED_ID();
             if (request_model(model))
             {
-                vehicle = VEHICLE.CREATE_VEHICLE(hashes, vector3.X, vector3.Y, vector3.Z, ENTITY.GET_ENTITY_HEADING(PLAYER.PLAYER_PED_ID()), 1, 0, 1);
+                vehicle = VEHICLE.CREATE_VEHICLE(hashes, vector3.X, vector3.Y, vector3.Z, ENTITY.GET_ENTITY_HEADING(pedHandle), 1, 0, 1);
                 STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
 
                 if (isMax && (vehicle != 0))
@@ -96,7 +97,10 @@ public static class Vehicle2
                     VEHICLE.SET_VEHICLE_MOD_KIT(vehicle, 0);
                     for (var i = 0; i <= 49; i++)
                         VEHICLE.SET_VEHICLE_MOD(vehicle, i, (VEHICLE.GET_NUM_VEHICLE_MODS(vehicle, i) - 1), 1);
-                    }
+                }
+
+                if (isInRoom && (vehicle != 0))
+                    PED.SET_PED_INTO_VEHICLE(pedHandle, vehicle, -1);
             }
         });
         /*
