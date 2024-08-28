@@ -16,6 +16,21 @@
 		<DebugType>full</DebugType>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <None Remove="GTA5OnlineTools-native_invoker.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="GTA5OnlineTools-native_invoker.dll" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Costura.Fody" Version="5.7.0">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
+
     <ItemGroup>
         <Page Update="Properties\DesignTimeResources.xaml">
             <Generator>MSBuild:Compile</Generator>
@@ -30,7 +45,8 @@
 
     <ItemGroup>
       <Reference Include="GTA5OnlineTools-native_invoker">
-        <HintPath>..\lib.dll\GTA5OnlineTools-native_invoker.dll</HintPath>
+        <HintPath>GTA5OnlineTools-native_invoker.dll</HintPath>
+        <Private>False</Private>
       </Reference>
     </ItemGroup>
 

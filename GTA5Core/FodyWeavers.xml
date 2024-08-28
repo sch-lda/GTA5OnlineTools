@@ -1,0 +1,7 @@
+﻿<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
+	<Costura>
+		<Unmanaged64Assemblies>
+			GTA5OnlineTools-native_invoker
+		</Unmanaged64Assemblies>
+	</Costura>
+</Weavers>
