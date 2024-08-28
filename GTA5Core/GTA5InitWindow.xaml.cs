@@ -126,6 +126,10 @@ public partial class GTA5InitWindow
 
     private bool PatternInit()
     {
+        Logger("开始初始化《GTA5》本机调用程序");
+
+        native_invoker invoke = new();
+
         Logger("开始初始化《GTA5》特征码模块");
 
         Pointers.WorldPTR = Memory.FindPattern(Mask.World);
