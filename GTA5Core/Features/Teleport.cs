@@ -1,7 +1,5 @@
 using GTA5Core.Native;
 using GTA5Core.Offsets;
-using System.Numerics;
-
 namespace GTA5Core.Features;
 
 public static class Teleport
@@ -88,27 +86,23 @@ public static class Teleport
         vec3.Y = blipV3.Y;
         vec3.Z = -255f;
 
-        native_invoker invoke = new();
-        __MISC MISC = new();
-        __WATER WATER = new();
-
         SetTeleportPosition(vec3);
 
-        ulong outValue = invoke.alloc_mem(1024); // 分配一个1024字节的内存
+        ulong outValue = native_invoker.alloc_mem(1024); // 分配一个1024字节的内存
 
-        if (WATER.GET_WATER_HEIGHT(vec3.X, vec3.Y, 800f, outValue) == 1)
+        if (__WATER.GET_WATER_HEIGHT(vec3.X, vec3.Y, 800f, outValue) == 1)
         {
             vec3.Z = Memory.Read<float>((long)outValue);
             SetTeleportPosition(vec3);
         }
         else
         {
-            if (MISC.GET_GROUND_Z_FOR_3D_COORD(vec3.X, vec3.Y, 800f, outValue, 1, 0) == 0)
+            if (__MISC.GET_GROUND_Z_FOR_3D_COORD(vec3.X, vec3.Y, 800f, outValue, 1, 0) == 0)
                 for (var i = 0; i <= 8; i++)
                 {
                     vec3.Z = 850f - (i * 100f);
                     SetTeleportPosition(vec3);
-                    if (MISC.GET_GROUND_Z_FOR_3D_COORD(vec3.X, vec3.Y, 800f, outValue, 1, 0) == 1)
+                    if (__MISC.GET_GROUND_Z_FOR_3D_COORD(vec3.X, vec3.Y, 800f, outValue, 1, 0) == 1)
                         break;
                 }
 
@@ -116,25 +110,26 @@ public static class Teleport
             SetTeleportPosition(vec3);
         }
 
-        invoke.free_mem(outValue); // 释放一个内存只能是已分配的
+        native_invoker.free_mem(outValue); // 释放一个内存只能是已分配的
+
         /*
-        {
-            native_invoker invoke = new();
-            __ENTITY ENTITY = new();
-            __PLAYER PLAYER = new();
-            __STATS STATS = new();
-            __MISC MISC = new();
+        // 交易到银行
+        Online2.Begin_transaction(RAGE.JOAAT("CATEGORY_SERVICE_WITH_THRESHOLD"), RAGE.JOAAT("NET_SHOP_ACTION_EARN"), 4, new uint[,]{
+            { RAGE.JOAAT("SERVICE_EARN_JUGGALO_STORY_MISSION"), 180000 }, // 18w循环?
+            { RAGE.JOAAT("SERVICE_EARN_CASINO_HEIST_FINALE"), 3619000 }, // 名钻赌场豪劫
+            { RAGE.JOAAT("SERVICE_EARN_ISLAND_HEIST_FINALE"), 2550000 }, // 佩里科岛
+            { RAGE.JOAAT("SERVICE_EARN_GANGOPS_FINALE"), 2550000 }, // 末日豪劫
+        }); // 弗利萨同款马桶刷钱方法
 
-            ENTITY.SET_ENTITY_COORDS(PLAYER.PLAYER_PED_ID(), 222f, 333f, 233f, 0, 0, 0, 0); // 调用本机 [ped, x, y, z, ...]
-
-            ulong outValue = invoke.alloc_mem(1024); // 分配一个1024字节的内存
-
-            if (STATS.STAT_GET_INT(RAGE.JOAAT("mp0_cas_heist_flow"), outValue, -1) == 1) ; // 使用本机读取 INT 统计数据
-            int value = Memory.Read<int>((long)outValue);
-
-            invoke.free_mem(outValue); // 释放一个内存只能是已分配的
-        }
+        // 交易到现金
+         Online2.Begin_transaction(RAGE.JOAAT("CATEGORY_SERVICE_WITH_THRESHOLD"), RAGE.JOAAT("NET_SHOP_ACTION_EARN"), 1, new uint[,]{
+            { RAGE.JOAAT("SERVICE_EARN_JUGGALO_STORY_MISSION"), 180000 }, // 18w循环?
+            { RAGE.JOAAT("SERVICE_EARN_CASINO_HEIST_FINALE"), 3619000 }, // 名钻赌场豪劫
+            { RAGE.JOAAT("SERVICE_EARN_ISLAND_HEIST_FINALE"), 2550000 }, // 佩里科岛
+            { RAGE.JOAAT("SERVICE_EARN_GANGOPS_FINALE"), 2550000 }, // 末日豪劫
+        }); // 弗利萨同款马桶刷钱方法
         */
+
         /*
         Vector3 vec3;
         vec3.X = blipV3.X;
@@ -213,17 +208,12 @@ public static class Teleport
         // 禁用越界死亡
         Globals.Set_Global_Value(2738934 + 6958, 1);     // freemode - "TRI_WARP"
 
-        native_invoker invoke = new();
-        __ENTITY ENTITY = new();
-        __PED PED = new();
-        __PLAYER PLAYER = new();
-
         var pCPed = Game.GetCPed();
-        var pedHandle = PLAYER.PLAYER_PED_ID();
+        var pedHandle = __PLAYER.PLAYER_PED_ID();
         if (!Vehicle.IsInVehicle(pCPed))
-            ENTITY.SET_ENTITY_COORDS(pedHandle, vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
+            __ENTITY.SET_ENTITY_COORDS(pedHandle, vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
         else
-            ENTITY.SET_ENTITY_COORDS(PED.GET_VEHICLE_PED_IS_IN(pedHandle, 0), vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
+            __ENTITY.SET_ENTITY_COORDS(__PED.GET_VEHICLE_PED_IS_IN(pedHandle, 0), vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
 
         /*
         var pCPed = Game.GetCPed();

@@ -1,4 +1,7 @@
 ﻿using GTA5Core.Offsets;
+using System.Windows.Markup;
+using System;
+using GTA5Core.Native;
 
 namespace GTA5Core.Features;
 
@@ -181,5 +184,30 @@ public static class Online2
     public static void NightclubNoTonyLaunderingMoney(bool isEnable)
     {
         Globals.Set_Global_Value(Tunables.Index(-1002770353), isEnable ? 0.000001f : 0.1f);        // -1002770353  tuneables_processing.c
+    }
+
+    public static void Begin_transaction(uint category, uint action, int flags, uint[,] item = null)
+    {
+        for (var i = 0; i < item.Length / 0x02; i++)
+            if (__PED.GET_PED_TYPE(__PLAYER.PLAYER_PED_ID()) == 2)
+            {
+                unsafe
+                {
+                    var ptr = native_invoker.alloc_mem(1024);
+                    native_invoker.add_special_native(Parse.Arg("NET_GAMESERVER_CHECKOUT_START"), Parse.Arg("shop_controller"));
+
+                    if (__NETSHOPPING.NET_GAMESERVER_BASKET_IS_ACTIVE() == 1)
+                        __NETSHOPPING.NET_GAMESERVER_BASKET_END();
+
+                    if (ptr != 0)
+                        if (__NETSHOPPING.NET_GAMESERVER_BEGIN_SERVICE(ptr, category, item[i, 0], action, (int)item[i, 1], flags) == 1)
+                            __NETSHOPPING.NET_GAMESERVER_CHECKOUT_START(Memory.Read<int>((long)ptr));
+
+                    native_invoker.remove_special_native(Parse.Arg("NET_GAMESERVER_CHECKOUT_START"));
+                    native_invoker.free_mem(ptr);
+
+                    while (__NETSHOPPING.NET_GAMESERVER_TRANSACTION_IN_PROGRESS() == 1) ;
+                }
+            }
     }
 }

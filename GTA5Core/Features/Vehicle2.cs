@@ -29,20 +29,17 @@ public static class Vehicle2
 	{
         var hashes = RAGE.JOAAT(hash);
 
-        native_invoker invoke = new();
-        __STREAMING STREAMING = new();
-
-        if (STREAMING.IS_MODEL_VALID(hashes) == 1)
+        if (__STREAMING.IS_MODEL_VALID(hashes) == 1)
 		{
-            bool model_loaded = (STREAMING.HAS_MODEL_LOADED(hashes) != 0);
+            bool model_loaded = (__STREAMING.HAS_MODEL_LOADED(hashes) != 0);
             if (model_loaded)
                 return true;
 
             do
             {
-                model_loaded = (STREAMING.HAS_MODEL_LOADED(hashes) != 0);
+                model_loaded = (__STREAMING.HAS_MODEL_LOADED(hashes) != 0);
                 if (!model_loaded)
-                    STREAMING.REQUEST_MODEL(hashes);
+                    __STREAMING.REQUEST_MODEL(hashes);
                 else
                     return true;
 
@@ -78,29 +75,22 @@ public static class Vehicle2
             vector3.X += cos * dist;
             vector3.Y += sin * dist;
 
-            native_invoker invoke = new();
-            __ENTITY ENTITY = new();
-            __VEHICLE VEHICLE = new();
-            __STREAMING STREAMING = new();
-            __PLAYER PLAYER = new();
-            __PED PED = new();
-
             var vehicle = 0;
-            var pedHandle = PLAYER.PLAYER_PED_ID();
+            var pedHandle = __PLAYER.PLAYER_PED_ID();
             if (request_model(model))
             {
-                vehicle = VEHICLE.CREATE_VEHICLE(hashes, vector3.X, vector3.Y, vector3.Z, ENTITY.GET_ENTITY_HEADING(pedHandle), 1, 0, 1);
-                STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
+                vehicle = __VEHICLE.CREATE_VEHICLE(hashes, vector3.X, vector3.Y, vector3.Z, __ENTITY.GET_ENTITY_HEADING(pedHandle), 1, 0, 1);
+                __STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
 
                 if (isMax && (vehicle != 0))
                 {
-                    VEHICLE.SET_VEHICLE_MOD_KIT(vehicle, 0);
+                    __VEHICLE.SET_VEHICLE_MOD_KIT(vehicle, 0);
                     for (var i = 0; i <= 49; i++)
-                        VEHICLE.SET_VEHICLE_MOD(vehicle, i, (VEHICLE.GET_NUM_VEHICLE_MODS(vehicle, i) - 1), 1);
+                        __VEHICLE.SET_VEHICLE_MOD(vehicle, i, (__VEHICLE.GET_NUM_VEHICLE_MODS(vehicle, i) - 1), 1);
                 }
 
                 if (isInRoom && (vehicle != 0))
-                    PED.SET_PED_INTO_VEHICLE(pedHandle, vehicle, -1);
+                    __PED.SET_PED_INTO_VEHICLE(pedHandle, vehicle, -1);
             }
         });
         /*

@@ -113,10 +113,7 @@ public static class STATS
     {
         var hash = GET_STAT_HASH(statName);
 
-        native_invoker invoke = new();
-        __STATS stats = new();
-
-        stats.STAT_SET_INT(hash, value, 1);
+        __STATS.STAT_SET_INT(hash, value, 1);
         /*
         var oldSetIntHash = Globals.Get_Global_Value<uint>(stat_set_int_hash);
         var oldSetIntValue = Globals.Get_Global_Value<int>(stat_set_int_value);
