@@ -75,6 +75,29 @@ public partial class AdvanceView : UserControl
         Globals.Set_Global_Value(4718592 + 3526 + 1, 1);
     }
 
+    public static void BeginTransactionCasinoHeist()
+    {
+        // 交易到银行
+        Online2.Begin_transaction(RAGE.JOAAT("CATEGORY_SERVICE_WITH_THRESHOLD"), RAGE.JOAAT("NET_SHOP_ACTION_EARN"), 4, new uint[,]{
+            { RAGE.JOAAT("SERVICE_EARN_CASINO_HEIST_FINALE"), 3619000 }, // 名钻赌场豪劫
+        }); // 弗利萨同款马桶刷钱方法
+    }
+
+    public static void BeginTransactionCayoHeist()
+    {
+        // 交易到银行
+        Online2.Begin_transaction(RAGE.JOAAT("CATEGORY_SERVICE_WITH_THRESHOLD"), RAGE.JOAAT("NET_SHOP_ACTION_EARN"), 4, new uint[,]{
+            { RAGE.JOAAT("SERVICE_EARN_ISLAND_HEIST_FINALE"), 2550000 }, // 佩里科岛
+        }); // 弗利萨同款马桶刷钱方法
+    }
+
+    public static void BeginTransactionDoomsdayHeist()
+    {
+        // 交易到银行
+        Online2.Begin_transaction(RAGE.JOAAT("CATEGORY_SERVICE_WITH_THRESHOLD"), RAGE.JOAAT("NET_SHOP_ACTION_EARN"), 4, new uint[,]{
+            { RAGE.JOAAT("SERVICE_EARN_GANGOPS_FINALE"), 2550000 }, // 末日豪劫
+        }); // 弗利萨同款马桶刷钱方法
+    }
     //////////////////////////////////////////////////////
 
     private void Button_InstantFmMissionController_Click(object sender, RoutedEventArgs e)
@@ -90,5 +113,18 @@ public partial class AdvanceView : UserControl
     private void Button_AloneLaunchHeist_Click(object sender, RoutedEventArgs e)
     {
         AloneLaunchHeist();
+    }
+
+    private void Button_BeginTransactionCasinoHeist_Click(object sender, RoutedEventArgs e)
+    {
+        BeginTransactionCasinoHeist();
+    }
+    private void Button_BeginTransactionCayoHeist_Click(object sender, RoutedEventArgs e)
+    {
+        BeginTransactionCayoHeist();
+    }
+    private void Button_BeginTransactionDoomsdayHeist_Click(object sender, RoutedEventArgs e)
+    {
+        BeginTransactionDoomsdayHeist();
     }
 }

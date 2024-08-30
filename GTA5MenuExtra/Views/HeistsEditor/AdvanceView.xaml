@@ -13,7 +13,7 @@
     <UniformGrid Columns="3">
         <StackPanel>
             <ui:LabelIcon Content="实验性功能" />
-            <WrapPanel Margin="5,0,5,0">
+            <WrapPanel Margin="5,0,5,0" Height="217">
                 <Button
                     x:Name="Button_InstantFmMissionController"
                     Click="Button_InstantFmMissionController_Click"
@@ -26,6 +26,18 @@
                     x:Name="Button_AloneLaunchHeist"
                     Click="Button_AloneLaunchHeist_Click"
                     Content="单人启动任务（这应该允许你能完整的玩末日将至）" />
+                <Button
+                    x:Name="Button_BeginTransactionCasinoHeist"
+                    Click="Button_BeginTransactionCasinoHeist_Click"
+                    Content="超级速通名钻赌场豪劫" />
+                <Button
+                    x:Name="Button_BeginTransactionCayoHeist"
+                    Click="Button_BeginTransactionCayoHeist_Click"
+                    Content="超级速通佩里科岛" />
+                <Button
+                    x:Name="Button_BeginTransactionDoomsdaytHeist"
+                    Click="Button_BeginTransactionDoomsdayHeist_Click"
+                    Content="超级速通末日豪劫" />
             </WrapPanel>
         </StackPanel>
     </UniformGrid>
