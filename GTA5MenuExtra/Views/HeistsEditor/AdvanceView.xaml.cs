@@ -98,6 +98,19 @@ public partial class AdvanceView : UserControl
             { RAGE.JOAAT("SERVICE_EARN_GANGOPS_FINALE"), 2550000 }, // 末日豪劫
         }); // 弗利萨同款马桶刷钱方法
     }
+    public static void GreenPlayersAllCrashGame()
+    {
+        if (Vehicle2.request_model("ruiner2"))
+        {
+            var hashes = RAGE.JOAAT("ruiner2");
+            var vehicle = __VEHICLE.CREATE_VEHICLE(hashes, 0f, 0f, 500f, 0, 1, 0, 1);
+            __STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
+            __PED.SET_PED_INTO_VEHICLE(__PLAYER.PLAYER_PED_ID(), vehicle, -1);
+            __VEHICLE.VEHICLE_SET_PARACHUTE_MODEL_OVERRIDE(vehicle, RAGE.JOAAT("sum_prop_dufocore_01a"));
+            __VEHICLE.VEHICLE_START_PARACHUTING(vehicle, 1);
+            // 1sec all crash XDDD
+        }
+    }
     //////////////////////////////////////////////////////
 
     private void Button_InstantFmMissionController_Click(object sender, RoutedEventArgs e)
@@ -126,5 +139,9 @@ public partial class AdvanceView : UserControl
     private void Button_BeginTransactionDoomsdayHeist_Click(object sender, RoutedEventArgs e)
     {
         BeginTransactionDoomsdayHeist();
+    }
+    private void Button_GreenPlayersAllCrashGame_Click(object sender, RoutedEventArgs e)
+    {
+        GreenPlayersAllCrashGame();
     }
 }

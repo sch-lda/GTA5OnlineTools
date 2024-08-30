@@ -38,6 +38,10 @@
                     x:Name="Button_BeginTransactionDoomsdaytHeist"
                     Click="Button_BeginTransactionDoomsdayHeist_Click"
                     Content="超级速通末日豪劫" />
+                <Button
+                    x:Name="Button_GreenPlayersAllCrashGame"
+                    Click="Button_GreenPlayersAllCrashGame_Click"
+                    Content="绿色玩家引起的全局崩溃" />
             </WrapPanel>
         </StackPanel>
     </UniformGrid>

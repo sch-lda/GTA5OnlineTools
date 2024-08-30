@@ -30,4 +30,11 @@
         <ProjectReference Include="..\MetroSkin\MetroSkin.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="GTA5OnlineTools-native_invoker">
+        <HintPath>..\GTA5Core\GTA5OnlineTools-native_invoker.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+    </ItemGroup>
+
 </Project>
