@@ -111,6 +111,9 @@ public static class Teleport
         }
 
         native_invoker.free_mem(outValue); // 释放一个内存只能是已分配的
+
+        //var a = entity.handle_to_ptr(__PLAYER.PLAYER_PED_ID());
+        //var b = entity.ptr_to_handle(a);
     }
 
     /// <summary>
