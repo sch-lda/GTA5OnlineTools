@@ -42,6 +42,10 @@
                     x:Name="Button_GreenPlayersAllCrashGame"
                     Click="Button_GreenPlayersAllCrashGame_Click"
                     Content="绿色玩家引起的全局崩溃" />
+                <Button
+                    x:Name="Button_GreenPlayersAllTse968269233"
+                    Click="Button_GreenPlayersAllTse968269233_Click"
+                    Content="绿色玩家引起的全局经验脚本事件" />
             </WrapPanel>
         </StackPanel>
     </UniformGrid>

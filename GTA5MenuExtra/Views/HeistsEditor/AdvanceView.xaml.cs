@@ -108,7 +108,15 @@ public partial class AdvanceView : UserControl
             __PED.SET_PED_INTO_VEHICLE(__PLAYER.PLAYER_PED_ID(), vehicle, -1);
             __VEHICLE.VEHICLE_SET_PARACHUTE_MODEL_OVERRIDE(vehicle, RAGE.JOAAT("sum_prop_dufocore_01a"));
             __VEHICLE.VEHICLE_START_PARACHUTING(vehicle, 1);
-            // 1sec all crash XDDD
+            // entity.delete_entity(vehicle);
+        }
+    }
+    public static void GreenPlayersAllTse968269233()
+    {
+        for (var i = 0; i <= 24; i++)
+        {
+            script.trigger_script_event(1, 0x7fffffff, new int[] { 968269233, 0xff, 1, 4, i, 1, 1, 1 });
+            script.trigger_script_event(1, 0x7fffffff, new int[] { 968269233, 0xff, 1, 8, -5, 1, 1, 1 });
         }
     }
     //////////////////////////////////////////////////////
@@ -143,5 +151,10 @@ public partial class AdvanceView : UserControl
     private void Button_GreenPlayersAllCrashGame_Click(object sender, RoutedEventArgs e)
     {
         GreenPlayersAllCrashGame();
+    }
+
+    private void Button_GreenPlayersAllTse968269233_Click(object sender, RoutedEventArgs e)
+    {
+        GreenPlayersAllTse968269233();
     }
 }
