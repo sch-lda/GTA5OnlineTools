@@ -114,6 +114,8 @@ public static class Teleport
 
         //var a = entity.handle_to_ptr(__PLAYER.PLAYER_PED_ID());
         //var b = entity.ptr_to_handle(a);
+
+        //fire.add_owned_explosion(__PLAYER.PLAYER_PED_ID(), 0, 0, 0, 0, 0f, 1, 0, 0f);
     }
 
     /// <summary>

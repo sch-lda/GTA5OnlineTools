@@ -74,3 +74,21 @@ unsafe public static class entity
         }
     }
 }
+
+unsafe public static class fire
+{
+    private static long patch_owned_explosion = 0;
+    public static void add_owned_explosion(int pedHandle, float x, float y, float z, int explosionType, float damageScale, int isAudible, int isInvisible, float cameraShake)
+    {
+        if (patch_owned_explosion == 0)
+            patch_owned_explosion = Memory.FindPattern("40 0F 94 C7 E8 ?? ?? ?? ?? 84 C0 74 ?? 44 38 35") - 0x02;
+
+        native_invoker.add_special_native(Parse.Arg("ADD_OWNED_EXPLOSION"), Parse.Arg("am_mp_orbital_cannon"));
+        Memory.Write(patch_owned_explosion, (ushort)0xFF39);
+
+        __FIRE.ADD_OWNED_EXPLOSION(pedHandle, x, y, z, explosionType, damageScale, isAudible, isInvisible, cameraShake);
+
+        Memory.Write(patch_owned_explosion, (ushort)0xC739);
+        native_invoker.remove_special_native(Parse.Arg("ADD_OWNED_EXPLOSION"));
+    }
+}
