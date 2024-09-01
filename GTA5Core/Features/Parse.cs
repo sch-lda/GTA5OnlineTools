@@ -3,14 +3,32 @@ using GTA5Core.Offsets;
 using System.Reflection.Metadata;
 unsafe public static class Parse
 {
-    public static sbyte* Arg(string arg)
+    public static sbyte* Arg(string arg) // string to sbyte*
     {
         return (sbyte*)Marshal.StringToHGlobalAnsi(arg);
     }
 
-    public static string Arg(sbyte* arg)
+    public static string Arg(sbyte* arg) // sbyte* to string
     {
         return Marshal.PtrToStringAnsi((IntPtr)arg);
+    }
+    public static Vector3 Arg(ulong arg) // ulong to Vector3
+    {
+        Vector3 vec3;
+        vec3.X = 0;
+        vec3.Y = 0;
+        vec3.Z = 0;
+
+        if (arg == 0)
+            return vec3;
+
+        vec3.X = Memory.Read<float>((long)arg);
+        vec3.Y = Memory.Read<float>((long)arg + 0x08);
+        vec3.Z = Memory.Read<float>((long)arg + 0x10);
+
+        native_invoker.free_mem(arg);
+
+        return vec3;
     }
 }
 

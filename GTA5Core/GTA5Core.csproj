@@ -48,7 +48,6 @@
     <ItemGroup>
       <Reference Include="GTA5OnlineTools-native_invoker">
         <HintPath>GTA5OnlineTools-native_invoker.dll</HintPath>
-        <Private>False</Private>
       </Reference>
     </ItemGroup>
 

@@ -116,6 +116,11 @@ public static class Teleport
         //var b = entity.ptr_to_handle(a);
 
         //fire.add_owned_explosion(__PLAYER.PLAYER_PED_ID(), 0, 0, 0, 0, 0f, 1, 0, 0f);
+
+        /*unsafe
+        {
+            Vector3 VEC3 = Parse.Arg(__ENTITY.GET_ENTITY_COORDS(__PLAYER.PLAYER_PED_ID(), 0));
+        }*/
     }
 
     /// <summary>
