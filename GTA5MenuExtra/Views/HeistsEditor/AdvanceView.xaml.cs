@@ -59,7 +59,7 @@ public partial class AdvanceView : UserControl
 
             while (aloneMission)
             {
-                if (Locals.LocalAddress("fmmc_launcher") == 1)
+                if (Locals.LocalAddress("fmmc_launcher") != 0)
                 {
                     if (Locals.ReadLocalAddress<int>("fmmc_launcher", 19709 + 34) != 9999)
                     {
@@ -68,14 +68,14 @@ public partial class AdvanceView : UserControl
                             Locals.WriteLocalAddress("fmmc_launcher", 19709 + 15, 1);
                             Globals.Set_Global_Value(794744 + 4 + 1 + (Locals.ReadLocalAddress<int>("fmmc_launcher", 19709 + 34) * 89) + 69, 1);
                         }
-
-                        Globals.Set_Global_Value(4718592 + 3523 + 1, 1);
-                        Globals.Set_Global_Value(4718592 + 3529 + 1, 1);
-                        Globals.Set_Global_Value(4718592 + 178821 + 1, 0);
-                        Globals.Set_Global_Value(4718592 + 3526, 1);
-                        Globals.Set_Global_Value(4718592 + 3526 + 1, 1);
                     }
                 }
+
+                Globals.Set_Global_Value(4718592 + 3523 + 1, 1);
+                Globals.Set_Global_Value(4718592 + 3529 + 1, 1);
+                Globals.Set_Global_Value(4718592 + 178821 + 1, 0);
+                Globals.Set_Global_Value(4718592 + 3526, 1);
+                Globals.Set_Global_Value(4718592 + 3526 + 1, 1);
             }
         });
     }
