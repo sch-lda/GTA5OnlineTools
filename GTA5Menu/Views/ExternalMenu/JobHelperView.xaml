@@ -69,6 +69,10 @@
                     x:Name="CheckBox_BunkerSupplyDelay"
                     Click="CheckBox_BunkerSupplyDelay_Click"
                     Content="移除地堡进货延迟" />
+                <Button
+                    x:Name="Button_BunkerSupplyDelay"
+                    Click="Button_BunkerSupplyDelay_Click"
+                    Content="解锁所有地堡研究" Width="288" />
             </StackPanel>
 
             <ui:LabelIcon Content="摩托帮" />

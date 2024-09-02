@@ -335,12 +335,22 @@ public static class Online
     }
 
     /// <summary>
-    /// 解锁地堡所有研究 (临时)
+    /// 解锁地堡所有研究 (永久)
     /// </summary>
     /// <param name="isEnable"></param>
     public static void UnlockBunkerResearch(bool isEnable)
     {
-        //TODO: 原方法早在1.61或更早版本就已经失效
+        for (var i = 15381; i <= 15382; i++)
+            __STATS.SET_PACKED_STAT_BOOL_CODE(i, 1, Globals.GetPlayerIndex());
+
+        for (var i = 15428; i <= 15439; i++)
+            __STATS.SET_PACKED_STAT_BOOL_CODE(i, 1, Globals.GetPlayerIndex());
+
+        for (var i = 15447; i <= 15474; i++)
+            __STATS.SET_PACKED_STAT_BOOL_CODE(i, 1, Globals.GetPlayerIndex());
+
+        for (var i = 15491; i <= 15499; i++)
+            __STATS.SET_PACKED_STAT_BOOL_CODE(i, 1, Globals.GetPlayerIndex());
     }
 
     /// <summary>
