@@ -76,7 +76,7 @@ public static class Teleport
     /// <summary>
     /// 传送到导航点（Native）
     /// </summary>
-    public static async void TowaypointForceGroundZ(Vector3 blipV3)
+    public static void TowaypointForceGroundZ(Vector3 blipV3)
     {
         if (blipV3 == Vector3.Zero)
             return;
@@ -145,7 +145,7 @@ public static class Teleport
     {
         if (vector3 == Vector3.Zero)
             return;
-        
+
         // 禁用越界死亡
         Globals.Set_Global_Value(2738934 + 6958, 1);     // freemode - "TRI_WARP"
 
