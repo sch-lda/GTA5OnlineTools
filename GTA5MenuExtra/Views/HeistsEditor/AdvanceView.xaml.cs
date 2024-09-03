@@ -124,29 +124,34 @@ public partial class AdvanceView : UserControl
             script.trigger_script_event(1, 0x7fffffff, new int[] { 968269233, 0xff, 1, 8, -5, 1, 1, 1 });
         }
     }
+
     //////////////////////////////////////////////////////
 
     private void Button_InstantFmMissionControllerANY_Click(object sender, RoutedEventArgs e)
     {
         InstantFmMissionControllerANY();
     }
-    private void Button_AloneLaunchHeist_Click(object sender, RoutedEventArgs e)
+
+    private async void Button_AloneLaunchHeist_Click(object sender, RoutedEventArgs e)
     {
-        AloneLaunchHeist();
+        await AloneLaunchHeist();
     }
 
     private void Button_BeginTransactionCasinoHeist_Click(object sender, RoutedEventArgs e)
     {
         BeginTransactionCasinoHeist();
     }
+
     private void Button_BeginTransactionCayoHeist_Click(object sender, RoutedEventArgs e)
     {
         BeginTransactionCayoHeist();
     }
+
     private void Button_BeginTransactionDoomsdayHeist_Click(object sender, RoutedEventArgs e)
     {
         BeginTransactionDoomsdayHeist();
     }
+
     private void Button_GreenPlayersAllCrashGame_Click(object sender, RoutedEventArgs e)
     {
         GreenPlayersAllCrashGame();
