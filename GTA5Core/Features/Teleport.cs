@@ -122,12 +122,12 @@ public static class Teleport
             Vector3 VEC3 = Parse.Arg(__ENTITY.GET_ENTITY_COORDS(__PLAYER.PLAYER_PED_ID(), 0));
         }*/
 
-       unsafe
+       /*unsafe
        {
             int value = 0;
             if (!stats.get_int(RAGE.JOAAT("mp0_cas_heist_flow"), &value))
                 return;
-       }
+       }*/
     }
 
     /// <summary>
