@@ -121,6 +121,13 @@ public static class Teleport
         {
             Vector3 VEC3 = Parse.Arg(__ENTITY.GET_ENTITY_COORDS(__PLAYER.PLAYER_PED_ID(), 0));
         }*/
+
+       unsafe
+       {
+            int value = 0;
+            if (!stats.get_int(RAGE.JOAAT("mp0_cas_heist_flow"), &value))
+                return;
+       }
     }
 
     /// <summary>
@@ -152,9 +159,9 @@ public static class Teleport
         var pCPed = Game.GetCPed();
         var pedHandle = __PLAYER.PLAYER_PED_ID();
         if (!Vehicle.IsInVehicle(pCPed))
-            __ENTITY.SET_ENTITY_COORDS(pedHandle, vector3.X, vector3.Y, vector3.Z + 1f, 0, 0, 0, 0);
+            __ENTITY.SET_ENTITY_COORDS(pedHandle, vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
         else
-            __ENTITY.SET_ENTITY_COORDS(__PED.GET_VEHICLE_PED_IS_IN(pedHandle, 0), vector3.X, vector3.Y, vector3.Z + 1f, 0, 0, 0, 0);
+            __ENTITY.SET_ENTITY_COORDS(__PED.GET_VEHICLE_PED_IS_IN(pedHandle, 0), vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
 
         /*
         var pCPed = Game.GetCPed();

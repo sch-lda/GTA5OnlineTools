@@ -24,30 +24,6 @@ public static class Vehicle2
         "brioso",
         "monstrociti"
     };
-
-    public static bool request_model(string hash)
-	{
-        var hashes = RAGE.JOAAT(hash);
-
-        if (__STREAMING.IS_MODEL_VALID(hashes) == 1)
-		{
-            bool model_loaded = (__STREAMING.HAS_MODEL_LOADED(hashes) != 0);
-            if (model_loaded)
-                return true;
-
-            do
-            {
-                model_loaded = (__STREAMING.HAS_MODEL_LOADED(hashes) != 0);
-                if (!model_loaded)
-                    __STREAMING.REQUEST_MODEL(hashes);
-                else
-                    return true;
-
-            } while (!model_loaded);
-		}
-
-		return false;
-	}
     /// <summary>
     /// 刷出线上载具
     /// </summary>
@@ -75,22 +51,17 @@ public static class Vehicle2
             vector3.X += cos * dist;
             vector3.Y += sin * dist;
 
-            var vehicle = 0;
             var pedHandle = __PLAYER.PLAYER_PED_ID();
-            if (request_model(model))
+            var vehicleHandle = vehicle.create_vehicle(hashes, vector3, __ENTITY.GET_ENTITY_HEADING(pedHandle));
+
+            if (isInRoom && (vehicleHandle != 0))
+                __PED.SET_PED_INTO_VEHICLE(pedHandle, vehicleHandle, -1);
+
+            if (isMax && (vehicleHandle != 0))
             {
-                vehicle = __VEHICLE.CREATE_VEHICLE(hashes, vector3.X, vector3.Y, vector3.Z, __ENTITY.GET_ENTITY_HEADING(pedHandle), 1, 0, 1);
-                __STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
-
-                if (isMax && (vehicle != 0))
-                {
-                    __VEHICLE.SET_VEHICLE_MOD_KIT(vehicle, 0);
-                    for (var i = 0; i <= 49; i++)
-                        __VEHICLE.SET_VEHICLE_MOD(vehicle, i, (__VEHICLE.GET_NUM_VEHICLE_MODS(vehicle, i) - 1), 1);
-                }
-
-                if (isInRoom && (vehicle != 0))
-                    __PED.SET_PED_INTO_VEHICLE(pedHandle, vehicle, -1);
+                __VEHICLE.SET_VEHICLE_MOD_KIT(vehicleHandle, 0);
+                for (var i = 0; i <= 49; i++)
+                    __VEHICLE.SET_VEHICLE_MOD(vehicleHandle, i, (__VEHICLE.GET_NUM_VEHICLE_MODS(vehicleHandle, i) - 1), 1);
             }
         });
         /*

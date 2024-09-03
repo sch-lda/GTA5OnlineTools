@@ -105,14 +105,16 @@ public partial class AdvanceView : UserControl
     }
     public static void GreenPlayersAllCrashGame()
     {
-        if (Vehicle2.request_model("ruiner2"))
+        var pedHandle = __PLAYER.PLAYER_PED_ID();
+        Vector3 vec3 = Parse.Arg(__ENTITY.GET_ENTITY_COORDS(pedHandle, 0));
+        vec3.Z = 500f;
+        var vehicleHandle = vehicle.create_vehicle("ruiner2", vec3, __ENTITY.GET_ENTITY_HEADING(pedHandle));
+
+        if (vehicleHandle != 0)
         {
-            var hashes = RAGE.JOAAT("ruiner2");
-            var vehicle = __VEHICLE.CREATE_VEHICLE(hashes, 0f, 0f, 500f, 0, 1, 0, 1);
-            __STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
-            __PED.SET_PED_INTO_VEHICLE(__PLAYER.PLAYER_PED_ID(), vehicle, -1);
-            __VEHICLE.VEHICLE_SET_PARACHUTE_MODEL_OVERRIDE(vehicle, RAGE.JOAAT("sum_prop_dufocore_01a"));
-            __VEHICLE.VEHICLE_START_PARACHUTING(vehicle, 1);
+            __PED.SET_PED_INTO_VEHICLE(pedHandle, vehicleHandle, -1);
+            __VEHICLE.VEHICLE_SET_PARACHUTE_MODEL_OVERRIDE(vehicleHandle, RAGE.JOAAT("sum_prop_dufocore_01a"));
+            __VEHICLE.VEHICLE_START_PARACHUTING(vehicleHandle, 1);
             // entity.delete_entity(vehicle);
         }
     }
