@@ -158,10 +158,11 @@ public static class Teleport
 
         var pCPed = Game.GetCPed();
         var pedHandle = __PLAYER.PLAYER_PED_ID();
+
         if (!Vehicle.IsInVehicle(pCPed))
-            __ENTITY.SET_ENTITY_COORDS(pedHandle, vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
+            __ENTITY.SET_ENTITY_COORDS(pedHandle, vector3.X, vector3.Y, vector3.Z, 1, 1, 1, 1);
         else
-            __ENTITY.SET_ENTITY_COORDS(__PED.GET_VEHICLE_PED_IS_IN(pedHandle, 0), vector3.X, vector3.Y, vector3.Z, 0, 0, 0, 0);
+            __ENTITY.SET_ENTITY_COORDS(__PED.GET_VEHICLE_PED_IS_IN(pedHandle, 0), vector3.X, vector3.Y, vector3.Z, 1, 1, 1, 1);
 
         /*
         var pCPed = Game.GetCPed();

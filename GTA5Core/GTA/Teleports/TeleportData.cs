@@ -4,9 +4,9 @@ public static class TeleportData
 {
     public static readonly List<TeleportInfo> Common = new()
     {
-        new TeleportInfo(){ Name="洛圣都改车王", X=-365.425f, Y=-131.809f, Z=-225.0f },
-        new TeleportInfo(){ Name="洛圣都机场", X=-1336.0f, Y=-3044.0f, Z=-225.0f },
-        new TeleportInfo(){ Name="赛诺拉沙漠机场", X=1747.0f, Y=3273.0f, Z=-225.0f },
+        new TeleportInfo(){ Name="洛圣都改车王", X=-365.425f, Y=-131.809f, Z=38.682f },
+        new TeleportInfo(){ Name="洛圣都机场", X=-1336.0f, Y=-3044.0f, Z=13.944f },
+        new TeleportInfo(){ Name="赛诺拉沙漠机场", X=1747.0f, Y=3273.0f, Z=41.158f },
         new TeleportInfo(){ Name="乞力耶德山", X=489.979f, Y=5587.527f, Z=794.3f },
     };
 
