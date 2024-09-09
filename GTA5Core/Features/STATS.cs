@@ -74,7 +74,7 @@ public static class STATS
     /// <param name="statName"></param>
     /// <param name="value"></param>
     /// <returns></returns>
-    private static async Task STAT_SET_INT2(string statName, int value)
+    private static void STAT_SET_INT2(string statName, int value)
     {
         var hash = GET_STAT_HASH(statName);
 
@@ -117,7 +117,7 @@ public static class STATS
     /// </summary>
     /// <param name="statName"></param>
     /// <param name="value"></param>
-    public static async void STAT_SET_FLOAT(string statName, float value)
+    public static void STAT_SET_FLOAT(string statName, float value)
     {
         var hash = GET_STAT_HASH(statName);
         stats.set_float(hash, value);
@@ -128,7 +128,7 @@ public static class STATS
     /// </summary>
     /// <param name="statName"></param>
     /// <param name="value"></param>
-    public static async void STAT_SET_BOOL(string statName, bool value)
+    public static void STAT_SET_BOOL(string statName, bool value)
     {
         var hash = GET_STAT_HASH(statName);
         stats.set_bool(hash, value);
