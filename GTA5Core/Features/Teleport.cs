@@ -1,5 +1,6 @@
 using GTA5Core.Native;
 using GTA5Core.Offsets;
+using System.Security.Policy;
 namespace GTA5Core.Features;
 
 public static class Teleport
@@ -122,12 +123,32 @@ public static class Teleport
             Vector3 VEC3 = Parse.Arg(__ENTITY.GET_ENTITY_COORDS(__PLAYER.PLAYER_PED_ID(), 0));
         }*/
 
-       /*unsafe
-       {
-            int value = 0;
-            if (!stats.get_int(RAGE.JOAAT("mp0_cas_heist_flow"), &value))
-                return;
-       }*/
+        /*unsafe
+        {
+             int value = 0;
+             if (!stats.get_int(RAGE.JOAAT("mp0_cas_heist_flow"), &value))
+                 return;
+        }*/
+
+        /*unsafe
+        {
+            var vehicles = 0;
+            Vector3 v3 = Parse.Arg(__ENTITY.GET_ENTITY_COORDS(__PLAYER.PLAYER_PED_ID(), 0));
+            var hashes = RAGE.JOAAT("kuruma2");
+
+            if (streaming.request_model(hashes))
+            {
+                var mem = native_invoker.alloc_mem(1024);
+
+                native_invoker.add_special_native(Parse.Arg("CREATE_VEHICLE"), Parse.Arg("activity_creator_prototype_launcher"));
+                vehicles = __VEHICLE.CREATE_VEHICLE(hashes, v3.X, v3.Y, v3.Z, 0, 1, 0, 1);
+                native_invoker.remove_special_native(Parse.Arg("CREATE_VEHICLE"));
+
+                var scr = Parse.Arg(__ENTITY.GET_ENTITY_SCRIPT(vehicles, mem));
+                native_invoker.free_mem(mem);
+                __STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
+            }
+        }*/
     }
 
     /// <summary>
