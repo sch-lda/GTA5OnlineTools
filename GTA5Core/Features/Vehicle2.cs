@@ -51,6 +51,9 @@ public static class Vehicle2
             vector3.X += cos * dist;
             vector3.Y += sin * dist;
 
+            if (isInRoom && (__VEHICLE.IS_THIS_MODEL_A_PLANE(hashes) == 1) || (__VEHICLE.IS_THIS_MODEL_A_HELI(hashes) == 1))
+                vector3.Z = 500f;
+
             var pedHandle = __PLAYER.PLAYER_PED_ID();
             var vehicleHandle = vehicle.create_vehicle(hashes, vector3, __ENTITY.GET_ENTITY_HEADING(pedHandle));
 
