@@ -69,6 +69,9 @@ public partial class ToolsView : UserControl
             #endregion
             /////////////////////////
             #region 分组3
+            case "IpTest":
+                IpTest();
+                break;
             case "RefreshDNSCache":
                 RefreshDNSCacheClick();
                 break;
@@ -242,6 +245,15 @@ public partial class ToolsView : UserControl
     ////////////////////////////////////////////////////////////////////////
 
     #region 分组3
+    /// <summary>
+    /// 运行网络诊断
+    /// </summary>
+    private void IpTest()
+    {
+        FileHelper.ExtractResFile(FileHelper.Res_Cache_CloudflareSpeedTest, FileHelper.File_Cache_CloudflareSpeedTest);
+        ProcessHelper.OpenProcess(FileHelper.File_Cache_CloudflareSpeedTest);
+    }
+
     /// <summary>
     /// 刷新DNS缓存
     /// </summary>
