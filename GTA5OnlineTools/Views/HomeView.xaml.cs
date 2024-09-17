@@ -26,6 +26,7 @@ public partial class HomeView : UserControl
         builder.AppendLine("> 蓝奏云盘：https://crazyzhang.lanzouh.com/b04md71ve");
         builder.AppendLine("> 123云盘：https://www.123pan.com/s/QEorVv-Bfzv3\n");
         builder.AppendLine("强烈建议大家使用最新版本以获取bug修复和安全性更新");
+        builder.AppendLine("如果此问题长期存在，请尝试使用 工具-运行网络诊断 修复");
 
         GetNoticeInfo();
         GetChangeInfo();

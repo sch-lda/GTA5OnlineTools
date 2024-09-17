@@ -75,6 +75,12 @@
         <WrapPanel>
             <ui:ButtonIcon
                 Command="{Binding ToolsButtonClickCommand}"
+                CommandParameter="IpTest"
+                Content="运行网络诊断"
+                Icon="🛠"
+                Style="{StaticResource ButtonStyle_Tools}" />
+            <ui:ButtonIcon
+                Command="{Binding ToolsButtonClickCommand}"
                 CommandParameter="RefreshDNSCache"
                 Content="刷新DNS缓存"
                 Icon="&#xe6dc;"

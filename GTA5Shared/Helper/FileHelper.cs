@@ -19,6 +19,7 @@ public static class FileHelper
     public const string Res_Cache_LSCHax = $"{ResFiles}.Cache.LSCHax.exe";
     public const string Res_Cache_Stat = $"{ResFiles}.Cache.stat.txt";
     public const string Res_Cache_Notepad2 = $"{ResFiles}.Cache.Notepad2.exe";
+    public const string Res_Cache_CloudflareSpeedTest = $"{ResFiles}.Cache.CloudflareSpeedTest.exe";
 
     public const string Res_YimMenu_YimMenu = $"{ResFiles}.YimMenu.YimMenu.dll";
     public const string Res_YimMenu_IndexCN = $"{ResFiles}.YimMenu.index_cn.json";
@@ -60,6 +61,7 @@ public static class FileHelper
     public static string File_Cache_LSCHax { get; private set; }
     public static string File_Cache_Stat { get; private set; }
     public static string File_Cache_Notepad2 { get; private set; }
+    public static string File_Cache_CloudflareSpeedTest { get; private set; }
 
     public static string File_YimMenu_DLL { get; private set; }
     public static string File_YimMenu_IndexCN { get; private set; }
@@ -139,6 +141,7 @@ public static class FileHelper
         File_Cache_LSCHax = Path.Combine(Dir_Cache, "LSCHax.exe");
         File_Cache_Stat = Path.Combine(Dir_Cache, "stat.txt");
         File_Cache_Notepad2 = Path.Combine(Dir_Cache, "Notepad2.exe");
+        File_Cache_CloudflareSpeedTest = Path.Combine(Dir_Cache, "CloudflareSpeedTest.exe");
 
         File_YimMenu_DLL = Path.Combine(Dir_YimMenu, "YimMenu.dll");
 
