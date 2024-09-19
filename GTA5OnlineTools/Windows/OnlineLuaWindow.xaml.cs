@@ -18,8 +18,8 @@ public partial class OnlineLuaWindow
     private string tempPath = string.Empty;
 
     private const string host = "https://api.crazyzhang.cn/lua";
-    private const string kiddion = $"{host}/Kiddion.json";
-    private const string yimMenu = $"{host}/YimMenu.json";
+    private const string kiddion = $"https://blog.cc2077.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release/Kiddion.json";
+    private const string yimMenu = $"https://blog.cc2077.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release//YimMenu.json";
 
     public ObservableCollection<LuaInfo> OnlineLuas { get; set; } = new();
 
@@ -39,7 +39,8 @@ public partial class OnlineLuaWindow
         // 初始化下载库
         _downloader = new(downloadOpt);
 
-        RadioButton_Kiddion.IsChecked = true;
+        RadioButton_YimMenu.IsChecked = true;
+        Refresh_list();
     }
 
     private async void Window_OnlineLua_Closing(object sender, CancelEventArgs e)
@@ -63,7 +64,8 @@ public partial class OnlineLuaWindow
 
     //////////////////////////////////////////////////////////
 
-    private async void Button_RefushList_Click(object sender, RoutedEventArgs e)
+
+    private async void Refresh_list()
     {
         AudioHelper.PlayClickSound();
 
@@ -131,6 +133,13 @@ public partial class OnlineLuaWindow
             LoadingSpinner_Refush.IsLoading = false;
         }
     }
+    private void Button_RefushList_Click(object sender, RoutedEventArgs e)
+    {
+        AudioHelper.PlayClickSound();
+
+        Refresh_list();
+    }
+
 
     private async void Button_StartDownload_Click(object sender, RoutedEventArgs e)
     {
@@ -293,7 +302,7 @@ public partial class OnlineLuaWindow
     {
         OnlineLuas.Clear();
 
-        isUseKiddion = RadioButton_Kiddion.IsChecked == true;
+        isUseKiddion = false;
     }
 
     private void Button_ScriptDir_Click(object sender, RoutedEventArgs e)

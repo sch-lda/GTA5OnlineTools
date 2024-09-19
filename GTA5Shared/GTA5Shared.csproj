@@ -46,14 +46,6 @@
 		<EmbeddedResource Include="Files\Cache\Notepad2.exe" />
 		<EmbeddedResource Include="Files\Cache\CloudflareSpeedTest.exe" />
 		<EmbeddedResource Include="Files\Cache\stat.txt" />
-        <EmbeddedResource Include="Files\Kiddion\config.json" />
-        <EmbeddedResource Include="Files\Kiddion\config87.json" />
-        <EmbeddedResource Include="Files\Kiddion\Kiddion.exe" />
-        <EmbeddedResource Include="Files\Kiddion\KiddionChs.dll" />
-        <EmbeddedResource Include="Files\Kiddion\scripts\Readme.api" />
-        <EmbeddedResource Include="Files\Kiddion\teleports.json" />
-        <EmbeddedResource Include="Files\Kiddion\themes.json" />
-        <EmbeddedResource Include="Files\Kiddion\vehicles.json" />
         <EmbeddedResource Include="Files\YimMenu\cache.zip" />
         <EmbeddedResource Include="Files\YimMenu\YimMenu.dll" />
 		<EmbeddedResource Include="Files\YimMenu\zh_CN.json" />

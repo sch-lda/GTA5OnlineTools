@@ -97,11 +97,13 @@ public partial class MainWindow
         }.Start();
 
         // 检查更新线程
+        /*
         new Thread(CheckUpdateThread)
         {
             Name = "CheckUpdateThread",
             IsBackground = true
         }.Start();
+        */
     }
 
     /// <summary>

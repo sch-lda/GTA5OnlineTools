@@ -63,22 +63,6 @@ public partial class LoadWindow
                 // 清空缓存文件夹
                 FileHelper.ClearDirectory(FileHelper.Dir_Cache);
 
-                // 释放必要文件
-                FileHelper.ExtractResFile(FileHelper.Res_Kiddion_Kiddion, FileHelper.File_Kiddion_Kiddion);
-                FileHelper.ExtractResFile(FileHelper.Res_Kiddion_KiddionChs, FileHelper.File_Kiddion_KiddionChs);
-
-                // 释放前先判断，防止覆盖配置文件（当文件不存在时释放文件）
-                if (!File.Exists(FileHelper.File_Kiddion_Config))
-                    FileHelper.ExtractResFile(FileHelper.Res_Kiddion_Config, FileHelper.File_Kiddion_Config);
-                if (!File.Exists(FileHelper.File_Kiddion_Themes))
-                    FileHelper.ExtractResFile(FileHelper.Res_Kiddion_Themes, FileHelper.File_Kiddion_Themes);
-                if (!File.Exists(FileHelper.File_Kiddion_Teleports))
-                    FileHelper.ExtractResFile(FileHelper.Res_Kiddion_Teleports, FileHelper.File_Kiddion_Teleports);
-                if (!File.Exists(FileHelper.File_Kiddion_Vehicles))
-                    FileHelper.ExtractResFile(FileHelper.Res_Kiddion_Vehicles, FileHelper.File_Kiddion_Vehicles);
-
-                // Kiddion Lua脚本
-                FileHelper.ExtractResFile(FileHelper.Res_Kiddion_Scripts_Readme, FileHelper.File_Kiddion_Scripts_Readme);
 
                 /////////////////////////////////////////////////////////////////////
 

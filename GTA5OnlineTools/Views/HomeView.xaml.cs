@@ -28,8 +28,8 @@ public partial class HomeView : UserControl
         builder.AppendLine("强烈建议大家使用最新版本以获取bug修复和安全性更新");
         builder.AppendLine("如果此问题长期存在，请尝试使用 工具-运行网络诊断 修复");
 
-        GetNoticeInfo();
-        GetChangeInfo();
+        //GetNoticeInfo();
+        //GetChangeInfo();
     }
 
     private void MainWindow_WindowClosingEvent()
