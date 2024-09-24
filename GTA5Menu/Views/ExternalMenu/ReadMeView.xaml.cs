@@ -9,4 +9,9 @@ public partial class ReadMeView : UserControl
     {
         InitializeComponent();
     }
+
+    private void RichTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
 }

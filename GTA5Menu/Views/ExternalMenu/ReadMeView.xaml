@@ -11,7 +11,7 @@
     mc:Ignorable="d">
 
     <UniformGrid Columns="2">
-        <RichTextBox Style="{StaticResource RichTextBoxStyle_ReadMe}">
+        <RichTextBox Style="{StaticResource RichTextBoxStyle_ReadMe}" TextChanged="RichTextBox_TextChanged">
             <FlowDocument>
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
                     传送说明
