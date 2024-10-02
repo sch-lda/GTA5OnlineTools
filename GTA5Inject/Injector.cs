@@ -46,6 +46,12 @@ public static class Injector
                 return result;
             }
 
+            if (!CheckIsFSLInjected(process))
+            {
+                result.Content = $"进程 {process.ProcessName} 未注入过FSL";
+                return result;
+            }
+
             var procHandle = Win32.OpenProcess(ProcessAccessFlags.All, false, process.Id);
             if (procHandle == IntPtr.Zero)
             {
@@ -115,6 +121,19 @@ public static class Injector
         foreach (ProcessModule module in process.Modules)
         {
             if (module.FileName == dllPath)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static bool CheckIsFSLInjected(Process process)
+    {
+        foreach (ProcessModule module in process.Modules)
+        {
+            if (module.ModuleName == "version.dll")
             {
                 return true;
             }
