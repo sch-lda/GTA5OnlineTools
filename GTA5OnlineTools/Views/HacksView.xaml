@@ -112,7 +112,7 @@
         <!--  YimMenu 注入式菜单  -->
         <ui:GroupBoxHack
             Title="YimMenu 注入式菜单"
-            Description="一款GitHub开源项目Yimura大佬制作的免费GTA5注入式菜单，旨在防止大范围的公共崩溃和改善整体体验"
+            Description="必须先关闭Battleye开关并到UnknownCheats论坛正确安装FSL v1.3才能使用Yimmenu"
             Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/YimMenu.png">
             <ui:GroupBoxHack.TitleContent>
                 <StackPanel Orientation="Horizontal">
@@ -154,7 +154,7 @@
                         Background="#CA64EA"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="YimMenuGTACache"
-                        Content="预设GTA缓存" />
+                        Content="无效按钮" />
                     <Button
                         Background="#EA4335"
                         Command="{Binding ExtraClickCommand}"

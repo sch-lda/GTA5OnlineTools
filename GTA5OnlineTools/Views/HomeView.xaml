@@ -36,7 +36,7 @@
                 x:Name="TextBox_Change"
                 Margin="2,0,5,5"
                 Style="{StaticResource TextBoxStyle_Logger}"
-                Text="由于GTA使用了BattlEye反作弊驱动,GTA5线上小助手已停止更新。此版本为第三方修改版,仅用于注入Yimmenu。一定要先在r星启动器关闭Battleye开关。一定要在游戏刚启动到主菜单(选择故事还是在线的时候)或者更早注入，进来故事模式再注入就进不了线上了。注入有风险，尝鲜需谨慎。请确保已阅读Discord群组的公告和高频问题解答之后再使用！！！！！！" FontSize="24" />
+                Text="由于GTA使用了BattlEye反作弊驱动,GTA5线上小助手已停止更新。此版本为第三方修改版,仅用于注入Yimmenu。一定要先在r星启动器关闭Battleye开关。一定要在游戏刚启动到主菜单(选择故事还是在线的时候)或者更早注入，进入故事模式再注入就进不了线上了。注入有风险，尝鲜需谨慎。！！！！！！！！！！！！！！！！！！！！必须先下载FSL才能使用！！！！！！！！！！！！！！请确保已阅读Discord群组的公告和高频问题解答之后再使用！！！！！！" FontSize="24" />
         </UniformGrid>
     </Grid>
 

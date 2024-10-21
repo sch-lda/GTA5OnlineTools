@@ -550,7 +550,9 @@ public partial class HacksView : UserControl
     /// YimMenu预设缓存
     /// </summary>
     private void YimMenuGTACacheClick()
-    {
+    {   
+        return;
+
         var res_cache = $"{FileHelper.ResFiles}.YimMenu.cache.zip";
         var file_cache = $"{FileHelper.Dir_AppData_YimMenu}\\cache.zip";
 
