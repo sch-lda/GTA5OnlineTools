@@ -13,15 +13,26 @@
         <RichTextBox Margin="5,5,2.5,5" Style="{StaticResource RichTextBoxStyle_ReadMe}">
             <FlowDocument>
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
-                    简介
+                    注意
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    一款GitHub开源项目Yimura大佬制作的免费GTA5注入式菜单，旨在防止大范围的公共崩溃和改善整体体验
-                </Paragraph>
-                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    项目地址：<Hyperlink NavigateUri="https://github.com/YimMenu/YimMenu" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/YimMenu/YimMenu</Hyperlink>
+                    现在使用Yimmenu请确保实时关注Yimmenu unknowncheats论坛、Matrix群组(可以从Github discussion获取链接)、小助手Discord内的消息，并随时做好被封禁的心理准备。非必要不建议开挂。
                 </Paragraph>
 
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    Yimmenu官方GitHub仓库
+                    <Hyperlink NavigateUri="https://github.com/YimMenu/YimMenu" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/YimMenu/YimMenu</Hyperlink> 由于使用了GTA V泄漏源码被R星母公司T2投诉(当然根本原因可能还是因为R星对Yim公开绕过be状态的方法感到不满)，Yimura决定不再公开源代码以减少潜在的法律问题。GitHub 仓库仅保留lua等功能的文档和说明。Yimmenu二进制文件YimMenu.dll将在Unknowncheats论坛
+                    <Hyperlink NavigateUri="https://www.unknowncheats.me/forum/grand-theft-auto-v/476972-yimmenu-1-69-b3337.html" RequestNavigate="Hyperlink_RequestNavigate">https://www.unknowncheats.me/forum/grand-theft-auto-v/476972-yimmenu-1-69-b3337.html</Hyperlink> 发布和更新，像以前的kiddion一样，除此之外没有变化
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    小助手内同时提供Yimmenu官方版和Mr-X-GTA的第三方版本。官方版本由maybegreat48等核心开发者维护，其可靠性理论上更高，但不再开源，不可使用Alice Lua，中文翻译可能不完全，不包含sch分支的非自由的聊天翻译等更改。Mr-X-GTA是Yimmenu贡献者之一，曾为yimmenu修复多个棘手的问题，Mr-X-GTA移除了R星指出的侵权代码，并继续开源，有Alicelua等特殊使用需要的可以使用Mr-X版本。Mr-X-GTA开源地址
+                    <Hyperlink NavigateUri="https://github.com/Mr-X-GTA/YimMenu" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/Mr-X-GTA/YimMenu</Hyperlink>
+                </Paragraph>
+                <Paragraph>
+                    FSL现在已成为Yimmenu的依赖项，必须先下载FSL改名为version.dll然后放在GTA5游戏根目录才能主持线上战局。不预先安装FSL直接注入Yimmenu你可能很快被封禁。
+                    FSL下载地址:
+                    <Hyperlink NavigateUri="https://www.unknowncheats.me/forum/grand-theft-auto-v/616977-fsl-local-gtao-saves.html" RequestNavigate="Hyperlink_RequestNavigate">https://www.unknowncheats.me/forum/grand-theft-auto-v/616977-fsl-local-gtao-saves.html</Hyperlink>
+                </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
                     配置文件
                 </Paragraph>
@@ -45,6 +56,11 @@
                     小助手汉化版本YimMenu默认关闭全部功能，YimMenu官方英文版本会默认开启部分功能，如果两则都使用，注意配置文件冲突
                 </Paragraph>
 
+            </FlowDocument>
+        </RichTextBox>
+        <!--  ////////////////////  -->
+        <RichTextBox Margin="2.5,5,5,5" Style="{StaticResource RichTextBoxStyle_ReadMe}">
+            <FlowDocument>
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
                     崩溃问题
                 </Paragraph>
@@ -54,19 +70,6 @@
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
                     如果更新缓存会导致崩溃游戏，可以使用预设GTA缓存功能（这是释放不会崩溃的GTA缓存文件），然后再进入游戏就不需要更新缓存了
                 </Paragraph>
-
-                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
-                    更多
-                </Paragraph>
-                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    ● 详细使用教程，请前往小助手官方网站查看&#160;<Hyperlink NavigateUri="https://crazyzhang.cn" RequestNavigate="Hyperlink_RequestNavigate">https://crazyzhang.cn</Hyperlink>
-                </Paragraph>
-
-            </FlowDocument>
-        </RichTextBox>
-        <!--  ////////////////////  -->
-        <RichTextBox Margin="2.5,5,5,5" Style="{StaticResource RichTextBoxStyle_ReadMe}">
-            <FlowDocument>
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
                     按钮
                 </Paragraph>
@@ -81,7 +84,7 @@
                     提示
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    注入成功后，会出现一个YimMenu的控制台窗口，这个不要关闭，否则游戏会跟着一起关闭，如果要卸载注入，点击菜单左上角的卸载按钮即可
+                    注入成功后，会出现一个YimMenu的控制台窗口，这个不要关闭，否则游戏会跟着一起关闭，为了防止被反作弊检测，Yimmenu已不允许在游戏运行时解除注入，只能完全退出游戏重新启动。
                 </Paragraph>
 
             </FlowDocument>
