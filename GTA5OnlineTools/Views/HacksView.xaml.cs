@@ -94,8 +94,11 @@ public partial class HacksView : UserControl
                 case "LSCHax":
                     LSCHaxClick();
                     break;
-                case "YimMenu":
+                case "YimMenu_o":
                     YimMenuClick();
+                    break;
+                case "YimMenu_x":
+                    YimMenuClick2();
                     break;
             }
         }
@@ -363,6 +366,51 @@ public partial class HacksView : UserControl
         else
             NotifierHelper.Show(NotifierType.Error, $"YimMenu菜单注入失败\n错误信息：{result.Content}");
     }
+    private async void YimMenuClick2()
+    {
+        try
+        {
+            // 释放Yimmenu官中语言文件
+            FileHelper.CreateDirectory(FileHelper.Dir_AppData_YimMenu_Translations);
+
+            // 是否使用繁体中文
+            if (HacksModel.IsYimMenuLangZhTw)
+            {
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_IndexTW, FileHelper.File_YimMenu_IndexTW);
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_ZHTW, FileHelper.File_YimMenu_ZHTW);
+            }
+            else
+            {
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_IndexCN, FileHelper.File_YimMenu_IndexCN);
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_ZHCN, FileHelper.File_YimMenu_ZHCN);
+            }
+        }
+        catch (Exception ex)
+        {
+            LoggerHelper.Error($"释放Yimmenu官中语言文件失败，异常信息：{ex.Message}");
+        }
+
+        await Task.Delay(100);
+
+        // 由于玩家可能只使用YimMenu，GTA5Core模块不会初始化，这里要单独处理
+        Process gta5Process;
+        if (Memory.GTA5ProId == 0)
+        {
+            var pArray = Process.GetProcessesByName("GTA5");
+            gta5Process = pArray.First();
+        }
+        else
+        {
+            gta5Process = Memory.GTA5Process;
+        }
+
+        var result = Injector.DLLInjector(gta5Process.Id, FileHelper.File_YimMenu_DLL_X, true);
+        if (result.IsSuccess)
+            NotifierHelper.Show(NotifierType.Success, "YimMenu菜单注入成功");
+        else
+            NotifierHelper.Show(NotifierType.Error, $"YimMenu菜单注入失败\n错误信息：{result.Content}");
+    }
+
     #endregion
 
     #region Kiddion额外功能
@@ -572,7 +620,7 @@ public partial class HacksView : UserControl
     /// </summary>
     private void ResetYimMenuConfigClick()
     {
-        if (FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL))
+        if (FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL) || FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_X))
         {
             NotifierHelper.Show(NotifierType.Warning, "YimMenu被占用，请先卸载YimMenu菜单后再执行操作");
             return;

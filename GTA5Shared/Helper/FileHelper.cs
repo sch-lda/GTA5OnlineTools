@@ -21,7 +21,8 @@ public static class FileHelper
     public const string Res_Cache_Notepad2 = $"{ResFiles}.Cache.Notepad2.exe";
     public const string Res_Cache_CloudflareSpeedTest = $"{ResFiles}.Cache.CloudflareSpeedTest.exe";
 
-    public const string Res_YimMenu_YimMenu = $"{ResFiles}.YimMenu.YimMenu.dll";
+    public const string Res_YimMenu_YimMenu = $"{ResFiles}.YimMenu.YimMenu_uc.dll";
+    public const string Res_YimMenu_YimMenu_X = $"{ResFiles}.YimMenu.YimMenu.dll";
     public const string Res_YimMenu_IndexCN = $"{ResFiles}.YimMenu.index_cn.json";
     public const string Res_YimMenu_IndexTW = $"{ResFiles}.YimMenu.index_tw.json";
     public const string Res_YimMenu_ZHCN = $"{ResFiles}.YimMenu.zh_CN.json";
@@ -64,6 +65,7 @@ public static class FileHelper
     public static string File_Cache_CloudflareSpeedTest { get; private set; }
 
     public static string File_YimMenu_DLL { get; private set; }
+    public static string File_YimMenu_DLL_X { get; private set; }
     public static string File_YimMenu_IndexCN { get; private set; }
     public static string File_YimMenu_IndexTW { get; private set; }
     public static string File_YimMenu_ZHCN { get; private set; }
@@ -143,7 +145,8 @@ public static class FileHelper
         File_Cache_Notepad2 = Path.Combine(Dir_Cache, "Notepad2.exe");
         File_Cache_CloudflareSpeedTest = Path.Combine(Dir_Cache, "CloudflareSpeedTest.exe");
 
-        File_YimMenu_DLL = Path.Combine(Dir_YimMenu, "YimMenu.dll");
+        File_YimMenu_DLL = Path.Combine(Dir_YimMenu, "YimMenu_uc.dll");
+        File_YimMenu_DLL_X = Path.Combine(Dir_YimMenu, "YimMenu.dll");
 
         File_YimMenu_IndexCN = Path.Combine(Dir_AppData_YimMenu_Translations, "index.json");
         File_YimMenu_IndexTW = Path.Combine(Dir_AppData_YimMenu_Translations, "index.json");

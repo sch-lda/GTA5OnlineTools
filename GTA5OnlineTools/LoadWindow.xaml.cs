@@ -85,6 +85,18 @@ public partial class LoadWindow
                     LoggerHelper.Warn("YimMenu.dll文件正在被占用，跳过释放");
                 }
 
+                // 判断YimMenu.dll Mr_X 文件是否存在 是否被占用
+                if (!File.Exists(FileHelper.File_YimMenu_DLL_X) ||
+                    !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_X))
+                {
+                    FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_X, FileHelper.File_YimMenu_DLL_X);
+                    LoggerHelper.Info("释放YimMenu.dll2文件成功");
+                }
+                else
+                {
+                    LoggerHelper.Warn("YimMenu.dll2文件正在被占用，跳过释放");
+                }
+
                 // 初始化简繁字库
                 ChsHelper.PreHeat();
                 LoggerHelper.Info("简繁翻译库初始化成功");
