@@ -17,7 +17,6 @@ public partial class OnlineLuaWindow
     private bool isUseKiddion = true;
     private string tempPath = string.Empty;
 
-    private const string host = "https://api.crazyzhang.cn/lua";
     private const string kiddion = $"https://blog.cc2077.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release/Kiddion.json";
     private const string yimMenu = $"https://blog.cc2077.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release//YimMenu.json";
 

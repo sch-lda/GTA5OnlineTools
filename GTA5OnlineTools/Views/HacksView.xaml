@@ -16,104 +16,16 @@
         <!--  Kiddion 外置辅助菜单  -->
 
         <!--  GTAHax 全局变量编辑器  -->
-        <ui:GroupBoxHack
-            Title="GTAHax 全局变量编辑器"
-            Description="一款国外UnKnoWnCheaTs论坛polivilas大佬制作的免费GTA5全局变量编辑器"
-            Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/GTAHax.png">
-            <ui:GroupBoxHack.TitleContent>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5,0,5,0" VerticalAlignment="Center">
-                        <Hyperlink Command="{Binding ReadMeClickCommand}" CommandParameter="GTAHax">
-                            使用说明
-                        </Hyperlink>
-                    </TextBlock>
-                    <ToggleButton Margin="5,0,5,0" IsChecked="{Binding HacksModel.GTAHaxIsRun}">
-                        <b:Interaction.Triggers>
-                            <b:EventTrigger EventName="Click">
-                                <b:InvokeCommandAction Command="{Binding HacksClickCommand}" CommandParameter="GTAHax" />
-                            </b:EventTrigger>
-                        </b:Interaction.Triggers>
-                    </ToggleButton>
-                </StackPanel>
-            </ui:GroupBoxHack.TitleContent>
-            <ui:GroupBoxHack.DescriptionContent>
-                <WrapPanel>
-                    <Button
-                        Background="#4285F4"
-                        Command="{Binding ExtraClickCommand}"
-                        CommandParameter="EditGTAHaxStat"
-                        Content="导入文件" />
-                    <Button
-                        Background="#CA64EA"
-                        Command="{Binding ExtraClickCommand}"
-                        CommandParameter="RunGTAHaxStat"
-                        Content="运行导入文件" />
-                    <Button
-                        Background="#00AE9D"
-                        Command="{Binding ExtraClickCommand}"
-                        CommandParameter="DefaultGTAHaxStat"
-                        Content="预设代码" />
-                </WrapPanel>
-            </ui:GroupBoxHack.DescriptionContent>
-        </ui:GroupBoxHack>
 
         <!--  BincoHax 角色服装编辑器  -->
-        <ui:GroupBoxHack
-            Title="BincoHax 角色服装编辑器"
-            Description="一款国外UnKnoWnCheaTs论坛polivilas大佬制作的免费GTA5角色服装编辑器"
-            Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/BincoHax.png">
-            <ui:GroupBoxHack.TitleContent>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5,0,5,0" VerticalAlignment="Center">
-                        <Hyperlink Command="{Binding ReadMeClickCommand}" CommandParameter="BincoHax">
-                            使用说明
-                        </Hyperlink>
-                    </TextBlock>
-                    <ToggleButton Margin="5,0,5,0" IsChecked="{Binding HacksModel.BincoHaxIsRun}">
-                        <b:Interaction.Triggers>
-                            <b:EventTrigger EventName="Click">
-                                <b:InvokeCommandAction Command="{Binding HacksClickCommand}" CommandParameter="BincoHax" />
-                            </b:EventTrigger>
-                        </b:Interaction.Triggers>
-                    </ToggleButton>
-                </StackPanel>
-            </ui:GroupBoxHack.TitleContent>
-            <ui:GroupBoxHack.DescriptionContent>
-                <WrapPanel />
-            </ui:GroupBoxHack.DescriptionContent>
-        </ui:GroupBoxHack>
 
         <!--  LSCHax 载具改装编辑器  -->
-        <ui:GroupBoxHack
-            Title="LSCHax 载具改装编辑器"
-            Description="一款国外UnKnoWnCheaTs论坛polivilas大佬制作的免费GTA5载具改装编辑器。主要用来改装载具，使用频率较少"
-            Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/LSCHax.png">
-            <ui:GroupBoxHack.TitleContent>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5,0,5,0" VerticalAlignment="Center">
-                        <Hyperlink Command="{Binding ReadMeClickCommand}" CommandParameter="LSCHax">
-                            使用说明
-                        </Hyperlink>
-                    </TextBlock>
-                    <ToggleButton Margin="5,0,5,0" IsChecked="{Binding HacksModel.LSCHaxIsRun}">
-                        <b:Interaction.Triggers>
-                            <b:EventTrigger EventName="Click">
-                                <b:InvokeCommandAction Command="{Binding HacksClickCommand}" CommandParameter="LSCHax" />
-                            </b:EventTrigger>
-                        </b:Interaction.Triggers>
-                    </ToggleButton>
-                </StackPanel>
-            </ui:GroupBoxHack.TitleContent>
-            <ui:GroupBoxHack.DescriptionContent>
-                <WrapPanel />
-            </ui:GroupBoxHack.DescriptionContent>
-        </ui:GroupBoxHack>
 
         <!--  YimMenu 注入式菜单  -->
         <ui:GroupBoxHack
             Title="YimMenu 注入式菜单"
-            Description="必须先关闭Battleye开关并到UnknownCheats论坛正确安装FSL v1.3才能使用Yimmenu"
-            Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/YimMenu.png">
+            Description="点一下使用说明按钮看看!!!必须先关闭Battleye开关并到UnknownCheats论坛正确安装FSL v1.3才能使用Yimmenu"
+            Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/YimMenu.png" Width="541" Height="186" Background="White">
             <ui:GroupBoxHack.TitleContent>
                 <StackPanel Orientation="Horizontal">
                     <CheckBox Content="繁体" IsChecked="{Binding HacksModel.IsYimMenuLangZhTw}" />
@@ -168,7 +80,7 @@
             Title="下载Lua脚本"
             Command="{Binding HacksFuncClickCommand}"
             CommandParameter="OnlineLua"
-            Description="在线下载Kiddion和YimMenu脚本"
+            Description="在线下载YimMenu脚本"
             Icon="&#xe72e;"
             Style="{StaticResource ButtonStyle_HacksFunc}" />
 

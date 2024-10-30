@@ -16,6 +16,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="System.Net.Http" Version="4.3.4" />
+      <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\GTA5Core\GTA5Core.csproj" />
       <ProjectReference Include="..\GTA5HotKey\GTA5HotKey.csproj" />
       <ProjectReference Include="..\Vendor\GameOverlay\GameOverlay.csproj" />
