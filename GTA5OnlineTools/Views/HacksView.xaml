@@ -24,7 +24,6 @@
         <!--  YimMenu 注入式菜单  -->
         <ui:GroupBoxHack
             Title="YimMenu"
-            Description="点一下使用说明按钮看看!!!必须先关闭Battleye开关并到UnknownCheats论坛正确安装FSL v1.3才能使用Yimmenu"
             Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/YimMenu.png" Width="541" Height="186" Background="White">
             <ui:GroupBoxHack.TitleContent>
                 <StackPanel Orientation="Horizontal">
@@ -45,38 +44,41 @@
                 </StackPanel>
             </ui:GroupBoxHack.TitleContent>
             <ui:GroupBoxHack.DescriptionContent>
-                <WrapPanel>
-                    <Button
+                <StackPanel Margin="0,-23,0,0">
+                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="务必点一下说明按钮看看!!!必须先从R星启动器关闭Battleye开关并到UnknownCheats论坛正确安装FSL v1.3才能使用Yimmenu" />
+                    <WrapPanel>
+                        <Button
                         Background="#FE780A"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="YimMenuDirectory"
                         Content="配置目录" />
-                    <Button
+                        <Button
                         Background="#FE780A"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="YimMenuScriptsDirectory"
                         Content="脚本目录" />
-                    <Button
+                        <Button
                         Background="#34A853"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="EditYimMenuConfig"
                         Content="配置文件" />
-                    <Button
+                        <Button
                         Background="#34A853"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="ViewYimMenuLogger"
                         Content="错误日志" />
-                    <Button
+                        <Button
                         Background="#CA64EA"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="YimMenuGTACache"
                         Content="无效按钮" />
-                    <Button
+                        <Button
                         Background="#EA4335"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="ResetYimMenuConfig"
                         Content="重置配置文件" />
-                </WrapPanel>
+                    </WrapPanel>
+                </StackPanel>
             </ui:GroupBoxHack.DescriptionContent>
         </ui:GroupBoxHack>
 
