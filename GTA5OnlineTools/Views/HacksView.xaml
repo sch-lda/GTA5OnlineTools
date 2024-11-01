@@ -89,6 +89,13 @@
             Description="在线下载YimMenu脚本"
             Icon="&#xe72e;"
             Style="{StaticResource ButtonStyle_HacksFunc}" />
+        <ui:ButtonIcon
+            Title="FSL管理"
+            Command="{Binding HacksFuncClickCommand}"
+            CommandParameter="FSLmanage"
+            Description="下载安装FSL"
+            Icon="&#xE72E;"
+            Style="{StaticResource ButtonStyle_HacksFunc}" />
 
     </WrapPanel>
 

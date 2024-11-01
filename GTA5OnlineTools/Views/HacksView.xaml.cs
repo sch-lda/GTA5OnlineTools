@@ -29,6 +29,7 @@ public partial class HacksView : UserControl
 
     private GTAHaxWindow GTAHaxWindow = null;
     private OnlineLuaWindow OnlineLuaWindow = null;
+    private FSLWindow FSLWindow = null;
 
     public HacksView()
     {
@@ -146,6 +147,9 @@ public partial class HacksView : UserControl
         {
             case "OnlineLua":
                 OnlineLuaClick();
+                break;
+            case "FSLmanage":
+                FSLClick();
                 break;
         }
     }
@@ -666,4 +670,36 @@ public partial class HacksView : UserControl
             }
         }
     }
+
+    /// <summary>
+    /// 打开在线下载Lua脚本窗口
+    /// </summary>
+    private void FSLClick()
+    {
+        if (FSLWindow == null)
+        {
+            FSLWindow = new FSLWindow();
+            FSLWindow.Show();
+        }
+        else
+        {
+            if (FSLWindow.IsVisible)
+            {
+                if (!FSLWindow.Topmost)
+                {
+                    FSLWindow.Topmost = true;
+                    FSLWindow.Topmost = false;
+                }
+
+                FSLWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                FSLWindow = null;
+                FSLWindow = new FSLWindow();
+                FSLWindow.Show();
+            }
+        }
+    }
+
 }
