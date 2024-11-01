@@ -342,7 +342,7 @@ public partial class FSLWindow
     {
         AudioHelper.PlayClickSound();
 
-        ProcessHelper.OpenDir(FileHelper.Dir_AppData_YimMenu_Scripts);
+        ProcessHelper.OpenDir(GTA5_InstallPath_Epic);
     }
 
 }
