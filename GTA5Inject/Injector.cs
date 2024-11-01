@@ -48,7 +48,7 @@ public static class Injector
 
             if (!CheckIsFSLInjected(process))
             {
-                result.Content = $"进程 {process.ProcessName} 未注入过FSL";
+                result.Content = $"进程 {process.ProcessName} 未注入过FSL,请先阅读说明";
                 return result;
             }
 
