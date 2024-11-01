@@ -285,8 +285,19 @@ public partial class FSLWindow
             {
                 ResetUIState();
 
-                Button_StartDownload_Steam.IsEnabled = true;
-                Button_StartDownload_Epic.IsEnabled = true;
+                if (GTA5_InstallPath_Steam != string.Empty)
+                {
+                    Button_GTA_STEAM_Dir.IsEnabled = true;
+                    Button_StartDownload_Steam.IsEnabled = true;
+                    Button_RM_FSL_Steam.IsEnabled = true;
+                }
+                if (GTA5_InstallPath_Epic != string.Empty)
+                {
+                    Button_GTA_EPIC_Dir.IsEnabled = true;
+                    Button_StartDownload_Epic.IsEnabled = true;
+                    Button_RM_FSL_Epic.IsEnabled = true;
+                }
+
                 Button_CancelDownload.IsEnabled = false;
 
                 AppendLogger("下载失败.如果网络连接失败，请尝试使用 工具-运行网络诊断 修复");
