@@ -139,11 +139,6 @@ public static class ProcessHelper
     /// </summary> 
     public static void CloseThirdProcess()
     {
-        CloseProcess("Kiddion");
-        CloseProcess("GTAHax");
-        CloseProcess("BincoHax");
-        CloseProcess("LSCHax");
         CloseProcess("Notepad2");
-        CloseProcess("Xenos64");
     }
 }
