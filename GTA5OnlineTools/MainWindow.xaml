@@ -72,7 +72,7 @@
                 <ui:NavMenu
                     Command="{Binding NavigateCommand}"
                     CommandParameter="HacksView"
-                    Content="第三方"
+                    Content="YimMenu"
                     GroupName="NavMenu"
                     Icon="&#xe63b;"
                     Style="{StaticResource NavMenuStyle_Main}" />
