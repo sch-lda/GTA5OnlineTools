@@ -33,6 +33,7 @@ public partial class SessionChatView : UserControl
 
     private void Button_Translate_Click(object sender, RoutedEventArgs e)
     {
+        return;
         AudioHelper.PlayClickSound();
 
         var message = TextBox_InputMessage.Text.Trim();
@@ -42,18 +43,6 @@ public partial class SessionChatView : UserControl
 
         var btnContent = (e.OriginalSource as Button).Content.ToString();
 
-        switch (btnContent)
-        {
-            case "简转繁":
-                TextBox_InputMessage.Text = ChsHelper.ToTraditional(message);
-                break;
-            case "繁转简":
-                TextBox_InputMessage.Text = ChsHelper.ToSimplified(message);
-                break;
-            case "转拼音":
-                TextBox_InputMessage.Text = ChsHelper.ToPinyin(message);
-                break;
-        }
     }
 
     private void Button_SendTextToGTA5_Click(object sender, RoutedEventArgs e)

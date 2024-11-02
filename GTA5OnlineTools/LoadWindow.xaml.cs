@@ -52,10 +52,10 @@ public partial class LoadWindow
                 FileHelper.CreateDirectory(FileHelper.Dir_Cache);
                 FileHelper.CreateDirectory(FileHelper.Dir_YimMenu);
                 FileHelper.CreateDirectory(FileHelper.Dir_Config);
-                FileHelper.CreateDirectory(FileHelper.Dir_Kiddion);
+                // FileHelper.CreateDirectory(FileHelper.Dir_Kiddion);
                 FileHelper.CreateDirectory(FileHelper.Dir_Logger);
 
-                FileHelper.CreateDirectory(FileHelper.Dir_Kiddion_Scripts);
+                // FileHelper.CreateDirectory(FileHelper.Dir_Kiddion_Scripts);
 
                 FileHelper.CreateDirectory(FileHelper.Dir_Log_NLog);
                 FileHelper.CreateDirectory(FileHelper.Dir_Log_Crash);
@@ -65,11 +65,12 @@ public partial class LoadWindow
 
 
                 /////////////////////////////////////////////////////////////////////
-
+                /*
                 FileHelper.ExtractResFile(FileHelper.Res_Cache_GTAHax, FileHelper.File_Cache_GTAHax);
                 FileHelper.ExtractResFile(FileHelper.Res_Cache_BincoHax, FileHelper.File_Cache_BincoHax);
                 FileHelper.ExtractResFile(FileHelper.Res_Cache_LSCHax, FileHelper.File_Cache_LSCHax);
                 FileHelper.ExtractResFile(FileHelper.Res_Cache_Stat, FileHelper.File_Cache_Stat);
+                */
 
                 FileHelper.ExtractResFile(FileHelper.Res_Cache_Notepad2, FileHelper.File_Cache_Notepad2);
 
@@ -96,10 +97,6 @@ public partial class LoadWindow
                 {
                     LoggerHelper.Warn("YimMenu.dll2文件正在被占用，跳过释放");
                 }
-
-                // 初始化简繁字库
-                ChsHelper.PreHeat();
-                LoggerHelper.Info("简繁翻译库初始化成功");
 
                 /////////////////////////////////////////////////////////////////////
 

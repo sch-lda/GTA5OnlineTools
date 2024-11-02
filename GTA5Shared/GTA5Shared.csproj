@@ -22,7 +22,6 @@
         <PackageReference Include="NLog" Version="5.3.4" />
         <PackageReference Include="Notification.Wpf" Version="8.0.0" />
         <PackageReference Include="RestSharp" Version="112.0.0" />
-        <PackageReference Include="Chinese" Version="0.5.0" />
     </ItemGroup>
 
     <ItemGroup>
