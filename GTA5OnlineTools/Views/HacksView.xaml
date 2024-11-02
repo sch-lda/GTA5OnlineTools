@@ -63,7 +63,7 @@
                         Background="#CA64EA"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="YimMenuGTACache"
-                        Content="无效按钮" />
+                        Content="预置缓存" />
                         <Button
                         Background="#EA4335"
                         Command="{Binding ExtraClickCommand}"
