@@ -72,18 +72,6 @@
         <!--  ///////////////////  -->
         <WrapPanel>
             <ui:ButtonIcon
-                Title="Kiddion汉化润色修正"
-                Command="{Binding GTA5FuncClickCommand}"
-                CommandParameter="KiddionChs"
-                Icon="&#xe61c;"
-                Style="{StaticResource ButtonStyle_GTA5Func}" />
-            <ui:ButtonIcon
-                Title="生成带密码战局文件"
-                Command="{Binding GTA5FuncClickCommand}"
-                CommandParameter="StartupMeta"
-                Icon="&#xe64c;"
-                Style="{StaticResource ButtonStyle_GTA5Func}" />
-            <ui:ButtonIcon
                 Title="替换故事模式完美存档"
                 Command="{Binding GTA5FuncClickCommand}"
                 CommandParameter="StoryProfiles"

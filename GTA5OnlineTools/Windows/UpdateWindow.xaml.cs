@@ -97,7 +97,7 @@ public partial class UpdateWindow
     /// <param name="e"></param>
     private async void Button_StartDownload_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var index = ListBox_DownloadAddress.SelectedIndex;
         if (index == -1)
@@ -134,7 +134,7 @@ public partial class UpdateWindow
     /// <param name="e"></param>
     private async void Button_CancelDownload_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Button_StartDownload.IsEnabled = false;
         Button_CancelDownload.IsEnabled = false;

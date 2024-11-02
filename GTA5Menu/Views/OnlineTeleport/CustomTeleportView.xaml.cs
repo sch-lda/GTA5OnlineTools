@@ -114,7 +114,7 @@ public partial class CustomTeleportView : UserControl
     /// <param name="e"></param>
     private void Button_AddCustomTeleport_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var vector3 = Teleport.GetPlayerPosition();
 
@@ -136,7 +136,7 @@ public partial class CustomTeleportView : UserControl
     /// <param name="e"></param>
     private void Button_EditCustomTeleport_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var tempName = TextBox_CustomName.Text.Trim();
         var tempX = TextBox_Position_X.Text.Trim();
@@ -179,7 +179,7 @@ public partial class CustomTeleportView : UserControl
     /// <param name="e"></param>
     private void Button_DeleteCustomTeleport_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var index = ListBox_CustomTeleports.SelectedIndex;
         if (index == -1)
@@ -198,7 +198,7 @@ public partial class CustomTeleportView : UserControl
     /// <param name="e"></param>
     private void Button_Teleport_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var index = ListBox_CustomTeleports.SelectedIndex;
         if (index == -1)

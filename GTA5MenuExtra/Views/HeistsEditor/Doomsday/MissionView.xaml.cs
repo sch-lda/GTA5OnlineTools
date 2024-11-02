@@ -22,14 +22,14 @@ public partial class MissionView : UserControl
 
     private void Button_GANGOPS_FLOW_MISSION_PROG_1_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_GANGOPS_FLOW_MISSION_PROG", -1);
     }
 
     private void Button_GANGOPS_FLOW_MISSION_PROG_503_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_GANGOPS_FLOW_MISSION_PROG", 503);
         STAT_SET_INT("MPx_GANGOPS_HEIST_STATUS", -229383);
@@ -38,7 +38,7 @@ public partial class MissionView : UserControl
 
     private void Button_GANGOPS_FLOW_MISSION_PROG_240_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_GANGOPS_FLOW_MISSION_PROG", 240);
         STAT_SET_INT("MPx_GANGOPS_HEIST_STATUS", -229382);
@@ -47,7 +47,7 @@ public partial class MissionView : UserControl
 
     private void Button_GANGOPS_FLOW_MISSION_PROG_16368_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_GANGOPS_FLOW_MISSION_PROG", 16368);
         STAT_SET_INT("MPx_GANGOPS_HEIST_STATUS", -229380);
@@ -56,7 +56,7 @@ public partial class MissionView : UserControl
 
     private void Button_ResetDoomsday_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_GANGOPS_FLOW_MISSION_PROG", 240);
         STAT_SET_INT("MPx_GANGOPS_HEIST_STATUS", 0);

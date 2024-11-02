@@ -119,7 +119,7 @@ public partial class FSLWindow
     //////////////////////////////////////////////////////////
     private void Button_RM_FSL_Steam_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
         if (File.Exists(Path.Combine(GTA5_InstallPath_Steam, "version.dll")))
         {
             if (!FileHelper.IsOccupied(Path.Combine(GTA5_InstallPath_Steam, "version.dll")))
@@ -140,7 +140,7 @@ public partial class FSLWindow
 
     private void Button_RM_FSL_Epic_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
         if (File.Exists(Path.Combine(GTA5_InstallPath_Epic, "version.dll")))
         {
             if (!FileHelper.IsOccupied(Path.Combine(GTA5_InstallPath_Epic, "version.dll")))
@@ -161,7 +161,7 @@ public partial class FSLWindow
 
     private async void Button_StartDownload_Steam_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         // ClearLogger();
 
@@ -189,7 +189,7 @@ public partial class FSLWindow
 
     private async void Button_StartDownload_Epic_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         // ClearLogger();
 
@@ -217,7 +217,7 @@ public partial class FSLWindow
 
     private async void Button_CancelDownload_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Button_StartDownload_Steam.IsEnabled = false;
         Button_StartDownload_Epic.IsEnabled = false;
@@ -334,13 +334,13 @@ public partial class FSLWindow
 
     private void Button_GTA_STEAM_Dir_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         ProcessHelper.OpenDir(GTA5_InstallPath_Steam);
     }
     private void Button_GTA_EPIC_Dir_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         ProcessHelper.OpenDir(GTA5_InstallPath_Epic);
     }

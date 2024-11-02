@@ -13,14 +13,6 @@
     mc:Ignorable="d">
 
     <WrapPanel>
-        <!--  Kiddion 外置辅助菜单  -->
-
-        <!--  GTAHax 全局变量编辑器  -->
-
-        <!--  BincoHax 角色服装编辑器  -->
-
-        <!--  LSCHax 载具改装编辑器  -->
-
         <!--  YimMenu 注入式菜单  -->
         <ui:GroupBoxHack
             Title="YimMenu"

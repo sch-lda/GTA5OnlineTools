@@ -11,12 +11,12 @@
 [assembly: Guid("316edf9d-bad1-472e-8471-c6c78be707c5")]
 
 // PropertyGroup Generate????Attribute
-[assembly: AssemblyTitle("GTA5线上小助手")]
+[assembly: AssemblyTitle("GTA5线上小助手-非官方")]
 [assembly: AssemblyCompany("https://crazyzhang.cn")]
-[assembly: AssemblyProduct("GTA5线上小助手")]
-[assembly: AssemblyVersion("3.2.0.3")]
-[assembly: AssemblyFileVersion("3.2.0.3")]
-[assembly: AssemblyInformationalVersion("3.2.0.3")]
+[assembly: AssemblyProduct("GTA5线上小助手-非官方")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyInformationalVersion("1.0.0.0")]
 
 // 不重复
 [assembly: AssemblyDescription("https://github.com/CrazyZhang666/GTA5OnlineTools")]

@@ -53,35 +53,6 @@
             </StackPanel>
         </StackPanel>
         <!--  ////////////////////////  -->
-        <StackPanel>
-            <ui:LabelIcon Content="提示音" />
-            <WrapPanel Margin="5">
-                <RadioButton
-                    x:Name="RadioButton_ClickAudio0"
-                    Click="RadioButton_ClickAudio_Click"
-                    Content="关闭" />
-                <RadioButton
-                    x:Name="RadioButton_ClickAudio1"
-                    Click="RadioButton_ClickAudio_Click"
-                    Content="提示音1" />
-                <RadioButton
-                    x:Name="RadioButton_ClickAudio2"
-                    Click="RadioButton_ClickAudio_Click"
-                    Content="提示音2" />
-                <RadioButton
-                    x:Name="RadioButton_ClickAudio3"
-                    Click="RadioButton_ClickAudio_Click"
-                    Content="提示音3" />
-                <RadioButton
-                    x:Name="RadioButton_ClickAudio4"
-                    Click="RadioButton_ClickAudio_Click"
-                    Content="提示音4" />
-                <RadioButton
-                    x:Name="RadioButton_ClickAudio5"
-                    Click="RadioButton_ClickAudio_Click"
-                    Content="提示音5" />
-            </WrapPanel>
-        </StackPanel>
         <!--  ////////////////////////  -->
         <StackPanel />
     </UniformGrid>

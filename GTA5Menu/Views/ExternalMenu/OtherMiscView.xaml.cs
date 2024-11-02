@@ -31,7 +31,7 @@ public partial class OtherMiscView : UserControl
 
     private void Button_ModelChange_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var index = ListBox_PedModel.SelectedIndex;
         if (index != -1)

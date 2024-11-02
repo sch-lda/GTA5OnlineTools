@@ -14,10 +14,8 @@ public partial class OnlineLuaWindow
 {
     private DownloadService _downloader;
 
-    private bool isUseKiddion = true;
     private string tempPath = string.Empty;
 
-    private const string kiddion = $"https://blog.cc2077.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release/Kiddion.json";
     private const string yimMenu = $"https://blog.cc2077.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release//YimMenu.json";
 
     public ObservableCollection<LuaInfo> OnlineLuas { get; set; } = new();
@@ -38,7 +36,6 @@ public partial class OnlineLuaWindow
         // 初始化下载库
         _downloader = new(downloadOpt);
 
-        RadioButton_YimMenu.IsChecked = true;
         Refresh_list();
     }
 
@@ -66,7 +63,7 @@ public partial class OnlineLuaWindow
 
     private async void Refresh_list()
     {
-        AudioHelper.PlayClickSound();
+        
 
         try
         {
@@ -78,17 +75,12 @@ public partial class OnlineLuaWindow
             LoadingSpinner_Refush.IsLoading = true;
 
             string content;
-            if (isUseKiddion)
-                content = await HttpHelper.DownloadString(kiddion);
-            else
-                content = await HttpHelper.DownloadString(yimMenu);
+            content = await HttpHelper.DownloadString(yimMenu);
 
             // 无网络情况下加载本地lua下载信息
             if (string.IsNullOrEmpty(content))
             {
                 string local_index = "GTA5OnlineTools.Files.lua_index_yimmenu.json";
-                if (isUseKiddion)
-                    local_index = "GTA5OnlineTools.Files.lua_index_kiddion.json";
 
                 var assembly = Assembly.GetExecutingAssembly();
                 var stream = assembly.GetManifestResourceStream(local_index);
@@ -134,7 +126,7 @@ public partial class OnlineLuaWindow
     }
     private void Button_RefushList_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Refresh_list();
     }
@@ -142,7 +134,7 @@ public partial class OnlineLuaWindow
 
     private async void Button_StartDownload_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var index = ListBox_DownloadAddress.SelectedIndex;
         if (index == -1)
@@ -181,10 +173,7 @@ public partial class OnlineLuaWindow
         _downloader.DownloadProgressChanged += DownloadProgressChanged;
         _downloader.DownloadFileCompleted += DownloadFileCompleted;
 
-        if (isUseKiddion)
-            tempPath = Path.Combine(FileHelper.Dir_Kiddion_Scripts, "GTA5OnlineLua.zip");
-        else
-            tempPath = Path.Combine(FileHelper.Dir_AppData_YimMenu_Scripts, "GTA5OnlineLua.zip");
+        tempPath = Path.Combine(FileHelper.Dir_AppData_YimMenu_Scripts, "GTA5OnlineLua.zip");
 
         AppendLogger("开始下载中...");
         await _downloader.DownloadFileTaskAsync(adddress, tempPath);
@@ -192,7 +181,7 @@ public partial class OnlineLuaWindow
 
     private async void Button_CancelDownload_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         StackPanel_ToggleOption.IsEnabled = false;
         Button_StartDownload.IsEnabled = false;
@@ -266,10 +255,7 @@ public partial class OnlineLuaWindow
 
                 using var archive = ZipFile.OpenRead(tempPath);
 
-                if (isUseKiddion)
-                    archive.ExtractToDirectory(FileHelper.Dir_Kiddion_Scripts, true);
-                else
-                    archive.ExtractToDirectory(FileHelper.Dir_AppData_YimMenu_Scripts, true);
+                archive.ExtractToDirectory(FileHelper.Dir_AppData_YimMenu_Scripts, true);
 
                 await Task.Delay(100);
                 archive.Dispose();
@@ -300,34 +286,21 @@ public partial class OnlineLuaWindow
     private void RadioButton_ScriptMode_Checked(object sender, RoutedEventArgs e)
     {
         OnlineLuas.Clear();
-
-        isUseKiddion = false;
     }
 
     private void Button_ScriptDir_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
-        if (isUseKiddion)
-            ProcessHelper.OpenDir(FileHelper.Dir_Kiddion_Scripts);
-        else
-            ProcessHelper.OpenDir(FileHelper.Dir_AppData_YimMenu_Scripts);
+        ProcessHelper.OpenDir(FileHelper.Dir_AppData_YimMenu_Scripts);
     }
 
     private void Button_ClearScriptDir_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
-        if (isUseKiddion)
-        {
-            FileHelper.ClearDirectory(FileHelper.Dir_Kiddion_Scripts);
-            FileHelper.ExtractResFile(FileHelper.Res_Kiddion_Scripts_Readme, FileHelper.File_Kiddion_Scripts_Readme);
-            NotifierHelper.Show(NotifierType.Success, "清空Kiddion Lua脚本文件夹成功");
-        }
-        else
-        {
-            FileHelper.ClearDirectory(FileHelper.Dir_AppData_YimMenu_Scripts);
-            NotifierHelper.Show(NotifierType.Success, "清空YimMenu Lua脚本文件夹成功");
-        }
+
+        FileHelper.ClearDirectory(FileHelper.Dir_AppData_YimMenu_Scripts);
+        NotifierHelper.Show(NotifierType.Success, "清空YimMenu Lua脚本文件夹成功");
     }
 }

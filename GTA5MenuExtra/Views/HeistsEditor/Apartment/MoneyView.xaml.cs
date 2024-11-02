@@ -18,7 +18,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Read_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         TextBox_Apart_Player1.Text = Globals.Get_Global_Value<int>(apart_ratio).ToString();
 
@@ -33,7 +33,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Write_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (!int.TryParse(TextBox_Apart_Player1.Text, out int player1) ||
 

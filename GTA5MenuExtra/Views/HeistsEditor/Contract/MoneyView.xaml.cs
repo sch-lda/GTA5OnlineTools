@@ -18,7 +18,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Read_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         TextBox_FIXER_Value.Text = Globals.Get_Global_Value<int>(Tunables.Index(RAGE.JOAAT("FIXER_FINALE_LEADER_CASH_REWARD"))).ToString();
 
@@ -36,7 +36,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Write_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (!int.TryParse(TextBox_FIXER_Value.Text, out int fixer) ||
 

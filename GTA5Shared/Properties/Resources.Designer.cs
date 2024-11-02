@@ -59,50 +59,5 @@ namespace GTA5Shared.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Click_01 {
-            get {
-                return ResourceManager.GetStream("Click_01", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Click_02 {
-            get {
-                return ResourceManager.GetStream("Click_02", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Click_03 {
-            get {
-                return ResourceManager.GetStream("Click_03", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Click_04 {
-            get {
-                return ResourceManager.GetStream("Click_04", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似于 System.IO.MemoryStream 的 System.IO.UnmanagedMemoryStream 类型的本地化资源。
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Click_05 {
-            get {
-                return ResourceManager.GetStream("Click_05", resourceCulture);
-            }
-        }
     }
 }

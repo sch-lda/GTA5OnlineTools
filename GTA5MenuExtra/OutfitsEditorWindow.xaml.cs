@@ -176,7 +176,7 @@ public partial class OutfitsEditorWindow
 
     private void Button_Read_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         ReadOutfitsData();
 
@@ -185,7 +185,7 @@ public partial class OutfitsEditorWindow
 
     private void Button_Write_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         try
         {

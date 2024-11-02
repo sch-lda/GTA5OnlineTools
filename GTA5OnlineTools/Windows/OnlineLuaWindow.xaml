@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://crazyzhang.cn/ui/2023/xaml"
     x:Name="Window_OnlineLua"
-    Title="GTA5线上小助手 - 在线下载Lua脚本"
+    Title="GTA5线上小助手 - 在线下载Yimmenu Lua脚本"
     Width="1000"
     Height="550"
     Closing="Window_OnlineLua_Closing"
@@ -52,14 +52,6 @@
             Margin="5"
             Orientation="Horizontal">
             <StackPanel x:Name="StackPanel_ToggleOption" Orientation="Horizontal">
-                <RadioButton
-                    x:Name="RadioButton_Kiddion"
-                    Checked="RadioButton_ScriptMode_Checked"
-                    Content="Kiddion" />
-                <RadioButton
-                    x:Name="RadioButton_YimMenu"
-                    Checked="RadioButton_ScriptMode_Checked"
-                    Content="YimMenu" />
                 <Button
                     x:Name="Button_RefushList"
                     Click="Button_RefushList_Click"

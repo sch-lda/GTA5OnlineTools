@@ -49,7 +49,7 @@ public partial class WorldFunctionView : UserControl
 
     private void Button_LocalWeather_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (sender is Button button)
         {
@@ -83,84 +83,84 @@ public partial class WorldFunctionView : UserControl
 
     private void Button_KillNPC_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.KillNPC();
     }
 
     private void Button_KillEnemyNPC_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.KillNPC(true);
     }
 
     private void Button_KillPolice_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.KillPolice();
     }
 
     private void Button_DestroyVehicles_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.DestroyVehicles();
     }
 
     private void Button_DestroyNPCVehicles_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.DestroyNPCVehicles();
     }
 
     private void Button_DestroyEnemyNPCVehicles_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.DestroyNPCVehicles(true);
     }
 
     private void Button_DestroyPoliceVehicles_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.DestroyPoliceVehicles();
     }
 
     private void Button_TeleportNPCToMe_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.TeleportNPCToMe();
     }
 
     private void Button_TeleportEnemyNPCToMe_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.TeleportNPCToMe(true);
     }
 
     private void Button_TeleporNPCTo9999_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.TeleporNPCTo9999();
     }
 
     private void Button_TeleporEnemyNPCTo9999_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.TeleporNPCTo9999(true);
     }
 
     private void Button_RemoveCCTV_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         World.RemoveCCTV();
     }

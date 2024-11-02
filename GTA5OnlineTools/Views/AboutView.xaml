@@ -20,7 +20,7 @@
             Margin="5,0,5,5"
             HorizontalAlignment="Center"
             FontSize="32"
-            Text="GTA5线上小助手" />
+            Text="GTA5线上小助手-非官方版本-仅用于注入Yimmenu" />
         <TextBlock
             Margin="5"
             HorizontalAlignment="Center"
@@ -34,31 +34,13 @@
                     <Setter Property="FontSize" Value="36" />
                 </Style>
             </StackPanel.Resources>
-            <TextBlock ToolTip="项目开源地址">
-                <Hyperlink NavigateUri="https://github.com/CrazyZhang666/GTA5OnlineTools" RequestNavigate="Hyperlink_RequestNavigate">
-                    &#xe6e1;
-                </Hyperlink>
-            </TextBlock>
+
             <TextBlock ToolTip="小助手官方Discord频道">
                 <Hyperlink NavigateUri="https://discord.gg/7GuNzajfhD" RequestNavigate="Hyperlink_RequestNavigate">
                     &#xe6e3;
                 </Hyperlink>
             </TextBlock>
-            <TextBlock ToolTip="Bug反馈">
-                <Hyperlink NavigateUri="https://github.com/CrazyZhang666/GTA5OnlineTools/issues/new" RequestNavigate="Hyperlink_RequestNavigate">
-                    &#xf495;
-                </Hyperlink>
-            </TextBlock>
-            <TextBlock ToolTip="小助手官方网站">
-                <Hyperlink NavigateUri="https://crazyzhang.cn" RequestNavigate="Hyperlink_RequestNavigate">
-                    &#xe65b;
-                </Hyperlink>
-            </TextBlock>
-            <TextBlock ToolTip="小助手邮箱">
-                <Hyperlink NavigateUri="mailto:crazyzhang_cn@163.com" RequestNavigate="Hyperlink_RequestNavigate">
-                    &#xe6df;
-                </Hyperlink>
-            </TextBlock>
+
         </StackPanel>
 
     </StackPanel>

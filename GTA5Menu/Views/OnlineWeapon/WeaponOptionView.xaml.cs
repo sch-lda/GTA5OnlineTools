@@ -133,14 +133,14 @@ public partial class WeaponOptionView : UserControl
 
     private void Button_FillCurrentAmmo_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Weapon.FillCurrentAmmo();
     }
 
     private void Button_FillAllAmmo_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Weapon.FillAllAmmo();
     }

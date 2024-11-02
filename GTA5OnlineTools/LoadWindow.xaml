@@ -21,8 +21,6 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <!--  左侧图片  -->
-        <Image Source="/Assets/Launch.png" Style="{StaticResource ImageStyle_HighQuality}" />
         <!--  右侧初始化内容  -->
         <Grid Grid.Column="1" Margin="5">
             <StackPanel
@@ -40,7 +38,7 @@
                     VerticalAlignment="Center"
                     FontSize="18"
                     FontWeight="Bold"
-                    Text="GTA5线上小助手" />
+                    Text="GTA5线上小助手-非官方" />
             </StackPanel>
             <!--  //////////////////////////  -->
             <TextBlock

@@ -26,7 +26,7 @@ public partial class StartupWindow
 
     private void Button_StringToBase64_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var bytes = Encoding.UTF8.GetBytes(TextBox_Password.Text.Trim());
         TextBox_Password.Text = Convert.ToBase64String(bytes);
@@ -34,7 +34,7 @@ public partial class StartupWindow
 
     private void Button_BuildStartup_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var password = TextBox_Password.Text.Trim();
         BuildStartup(password);

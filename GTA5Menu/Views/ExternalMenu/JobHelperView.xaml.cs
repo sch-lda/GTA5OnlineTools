@@ -103,7 +103,7 @@ public partial class JobHelperView : UserControl
 
     private void Button_CEOCargos_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (sender is Button button)
         {
@@ -120,7 +120,7 @@ public partial class JobHelperView : UserControl
 
     private void Button_CEOSpecialCargos_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (sender is Button button)
         {

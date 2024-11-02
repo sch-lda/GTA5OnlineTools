@@ -4,20 +4,6 @@ public static class FileHelper
 {
     public const string ResFiles = "GTA5Shared.Files";
 
-    public const string Res_Kiddion_Kiddion = $"{ResFiles}.Kiddion.Kiddion.exe";
-    public const string Res_Kiddion_KiddionChs = $"{ResFiles}.Kiddion.KiddionChs.dll";
-    public const string Res_Kiddion_Config = $"{ResFiles}.Kiddion.config.json";
-    public const string Res_Kiddion_Config87 = $"{ResFiles}.Kiddion.config87.json";
-    public const string Res_Kiddion_Themes = $"{ResFiles}.Kiddion.themes.json";
-    public const string Res_Kiddion_Teleports = $"{ResFiles}.Kiddion.teleports.json";
-    public const string Res_Kiddion_Vehicles = $"{ResFiles}.Kiddion.vehicles.json";
-
-    public const string Res_Kiddion_Scripts_Readme = $"{ResFiles}.Kiddion.scripts.Readme.api";
-
-    public const string Res_Cache_BincoHax = $"{ResFiles}.Cache.BincoHax.exe";
-    public const string Res_Cache_GTAHax = $"{ResFiles}.Cache.GTAHax.exe";
-    public const string Res_Cache_LSCHax = $"{ResFiles}.Cache.LSCHax.exe";
-    public const string Res_Cache_Stat = $"{ResFiles}.Cache.stat.txt";
     public const string Res_Cache_Notepad2 = $"{ResFiles}.Cache.Notepad2.exe";
     public const string Res_Cache_CloudflareSpeedTest = $"{ResFiles}.Cache.CloudflareSpeedTest.exe";
 
@@ -37,30 +23,14 @@ public static class FileHelper
 
     public static string Dir_Base { get; private set; }
 
-    public static string Dir_Kiddion { get; private set; }
     public static string Dir_YimMenu { get; private set; }
     public static string Dir_Cache { get; private set; }
     public static string Dir_Config { get; private set; }
     public static string Dir_Logger { get; private set; }
 
-    public static string Dir_Kiddion_Scripts { get; private set; }
-
     public static string Dir_Log_Crash { get; private set; }
     public static string Dir_Log_NLog { get; private set; }
 
-    public static string File_Kiddion_Kiddion { get; private set; }
-    public static string File_Kiddion_KiddionChs { get; private set; }
-    public static string File_Kiddion_Config { get; private set; }
-    public static string File_Kiddion_Themes { get; private set; }
-    public static string File_Kiddion_Teleports { get; private set; }
-    public static string File_Kiddion_Vehicles { get; private set; }
-
-    public static string File_Kiddion_Scripts_Readme { get; private set; }
-
-    public static string File_Cache_BincoHax { get; private set; }
-    public static string File_Cache_GTAHax { get; private set; }
-    public static string File_Cache_LSCHax { get; private set; }
-    public static string File_Cache_Stat { get; private set; }
     public static string File_Cache_Notepad2 { get; private set; }
     public static string File_Cache_CloudflareSpeedTest { get; private set; }
 
@@ -110,13 +80,10 @@ public static class FileHelper
         Dir_Base = Path.Combine(baseDir, "GTA5OnlineTools\\");
         Dir_AppData_YimMenu = Path.Combine(Dir_AppData, "YimMenu\\");
 
-        Dir_Kiddion = Path.Combine(Dir_Base, "Kiddion\\");
         Dir_YimMenu = Path.Combine(Dir_Base, "YimMenu\\");
         Dir_Cache = Path.Combine(Dir_Base, "Cache\\");
         Dir_Config = Path.Combine(Dir_Base, "Config\\");
         Dir_Logger = Path.Combine(Dir_Base, "Logger\\");
-
-        Dir_Kiddion_Scripts = Path.Combine(Dir_Kiddion, "scripts\\");
 
         Dir_Log_Crash = Path.Combine(Dir_Logger, "Crash\\");
         Dir_Log_NLog = Path.Combine(Dir_Logger, "NLog\\");
@@ -129,19 +96,6 @@ public static class FileHelper
         File_AppData_YimMenu_Settings = Path.Combine(Dir_AppData_YimMenu, "settings.json");
         File_AppData_YimMenu_Logger = Path.Combine(Dir_AppData_YimMenu, "cout.log");
 
-        File_Kiddion_Kiddion = Path.Combine(Dir_Kiddion, "Kiddion.exe");
-        File_Kiddion_KiddionChs = Path.Combine(Dir_Kiddion, "KiddionChs.dll");
-        File_Kiddion_Config = Path.Combine(Dir_Kiddion, "config.json");
-        File_Kiddion_Themes = Path.Combine(Dir_Kiddion, "themes.json");
-        File_Kiddion_Teleports = Path.Combine(Dir_Kiddion, "teleports.json");
-        File_Kiddion_Vehicles = Path.Combine(Dir_Kiddion, "vehicles.json");
-
-        File_Kiddion_Scripts_Readme = Path.Combine(Dir_Kiddion_Scripts, "Readme.api");
-
-        File_Cache_BincoHax = Path.Combine(Dir_Cache, "BincoHax.exe");
-        File_Cache_GTAHax = Path.Combine(Dir_Cache, "GTAHax.exe");
-        File_Cache_LSCHax = Path.Combine(Dir_Cache, "LSCHax.exe");
-        File_Cache_Stat = Path.Combine(Dir_Cache, "stat.txt");
         File_Cache_Notepad2 = Path.Combine(Dir_Cache, "Notepad2.exe");
         File_Cache_CloudflareSpeedTest = Path.Combine(Dir_Cache, "CloudflareSpeedTest.exe");
 

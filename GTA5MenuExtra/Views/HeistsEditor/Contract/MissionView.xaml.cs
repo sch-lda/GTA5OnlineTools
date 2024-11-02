@@ -23,7 +23,7 @@ public partial class MissionView : UserControl
 
     private void Button_FIXER_GENERAL_BS_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_FIXER_GENERAL_BS", -1);
         STAT_SET_INT("MPx_FIXER_STORY_BS", 4095);
@@ -31,7 +31,7 @@ public partial class MissionView : UserControl
 
     private void Button_TUNER_CURRENT_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var index = ListBox_TUNER_CURRENT.SelectedIndex;
         if (index == -1)
@@ -45,7 +45,7 @@ public partial class MissionView : UserControl
 
     private void Button_Reset_FIXER_STORY_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_FIXER_GENERAL_BS", -1);
         STAT_SET_INT("MPx_FIXER_STORY_BS", 0);
@@ -53,7 +53,7 @@ public partial class MissionView : UserControl
 
     private void Button_Reset_TUNER_STORY_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_TUNER_CURRENT", -1);
         STAT_SET_INT("MPx_TUNER_GEN_BS", 0);

@@ -21,7 +21,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Read_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         TextBox_Casino_Player1.Text = Globals.Get_Global_Value<int>(player_ratio + 1).ToString();
         TextBox_Casino_Player2.Text = Globals.Get_Global_Value<int>(player_ratio + 2).ToString();
@@ -58,7 +58,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Write_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (!int.TryParse(TextBox_Casino_Player1.Text, out int player1) ||
             !int.TryParse(TextBox_Casino_Player2.Text, out int player2) ||

@@ -49,7 +49,7 @@ public partial class PlayerListView : UserControl
 
     private void Button_RefreshPlayerList_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         NetPlayerInfos.Clear();
         TextBox_PlayerInfo.Clear();
@@ -183,7 +183,7 @@ public partial class PlayerListView : UserControl
 
     private void Button_TeleportToPlayer_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (ListBox_NetPlayers.SelectedItem is NetPlayerInfo info)
         {

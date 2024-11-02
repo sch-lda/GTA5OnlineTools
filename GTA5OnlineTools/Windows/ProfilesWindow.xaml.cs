@@ -39,7 +39,7 @@ public partial class ProfilesWindow
 
     private async void Button_ReplaceStroyModeProfiles_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         ClearLogger();
 

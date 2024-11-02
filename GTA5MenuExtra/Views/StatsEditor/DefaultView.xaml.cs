@@ -38,7 +38,7 @@ public partial class DefaultView : UserControl
 
     private void Button_ExecuteAutoScript_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var item = ListBox_STATClass.SelectedItem;
         if (item != null)

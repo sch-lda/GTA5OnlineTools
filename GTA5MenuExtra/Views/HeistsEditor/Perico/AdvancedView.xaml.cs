@@ -26,7 +26,7 @@ public partial class AdvancedView : UserControl
 
     private void Button_Reset_H4_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         STAT_SET_INT("MPx_H4_MISSIONS", 0);
         STAT_SET_INT("MPx_H4_PROGRESS", 0);

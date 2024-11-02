@@ -31,7 +31,7 @@ public partial class ExternalOverlayView : UserControl
 
     private void Button_Overaly_Run_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (overlay == null)
         {
@@ -51,7 +51,7 @@ public partial class ExternalOverlayView : UserControl
 
     private void Button_Overaly_Exit_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         CloseESP();
     }

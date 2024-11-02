@@ -84,7 +84,7 @@ public partial class DefaultTeleportView : UserControl
 
     private void Button_Teleport_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (ListBox_TeleportInfos.SelectedItem is TeleportInfo info)
         {

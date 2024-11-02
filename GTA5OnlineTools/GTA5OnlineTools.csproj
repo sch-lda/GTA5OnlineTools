@@ -45,17 +45,10 @@
 
     <ItemGroup>
         <Resource Include="Assets\Favicon.ico" />
-        <Resource Include="Assets\Hacks\BincoHax.png" />
-        <Resource Include="Assets\Hacks\GTAHax.png" />
-        <Resource Include="Assets\Hacks\Kiddion.png" />
-        <Resource Include="Assets\Hacks\LSCHax.png" />
         <Resource Include="Assets\Hacks\YimMenu.png" />
-        <Resource Include="Assets\Hints\StartupMeta.png" />
-        <Resource Include="Assets\Launch.png" />
     </ItemGroup>
 
     <ItemGroup>
 	<EmbeddedResource Include="Files\lua_index_yimmenu.json" />
-	<EmbeddedResource Include="Files\lua_index_kiddion.json" />
     </ItemGroup>
 </Project>

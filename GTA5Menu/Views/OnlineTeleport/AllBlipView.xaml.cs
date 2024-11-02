@@ -44,7 +44,7 @@ public partial class AllBlipView : UserControl
 
     private void Button_TeleportToBlip_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (ListBox_BlipInfos.SelectedItem is BlipInfo info)
         {
@@ -54,7 +54,7 @@ public partial class AllBlipView : UserControl
 
     private void Button_AddMyFavorite_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (ListBox_BlipInfos.SelectedItem is BlipInfo info)
         {

@@ -7,7 +7,7 @@ public static class CoreUtil
     /// <summary>
     /// 主窗口标题
     /// </summary>
-    public const string MainAppWindowName = "GTA5线上小助手 支持1.69 完全免费 v";
+    public const string MainAppWindowName = "GTA5线上小助手-非官方版本";
 
     /// <summary>
     /// 程序服务端版本号，如：1.2.3.4

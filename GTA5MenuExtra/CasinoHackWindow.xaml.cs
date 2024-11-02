@@ -166,7 +166,7 @@ public partial class CasinoHackWindow
 
     private void Button_LuckyWheelSlot_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         luckyWheelSlot = ListBox_LuckyWheel.SelectedIndex;
 
@@ -176,7 +176,7 @@ public partial class CasinoHackWindow
 
     private void Button_SlotMachineSlot_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         slotMachineSlot = ListBox_SlotMachine.SelectedIndex;
 
@@ -186,7 +186,7 @@ public partial class CasinoHackWindow
 
     private void Button_RouletteSlot_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         rouletteSlot = ListBox_Roulette.SelectedIndex;
 

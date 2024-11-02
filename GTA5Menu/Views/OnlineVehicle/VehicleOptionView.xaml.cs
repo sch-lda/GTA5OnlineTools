@@ -93,28 +93,28 @@ public partial class VehicleOptionView : UserControl
 
     private void Button_FillVehicleHealth_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Vehicle.FillHealth();
     }
 
     private async void Button_RepairVehicle_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         await Vehicle.FixVehicleByBST();
     }
 
     private void Button_RemoveBullShark_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Online.InstantBullShark(false);
     }
 
     private void Button_UnlockDlcVehicle_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Vehicle.UnlockDlcVehicle();
     }

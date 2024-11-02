@@ -31,7 +31,7 @@ public partial class DefaultView : UserControl
 
     private async void Button_STAT_Run_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Button_STAT_Run.IsEnabled = false;
         await STAT_Run();

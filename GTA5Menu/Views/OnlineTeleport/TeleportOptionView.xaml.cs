@@ -28,7 +28,7 @@ public partial class TeleportOptionView : UserControl
     /// <param name="e"></param>
     private void Button_ToWaypoint_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Teleport.ToWaypoint();
     }
@@ -40,7 +40,7 @@ public partial class TeleportOptionView : UserControl
     /// <param name="e"></param>
     private void Button_ToObjective_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         Teleport.ToObjective();
     }
@@ -54,7 +54,7 @@ public partial class TeleportOptionView : UserControl
     /// <param name="e"></param>
     private void Button_MoveDistance_Click(object sender, RoutedEventArgs e)
     {
-        AudioHelper.PlayClickSound();
+        
 
         var moveDistance = (float)Slider_MoveDistance.Value;
 

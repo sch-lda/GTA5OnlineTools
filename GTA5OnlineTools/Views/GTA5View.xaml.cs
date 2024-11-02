@@ -71,16 +71,6 @@ public partial class GTA5View : UserControl
 
         /////////////////////////////////////////////////
 
-        NavDictionary.Add("KiddionWindow", new()
-        {
-            Type = typeof(KiddionWindow),
-            Window = null
-        });
-        NavDictionary.Add("StartupWindow", new()
-        {
-            Type = typeof(StartupWindow),
-            Window = null
-        });
         NavDictionary.Add("ProfilesWindow", new()
         {
             Type = typeof(ProfilesWindow),
@@ -96,7 +86,7 @@ public partial class GTA5View : UserControl
     [RelayCommand]
     private void GTA5ViewClick(string viewName)
     {
-        AudioHelper.PlayClickSound();
+        
 
         if (ProcessHelper.IsGTA5Run())
         {
@@ -142,16 +132,10 @@ public partial class GTA5View : UserControl
     [RelayCommand]
     private void GTA5FuncClick(string funcName)
     {
-        AudioHelper.PlayClickSound();
+        
 
         switch (funcName)
         {
-            case "KiddionChs":
-                KiddionChsClick();
-                break;
-            case "StartupMeta":
-                StartupMetaClick();
-                break;
             case "StoryProfiles":
                 StoryProfilesWindowClick();
                 break;
@@ -271,22 +255,6 @@ public partial class GTA5View : UserControl
     }
 
     ///////////////////////////////////////////////////////////////////
-
-    /// <summary>
-    /// Kiddion汉化润色修正
-    /// </summary>
-    private void KiddionChsClick()
-    {
-        AutoOpenWindow("KiddionWindow");
-    }
-
-    /// <summary>
-    /// 生成带密码战局文件
-    /// </summary>
-    private void StartupMetaClick()
-    {
-        AutoOpenWindow("StartupWindow");
-    }
 
     /// <summary>
     /// 替换故事模式完美存档
