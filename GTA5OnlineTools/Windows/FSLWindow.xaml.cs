@@ -124,7 +124,8 @@ public partial class FSLWindow
                             ProgressBar_Download.Value = receivedBytes;
                             if (totalBytes.HasValue)
                             {
-                                TaskbarItemInfo.ProgressValue = (double)receivedBytes / totalBytes.Value;
+                                ProgressBar_Download.Maximum = totalBytes.Value;
+                                TaskbarItemInfo.ProgressValue = receivedBytes / totalBytes.Value;
                                 TextBlock_Percentage.Text = $"{CoreUtil.GetFileForamtSize(receivedBytes)} / {CoreUtil.GetFileForamtSize(totalBytes.Value)}";
                             }
                         }
@@ -136,7 +137,7 @@ public partial class FSLWindow
         }
         catch (Exception ex)
         {
-            AppendLogger($"下载失败: {ex.Message}");
+            AppendLogger($"下载失败,请尝试使用 工具-运行网络诊断 修复。错误信息: {ex.Message}");
         }
         finally
         {
