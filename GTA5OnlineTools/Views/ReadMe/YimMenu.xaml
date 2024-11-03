@@ -33,29 +33,13 @@
                     FSL下载地址:
                     <Hyperlink NavigateUri="https://www.unknowncheats.me/forum/grand-theft-auto-v/616977-fsl-local-gtao-saves.html" RequestNavigate="Hyperlink_RequestNavigate">https://www.unknowncheats.me/forum/grand-theft-auto-v/616977-fsl-local-gtao-saves.html</Hyperlink> .您也可以使用 YimMenu页面的 FSL管理 功能一键安装FSL
                 </Paragraph>
-                
-                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
-                    配置文件
+                <Paragraph>
+                    进入线上时出现 “请返回Grand Theft Auto V”  错误说明Yim注入时机不对.不能太早也不能太晚，建议就在加载到游戏主菜单（选择启动故事模式/线上/设置/退出的界面）时注入
                 </Paragraph>
-                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    默认配置文件路径：C:\Users\用户名\AppData\Roaming\YimMenu
-                </Paragraph>
-                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    如果你不小心修改了某些设置导致Yim无法正常使用，请先卸载注入，到这个文件夹清理里面内容，然后重新注入Yim即可恢复默认设置
+                <Paragraph>
+                    注：FSL并不能让你进入绿玩主持的战局，你只能自己创建新战局或者加入其他作弊者
                 </Paragraph>
 
-                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
-                    注意事项
-                </Paragraph>
-                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    现版本YimMenu文件使用了游戏缓存来获取载具、武器、Ped等数据，这个是导致崩溃的主要原因
-                </Paragraph>
-                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    YimMenu建议在线上模式注入，推荐邀请战局（因为他需要读取Social Club相关信息，如果读取不到就可能会导致崩溃）
-                </Paragraph>
-                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    小助手汉化版本YimMenu默认关闭全部功能，YimMenu官方英文版本会默认开启部分功能，如果两则都使用，注意配置文件冲突
-                </Paragraph>
 
             </FlowDocument>
         </RichTextBox>
@@ -75,10 +59,10 @@
                     按钮
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    注入成功了，按Insert键（就是Home键左边的那个）显示/隐藏菜单，使用鼠标操作
+                    注入成功后，按键盘上的Insert键(笔记本电脑可能需要配合Fn键)显示/隐藏菜单，使用鼠标操作
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    如果鼠标卡在屏幕中心不动，请在游戏中按ESC-》设置-》键盘/鼠标-》鼠标输入方法，改成原始输入即可
+                    如果鼠标卡在屏幕中心不动，请在游戏中按ESC->设置->键盘/鼠标->鼠标输入方法，改成原始输入即可
                 </Paragraph>
 
                 <Paragraph Style="{StaticResource ParagraphStyle_Title}">
