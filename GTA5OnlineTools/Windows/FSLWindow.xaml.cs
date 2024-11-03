@@ -87,29 +87,6 @@ public partial class FSLWindow
         _downloader.Dispose();
     }
 
-    //////////////////////////////////////////////////////////
-
-    private void ClearLogger()
-    {
-        TextBox_Logger.Clear();
-        if (GTA5_InstallPath_Steam != string.Empty)
-        {
-            AppendLogger($"已从注册表读取到GTA5 Steam安装路径：{GTA5_InstallPath_Steam}");
-        }
-        else
-        {
-            AppendLogger("未找到GTA5 Steam安装路径");
-        }
-        if (GTA5_InstallPath_Epic != string.Empty)
-        {
-            AppendLogger($"已从注册表读取到GTA5 Epic安装路径：{GTA5_InstallPath_Epic}");
-        }
-        else
-        {
-            AppendLogger("未找到GTA5 Epic安装路径");
-        }
-    }
-
     private void AppendLogger(string log)
     {
         TextBox_Logger.AppendText($"{log}\n");
@@ -279,7 +256,7 @@ public partial class FSLWindow
 
     private void DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
     {
-        this.Dispatcher.Invoke(async () =>
+        this.Dispatcher.Invoke(() =>
         {
             if (e.Error != null)
             {
@@ -302,7 +279,7 @@ public partial class FSLWindow
 
                 AppendLogger("下载失败.如果网络连接失败，请尝试使用 工具-运行网络诊断 修复");
                 AppendLogger($"错误信息：{e.Error.Message}");
-                return;
+                return Task.CompletedTask;
             }
 
             try
@@ -329,19 +306,17 @@ public partial class FSLWindow
                 }
                 Button_CancelDownload.IsEnabled = false;
             }
+
+            return Task.CompletedTask;
         });
     }
 
     private void Button_GTA_STEAM_Dir_Click(object sender, RoutedEventArgs e)
     {
-        
-
         ProcessHelper.OpenDir(GTA5_InstallPath_Steam);
     }
     private void Button_GTA_EPIC_Dir_Click(object sender, RoutedEventArgs e)
     {
-        
-
         ProcessHelper.OpenDir(GTA5_InstallPath_Epic);
     }
 
