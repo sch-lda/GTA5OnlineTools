@@ -10,34 +10,22 @@
     DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
     Style="{StaticResource UserControlStyle_Loaded}"
     mc:Ignorable="d">
-
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <UniformGrid Grid.Row="0" Columns="2">
-            <ui:LabelIcon
-                Content="通知公告"
-                Icon="&#xe62d;"
-                Style="{StaticResource LabelIconStyle_MenuTitle}" />
-            <ui:LabelIcon
-                Content="更新日志"
-                Icon="&#xe65f;"
-                Style="{StaticResource LabelIconStyle_MenuTitle}" />
-        </UniformGrid>
-        <UniformGrid Grid.Row="1" Columns="2">
-            <TextBox
-                x:Name="TextBox_Notice"
-                Margin="5,0,2,5"
-                Style="{StaticResource TextBoxStyle_Logger}"
-                Text="正在加载中，请稍后..." />
-            <TextBox
-                x:Name="TextBox_Change"
-                Margin="2,0,5,5"
-                Style="{StaticResource TextBoxStyle_Logger}"
-                Text="由于GTA使用了BattlEye反作弊驱动,GTA5线上小助手已停止更新。此版本为第三方修改版,仅用于注入Yimmenu。一定要先在r星启动器关闭Battleye开关。一定要在游戏刚启动到主菜单(选择故事还是在线的时候)或者更早注入，进入故事模式再注入就进不了线上了。注入有风险，尝鲜需谨慎。！！！！！！！！！！！！！！！！！！！！必须先下载FSL才能使用！！！！！！！！！！！！！！请确保已阅读Discord群组的公告和高频问题解答之后再使用！！！！！！" FontSize="24" />
-        </UniformGrid>
-    </Grid>
+    <RichTextBox Margin="5,5,2.5,5" Style="{StaticResource RichTextBoxStyle_ReadMe}">
+        <FlowDocument>
+            <Paragraph Style="{StaticResource ParagraphStyle_Title}" FontSize="19" Foreground ="Red">
+                注意
+            </Paragraph>
+            <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16">
+                由于GTA使用了BattlEye反作弊驱动,GTA5线上小助手已停止更新。此版本为Discord用户yeahsch(不是开发者,只是一个普通用户)的第三方修改版,仅用于注入Yimmenu、下载Lua脚本和安装FSL。
+            </Paragraph>
+            <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16">
+                此修改版的作者无法对软件质量和安全性提供任何保障，仅用于C#编程语言的学习和交流。在引入Battleye反作弊的GTAV环境中使用任何菜单都有较高的概率被封禁，非必要不要使用任何菜单，不要在重要的账号上使用。
+            </Paragraph>
+            <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16">
+                你需要从开始菜单打开Rockstar启动器，关闭启动器中GTAV设置的Battleye开关，遵循Yimmenu页面的 说明 页面的要求使用Yimmenu。使用前请确保您已实时关注小助手官方Discord中的公告、常见问题解答、yimmenu-fsl、github频道的消息 以及 unknowncheats论坛的Yimmenu帖子、Yimmenu Matrix群组(可以从Github discussion获取链接)的消息，并随时做好被封禁的心理准备。
+            </Paragraph>
+        </FlowDocument>
+    </RichTextBox>
+    
 
 </UserControl>
