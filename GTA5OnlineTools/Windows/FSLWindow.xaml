@@ -9,7 +9,6 @@
     Title="GTA5线上小助手 - FSL管理"
     Width="1000"
     Height="550"
-    Closing="Window_FSL_Closing"
     DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
     Loaded="Window_FSL_Loaded"
     ResizeMode="CanMinimize"
@@ -72,12 +71,6 @@
                 x:Name="Button_StartDownload_Epic"
                 Click="Button_StartDownload_Epic_Click"
                 Content="安装FSL-Epic" />
-                <Button
-                x:Name="Button_CancelDownload"
-                Background="#EA4335"
-                Click="Button_CancelDownload_Click"
-                Content="取消下载"
-                IsEnabled="False" />
                 <Button
                     x:Name="Button_RM_FSL_Steam"
                     Click="Button_RM_FSL_Steam_Click"
