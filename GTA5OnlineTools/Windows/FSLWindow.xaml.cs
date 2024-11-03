@@ -70,7 +70,7 @@ public partial class FSLWindow
                     GTA5_InstallPath_Epic = value_epic.ToString();
                     if (Directory.Exists(GTA5_InstallPath_Epic))
                     {
-                        Button_GTA_STEAM_Dir.IsEnabled = true;
+                        Button_GTA_EPIC_Dir.IsEnabled = true;
                         Button_StartDownload_Epic.IsEnabled = true;
                         Button_RM_FSL_Epic.IsEnabled = true;
                         AppendLogger($"已从注册表获取GTA5 Epic版安装路径：{GTA5_InstallPath_Epic}");

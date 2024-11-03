@@ -34,15 +34,6 @@ public partial class SessionChatView : UserControl
     private void Button_Translate_Click(object sender, RoutedEventArgs e)
     {
         return;
-        
-
-        var message = TextBox_InputMessage.Text.Trim();
-
-        if (string.IsNullOrWhiteSpace(message))
-            return;
-
-        var btnContent = (e.OriginalSource as Button).Content.ToString();
-
     }
 
     private void Button_SendTextToGTA5_Click(object sender, RoutedEventArgs e)
