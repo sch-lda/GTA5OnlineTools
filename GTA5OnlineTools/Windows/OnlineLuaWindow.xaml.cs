@@ -13,8 +13,6 @@ public partial class OnlineLuaWindow
 {
     private HttpClient _httpClient = new();
 
-    private DownloadService _downloader;
-
     private string tempPath = string.Empty;
 
     private const string yimMenu = $"https://blog.cc2077.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release//YimMenu.json";
@@ -34,16 +32,11 @@ public partial class OnlineLuaWindow
             ReserveStorageSpaceBeforeStartingDownload = true
         };
 
-        // 初始化下载库
-        _downloader = new(downloadOpt);
-
         Refresh_list();
     }
 
     private async void Window_OnlineLua_Closing(object sender, CancelEventArgs e)
     {
-        await _downloader.CancelTaskAsync();
-        _downloader.Dispose();
     }
 
     //////////////////////////////////////////////////////////
@@ -64,14 +57,11 @@ public partial class OnlineLuaWindow
 
     private async void Refresh_list()
     {
-
-
         try
         {
             OnlineLuas.Clear();
 
             Button_StartDownload.IsEnabled = false;
-            Button_CancelDownload.IsEnabled = false;
 
             LoadingSpinner_Refush.IsLoading = true;
 
@@ -120,23 +110,18 @@ public partial class OnlineLuaWindow
         finally
         {
             Button_StartDownload.IsEnabled = true;
-            Button_CancelDownload.IsEnabled = false;
 
             LoadingSpinner_Refush.IsLoading = false;
         }
     }
     private void Button_RefushList_Click(object sender, RoutedEventArgs e)
     {
-
-
         Refresh_list();
     }
 
 
     private async void Button_StartDownload_Click(object sender, RoutedEventArgs e)
     {
-
-
         var index = ListBox_DownloadAddress.SelectedIndex;
         if (index == -1)
         {
@@ -157,7 +142,6 @@ public partial class OnlineLuaWindow
 
         StackPanel_ToggleOption.IsEnabled = false;
         Button_StartDownload.IsEnabled = false;
-        Button_CancelDownload.IsEnabled = true;
 
         ResetUIState();
 
@@ -251,35 +235,7 @@ public partial class OnlineLuaWindow
                 Button_StartDownload.IsEnabled = true;
             }
         }
-        
 
-        _downloader.DownloadStarted -= DownloadStarted;
-        _downloader.DownloadProgressChanged -= DownloadProgressChanged;
-        _downloader.DownloadFileCompleted -= DownloadFileCompleted;
-
-        _downloader.DownloadStarted += DownloadStarted;
-        _downloader.DownloadProgressChanged += DownloadProgressChanged;
-        _downloader.DownloadFileCompleted += DownloadFileCompleted;
-
-
-    }
-
-    private async void Button_CancelDownload_Click(object sender, RoutedEventArgs e)
-    {
-
-
-        StackPanel_ToggleOption.IsEnabled = false;
-        Button_StartDownload.IsEnabled = false;
-        Button_CancelDownload.IsEnabled = false;
-
-        await _downloader.CancelTaskAsync();
-
-        ResetUIState();
-        AppendLogger("下载取消");
-
-        StackPanel_ToggleOption.IsEnabled = true;
-        Button_StartDownload.IsEnabled = true;
-        Button_CancelDownload.IsEnabled = false;
     }
 
     //////////////////////////////////////////////////////////
@@ -295,77 +251,6 @@ public partial class OnlineLuaWindow
         TaskbarItemInfo.ProgressValue = 0;
 
         TextBlock_Percentage.Text = "0KB / 0MB";
-    }
-
-    private void DownloadStarted(object sender, DownloadStartedEventArgs e)
-    {
-        this.Dispatcher.Invoke(() =>
-        {
-            ProgressBar_Download.Maximum = e.TotalBytesToReceive;
-        });
-    }
-
-    private void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-    {
-        this.Dispatcher.Invoke(() =>
-        {
-            ProgressBar_Download.Value = e.ReceivedBytesSize;
-            TaskbarItemInfo.ProgressValue = ProgressBar_Download.Value / ProgressBar_Download.Maximum;
-
-            TextBlock_Percentage.Text = $"{CoreUtil.GetFileForamtSize(e.ReceivedBytesSize)} / {CoreUtil.GetFileForamtSize(e.TotalBytesToReceive)}";
-        });
-    }
-
-    private void DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
-    {
-        this.Dispatcher.Invoke(async () =>
-        {
-            if (e.Error != null)
-            {
-                ResetUIState();
-
-                StackPanel_ToggleOption.IsEnabled = true;
-                Button_StartDownload.IsEnabled = true;
-                Button_CancelDownload.IsEnabled = false;
-
-                AppendLogger("下载失败");
-                AppendLogger($"错误信息：{e.Error.Message}");
-                return;
-            }
-
-            try
-            {
-                AppendLogger("下载成功");
-                AppendLogger("开始解压Lua中...");
-
-                using var archive = ZipFile.OpenRead(tempPath);
-
-                archive.ExtractToDirectory(FileHelper.Dir_AppData_YimMenu_Scripts, true);
-
-                await Task.Delay(100);
-                archive.Dispose();
-
-                AppendLogger("解压成功");
-                AppendLogger("开始删除临时文件中...");
-
-                await Task.Delay(100);
-                File.Delete(tempPath);
-
-                AppendLogger("删除临时文件成功");
-                AppendLogger("操作结束");
-            }
-            catch (Exception ex)
-            {
-                AppendLogger("解压时发生异常");
-                AppendLogger($"异常信息：{ex.Message}");
-            }
-            finally
-            {
-                StackPanel_ToggleOption.IsEnabled = true;
-                Button_StartDownload.IsEnabled = true;
-                Button_CancelDownload.IsEnabled = false;
-            }
-        });
     }
 
     private void Button_ScriptDir_Click(object sender, RoutedEventArgs e)

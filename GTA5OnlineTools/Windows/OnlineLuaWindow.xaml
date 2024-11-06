@@ -85,12 +85,6 @@
                 x:Name="Button_StartDownload"
                 Click="Button_StartDownload_Click"
                 Content="下载脚本" />
-            <Button
-                x:Name="Button_CancelDownload"
-                Background="#EA4335"
-                Click="Button_CancelDownload_Click"
-                Content="取消下载"
-                IsEnabled="False" />
         </StackPanel>
         <!--  //////////////////////  -->
         <DockPanel Grid.Row="1" Grid.Column="0">
