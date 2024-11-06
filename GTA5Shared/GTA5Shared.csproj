@@ -18,7 +18,7 @@
 
     <ItemGroup>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
-        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.2" />
+        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
         <PackageReference Include="NLog" Version="5.3.4" />
         <PackageReference Include="Notification.Wpf" Version="8.0.0" />
         <PackageReference Include="RestSharp" Version="112.0.0" />
