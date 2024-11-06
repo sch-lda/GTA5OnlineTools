@@ -1,5 +1,4 @@
-﻿using Downloader;
-using GTA5OnlineTools.Data;
+﻿using GTA5OnlineTools.Data;
 using GTA5OnlineTools.Utils;
 using GTA5Shared.Helper;
 using System.Net.Http;
