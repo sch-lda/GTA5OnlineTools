@@ -206,6 +206,10 @@ public partial class FSLWindow
     {
         ProcessHelper.OpenDir(GTA5_InstallPath_Steam);
     }
+    private void Button_FSL_Dir_Click(object sender, RoutedEventArgs e)
+    {
+        ProcessHelper.OpenDir(FileHelper.Dir_AppData_FSL);
+    }
     private void Button_GTA_EPIC_Dir_Click(object sender, RoutedEventArgs e)
     {
         ProcessHelper.OpenDir(GTA5_InstallPath_Epic);

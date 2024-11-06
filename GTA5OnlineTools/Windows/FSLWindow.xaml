@@ -79,6 +79,11 @@
                     x:Name="Button_RM_FSL_Epic"
                     Click="Button_RM_FSL_Epic_Click"
                     Content="移除FSL-Epic" />
+                <Button
+                    x:Name="Button_FSL_Dir"
+                    Background="#FE780A"
+                    Click="Button_FSL_Dir_Click"
+                    Content="FSL存档目录" />
             </StackPanel>
         </StackPanel>
         <!--  //////////////////////  -->

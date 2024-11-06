@@ -46,6 +46,7 @@ public static class FileHelper
     public static string Dir_AppData { get; private set; }
 
     public static string Dir_AppData_YimMenu { get; private set; }
+    public static string Dir_AppData_FSL { get; private set; }
     public static string Dir_AppData_YimMenu_Scripts { get; private set; }
     public static string Dir_AppData_YimMenu_Translations { get; private set; }
 
@@ -79,6 +80,7 @@ public static class FileHelper
 
         Dir_Base = Path.Combine(baseDir, "GTA5OnlineTools\\");
         Dir_AppData_YimMenu = Path.Combine(Dir_AppData, "YimMenu\\");
+        Dir_AppData_FSL = Path.Combine(Dir_AppData, "FSL\\");
 
         Dir_YimMenu = Path.Combine(Dir_Base, "YimMenu\\");
         Dir_Cache = Path.Combine(Dir_Base, "Cache\\");
