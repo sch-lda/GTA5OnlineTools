@@ -2,6 +2,7 @@
 using GTA5OnlineTools.Data;
 using GTA5OnlineTools.Utils;
 using GTA5Shared.Helper;
+using System.Net.Http;
 
 namespace GTA5OnlineTools.Windows;
 
@@ -10,6 +11,8 @@ namespace GTA5OnlineTools.Windows;
 /// </summary>
 public partial class OnlineLuaWindow
 {
+    private HttpClient _httpClient = new();
+
     private DownloadService _downloader;
 
     private string tempPath = string.Empty;
@@ -163,6 +166,93 @@ public partial class OnlineLuaWindow
         AppendLogger($"Lua名称：{OnlineLuas[index].Name}");
         AppendLogger($"Lua大小: {OnlineLuas[index].Size}");
 
+        tempPath = Path.Combine(FileHelper.Dir_AppData_YimMenu_Scripts, "GTA5OnlineLua.zip");
+
+        AppendLogger("开始下载...");
+        _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Downloader/1.1.2");
+        try
+        {
+            using (var response = await _httpClient.GetAsync(adddress, HttpCompletionOption.ResponseHeadersRead))
+            {
+                response.EnsureSuccessStatusCode();
+                var totalBytes = response.Content.Headers.ContentLength;
+                using (var fileStream = new FileStream(tempPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    var buffer = new byte[81920];
+                    var receivedBytes = 0L;
+                    using (var stream = await response.Content.ReadAsStreamAsync())
+                    {
+                        int bytesRead;
+                        while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                        {
+                            await fileStream.WriteAsync(buffer, 0, bytesRead);
+                            receivedBytes += bytesRead;
+
+                            // 更新进度
+                            ProgressBar_Download.Value = receivedBytes;
+                            if (totalBytes.HasValue)
+                            {
+                                ProgressBar_Download.Maximum = totalBytes.Value;
+                                TaskbarItemInfo.ProgressValue = receivedBytes / totalBytes.Value;
+                                TextBlock_Percentage.Text = $"{CoreUtil.GetFileForamtSize(receivedBytes)} / {CoreUtil.GetFileForamtSize(totalBytes.Value)}";
+                            }
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+        catch (Exception ex)
+        {
+            ResetUIState();
+
+            StackPanel_ToggleOption.IsEnabled = true;
+            Button_StartDownload.IsEnabled = true;
+
+            AppendLogger($"下下载失败,请尝试使用 工具-运行网络诊断 修复。错误信息: {ex.Message}");
+            NotifierHelper.Show(NotifierType.Error, $"下载失败\n{ex.Message}");
+            return;
+        }
+        finally
+        {
+            StackPanel_ToggleOption.IsEnabled = true;
+            Button_StartDownload.IsEnabled = true;
+            try
+            {
+                AppendLogger("下载成功");
+                AppendLogger("开始解压Lua中...");
+
+                using var archive = ZipFile.OpenRead(tempPath);
+
+                archive.ExtractToDirectory(FileHelper.Dir_AppData_YimMenu_Scripts, true);
+
+                await Task.Delay(100);
+                archive.Dispose();
+
+                AppendLogger("解压成功");
+                AppendLogger("开始删除临时文件中...");
+
+                await Task.Delay(100);
+                File.Delete(tempPath);
+
+                AppendLogger("删除临时文件成功");
+                AppendLogger("操作结束");
+            }
+            catch (Exception ex)
+            {
+                AppendLogger("解压时发生异常");
+                AppendLogger($"异常信息：{ex.Message}");
+            }
+            finally
+            {
+                StackPanel_ToggleOption.IsEnabled = true;
+                Button_StartDownload.IsEnabled = true;
+            }
+        }
+        
+
         _downloader.DownloadStarted -= DownloadStarted;
         _downloader.DownloadProgressChanged -= DownloadProgressChanged;
         _downloader.DownloadFileCompleted -= DownloadFileCompleted;
@@ -171,10 +261,7 @@ public partial class OnlineLuaWindow
         _downloader.DownloadProgressChanged += DownloadProgressChanged;
         _downloader.DownloadFileCompleted += DownloadFileCompleted;
 
-        tempPath = Path.Combine(FileHelper.Dir_AppData_YimMenu_Scripts, "GTA5OnlineLua.zip");
 
-        AppendLogger("开始下载中...");
-        await _downloader.DownloadFileTaskAsync(adddress, tempPath);
     }
 
     private async void Button_CancelDownload_Click(object sender, RoutedEventArgs e)
@@ -279,11 +366,6 @@ public partial class OnlineLuaWindow
                 Button_CancelDownload.IsEnabled = false;
             }
         });
-    }
-
-    private void RadioButton_ScriptMode_Checked(object sender, RoutedEventArgs e)
-    {
-        OnlineLuas.Clear();
     }
 
     private void Button_ScriptDir_Click(object sender, RoutedEventArgs e)

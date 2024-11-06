@@ -16,8 +16,7 @@ public partial class FSLWindow
     private const string fsl_url = "https://sstaticstp.cc2077.site/version.dll";
     private string GTA5_InstallPath_Steam = string.Empty;
     private string GTA5_InstallPath_Epic = string.Empty;
-    public ObservableCollection<LuaInfo> OnlineLuas { get; set; } = new();
-    private HttpClient _httpClient = new HttpClient();
+    private HttpClient _httpClient = new();
 
     public FSLWindow()
     {
