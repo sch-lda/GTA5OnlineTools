@@ -25,12 +25,6 @@ public partial class OnlineLuaWindow
 
     private void Window_OnlineLua_Loaded(object sender, RoutedEventArgs e)
     {
-        var downloadOpt = new DownloadConfiguration()
-        {
-            ClearPackageOnCompletionWithFailure = true,
-            ReserveStorageSpaceBeforeStartingDownload = true
-        };
-
         Refresh_list();
     }
 
