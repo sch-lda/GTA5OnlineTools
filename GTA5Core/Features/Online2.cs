@@ -1,7 +1,4 @@
-﻿using GTA5Core.Offsets;
-using System.Windows.Markup;
-using System;
-using GTA5Core.Native;
+﻿using GTA5Core.Native;
 
 namespace GTA5Core.Features;
 

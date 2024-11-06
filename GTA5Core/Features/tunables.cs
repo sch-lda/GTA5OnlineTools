@@ -1,7 +1,4 @@
-﻿using GTA5Core.Native;
-using GTA5Core.Offsets;
-
-namespace GTA5Core.Features;
+﻿namespace GTA5Core.Features;
 
 public static class Tunables
 {

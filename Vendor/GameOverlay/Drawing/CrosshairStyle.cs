@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GameOverlay.Drawing;
+﻿namespace GameOverlay.Drawing;
 
 /// <summary>
 ///     Offers different built-in styles for crosshairs

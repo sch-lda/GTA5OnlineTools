@@ -1,9 +1,8 @@
-﻿using GTA5Menu.Data;
-using GTA5Menu.Config;
-
+﻿using GTA5Core.Features;
 using GTA5Core.GTA;
 using GTA5Core.GTA.Vehicles;
-using GTA5Core.Features;
+using GTA5Menu.Config;
+using GTA5Menu.Data;
 using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.OnlineVehicle;
@@ -128,7 +127,7 @@ public partial class MyVehicleView : UserControl
 
     private async void Button_SpawnVehicle_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_VehicleInfos.SelectedItem is ModelInfo info)
         {
@@ -143,7 +142,7 @@ public partial class MyVehicleView : UserControl
 
     private void Button_DeleteMyFavorite_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_VehicleInfos.SelectedItem is ModelInfo info)
         {

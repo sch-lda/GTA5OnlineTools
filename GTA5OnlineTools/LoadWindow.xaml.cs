@@ -1,9 +1,7 @@
-﻿using GTA5OnlineTools.Utils;
+﻿using CommunityToolkit.Mvvm.Input;
 using GTA5OnlineTools.Models;
-
+using GTA5OnlineTools.Utils;
 using GTA5Shared.Helper;
-
-using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5OnlineTools;
 

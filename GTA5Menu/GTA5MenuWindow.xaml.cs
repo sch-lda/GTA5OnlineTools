@@ -1,8 +1,7 @@
-﻿using GTA5HotKey;
+﻿using CommunityToolkit.Mvvm.Input;
 using GTA5Core.Native;
+using GTA5HotKey;
 using GTA5Shared.Helper;
-
-using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5Menu;
 

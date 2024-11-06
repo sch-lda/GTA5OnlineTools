@@ -1,9 +1,8 @@
-﻿using GTA5HotKey;
+﻿using GTA5Core.Features;
 using GTA5Core.Native;
 using GTA5Core.Offsets;
-using GTA5Core.Features;
+using GTA5HotKey;
 using GTA5Shared.Helper;
-
 using WinFormLib;
 
 namespace GTA5Menu.Views.ExternalMenu;
@@ -38,7 +37,7 @@ public partial class SessionChatView : UserControl
 
     private void Button_SendTextToGTA5_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var message = TextBox_InputMessage.Text.Trim();
 
@@ -146,7 +145,7 @@ public partial class SessionChatView : UserControl
 
     private void Button_WritePlayerName_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         try
         {

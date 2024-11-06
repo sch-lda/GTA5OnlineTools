@@ -1,8 +1,6 @@
-﻿using GTA5Menu.Data;
-
+﻿using GTA5Core.Features;
 using GTA5Core.GTA.Vehicles;
-using GTA5Core.Features;
-using GTA5Shared.Helper;
+using GTA5Menu.Data;
 
 namespace GTA5Menu.Views.OnlineVehicle;
 
@@ -72,7 +70,7 @@ public partial class FindVehicleView : UserControl
 
     private async void Button_SpawnVehicle_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_VehicleInfos.SelectedItem is ModelInfo info)
         {
@@ -87,7 +85,7 @@ public partial class FindVehicleView : UserControl
 
     private void Button_AddMyFavorite_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_VehicleInfos.SelectedItem is ModelInfo info)
         {

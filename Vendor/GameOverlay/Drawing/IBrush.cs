@@ -1,5 +1,4 @@
-﻿using System;
-using SharpDX.Direct2D1;
+﻿using SharpDX.Direct2D1;
 
 namespace GameOverlay.Drawing;
 

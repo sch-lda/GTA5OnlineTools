@@ -1,9 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.Native;
-using GTA5Core.Offsets;
-using System;
-using System.Numerics;
-using System.Reflection.Metadata;
 unsafe public static class Parse
 {
     public static sbyte* Arg(string arg) // string to sbyte*
@@ -155,7 +151,7 @@ unsafe public static class objects
     }
     public static int create_object(string hash, Vector3 vec3, bool dynamic)
     {
-        return create_object(RAGE.JOAAT(hash),vec3,dynamic);
+        return create_object(RAGE.JOAAT(hash), vec3, dynamic);
     }
 }
 
@@ -319,7 +315,7 @@ unsafe public static class stats
         string XPX = "";
         var pedType = __PED.GET_PED_TYPE(__PLAYER.PLAYER_PED_ID());
 
-        switch(pedType)
+        switch (pedType)
         {
             case 0:
                 XPX = "SP0_";

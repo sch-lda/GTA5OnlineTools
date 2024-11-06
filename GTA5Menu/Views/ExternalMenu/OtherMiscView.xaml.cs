@@ -1,6 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Peds;
-using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.ExternalMenu;
 
@@ -31,7 +30,7 @@ public partial class OtherMiscView : UserControl
 
     private void Button_ModelChange_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var index = ListBox_PedModel.SelectedIndex;
         if (index != -1)

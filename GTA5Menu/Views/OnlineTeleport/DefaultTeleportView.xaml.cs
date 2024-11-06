@@ -1,9 +1,6 @@
-﻿using GTA5Menu.Data;
-
+﻿using GTA5Core.Features;
 using GTA5Core.GTA.Teleports;
-using GTA5Core.Features;
-using GTA5Shared.Helper;
-using GTA5Core.GTA.Vehicles;
+using GTA5Menu.Data;
 
 namespace GTA5Menu.Views.OnlineTeleport;
 
@@ -84,7 +81,7 @@ public partial class DefaultTeleportView : UserControl
 
     private void Button_Teleport_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_TeleportInfos.SelectedItem is TeleportInfo info)
         {

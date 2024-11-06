@@ -1,6 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Onlines;
-using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.ExternalMenu;
 
@@ -65,7 +64,7 @@ public partial class OnlineOptionView : UserControl
 
     private void Button_Sessions_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (sender is Button button)
         {
@@ -79,21 +78,21 @@ public partial class OnlineOptionView : UserControl
 
     private void Button_EmptySession_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.EmptySession();
     }
 
     private void Button_Disconnect_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.Disconnect();
     }
 
     private void Button_StopCutscene_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.StopCutscene();
     }
@@ -169,7 +168,7 @@ public partial class OnlineOptionView : UserControl
 
     private void Button_Blips_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (sender is Button button)
         {
@@ -181,16 +180,16 @@ public partial class OnlineOptionView : UserControl
         }
     }
 
-    private void Button_Teleport_Freak_Shop_Click (object sender, RoutedEventArgs e)
+    private void Button_Teleport_Freak_Shop_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Teleport.SetTeleportPosition(new Vector3(605.638f, -409.474f, 24.748f));
     }
 
     private async void Button_Teleport_Gun_Van_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Globals.Set_Global_Value<float>(1949748, -1005.75f); // freemode.ysc return -29.532f, 6435.136f, 31.162f;
         Globals.Set_Global_Value<float>(1949748 + 1, 25.2f);
@@ -201,7 +200,7 @@ public partial class OnlineOptionView : UserControl
 
     private void Button_MerryweatherServices_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (sender is Button button)
         {
@@ -215,28 +214,28 @@ public partial class OnlineOptionView : UserControl
 
     private void Button_InstantBullShark_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.InstantBullShark(true);
     }
 
     private void Button_RemoveBullShark_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.InstantBullShark(false);
     }
 
     private void Button_BackupHeli_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.CallBackupHeli(true);
     }
 
     private void Button_Airstrike_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.CallAirstrike(true);
     }
@@ -245,14 +244,14 @@ public partial class OnlineOptionView : UserControl
 
     private void Button_RequestKosatka_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.RequestKosatka();
     }
 
     private async void Button_TriggerRCBandito_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.TriggerRCBandito(true);
         await Task.Delay(100);
@@ -261,7 +260,7 @@ public partial class OnlineOptionView : UserControl
 
     private async void Button_TriggerMiniTank_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.TriggerMiniTank(true);
         await Task.Delay(100);

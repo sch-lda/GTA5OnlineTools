@@ -1,6 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Onlines;
-using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.OnlineVehicle;
 
@@ -93,28 +92,28 @@ public partial class VehicleOptionView : UserControl
 
     private void Button_FillVehicleHealth_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Vehicle.FillHealth();
     }
 
     private async void Button_RepairVehicle_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         await Vehicle.FixVehicleByBST();
     }
 
     private void Button_RemoveBullShark_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.InstantBullShark(false);
     }
 
     private void Button_UnlockDlcVehicle_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Vehicle.UnlockDlcVehicle();
     }

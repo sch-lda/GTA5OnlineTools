@@ -1,9 +1,7 @@
-﻿using GTA5Menu.Data;
-
+﻿using GTA5Core.Features;
 using GTA5Core.GTA;
 using GTA5Core.GTA.Blips;
-using GTA5Core.Features;
-using GTA5Shared.Helper;
+using GTA5Menu.Data;
 
 namespace GTA5Menu.Views.OnlineTeleport;
 
@@ -44,7 +42,7 @@ public partial class AllBlipView : UserControl
 
     private void Button_TeleportToBlip_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_BlipInfos.SelectedItem is BlipInfo info)
         {
@@ -54,7 +52,7 @@ public partial class AllBlipView : UserControl
 
     private void Button_AddMyFavorite_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_BlipInfos.SelectedItem is BlipInfo info)
         {

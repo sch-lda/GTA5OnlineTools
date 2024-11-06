@@ -1,8 +1,7 @@
-﻿using System;
+﻿using GameOverlay.PInvoke;
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
-
-using GameOverlay.PInvoke;
 
 namespace GameOverlay.Windows;
 

@@ -2,12 +2,7 @@
 using GTA5OnlineTools.Utils;
 
 using GTA5Shared.Helper;
-using Microsoft.Win32;
-using System;
-using System.IO;
 using System.Net.Http;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace GTA5OnlineTools.Windows;
 

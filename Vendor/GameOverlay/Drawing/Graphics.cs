@@ -1,14 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-
+﻿using GameOverlay.PInvoke;
 using SharpDX;
 using SharpDX.Direct2D1;
 using SharpDX.DirectWrite;
 using SharpDX.DXGI;
 using SharpDX.Mathematics.Interop;
-
-using GameOverlay.PInvoke;
-
+using System;
+using System.Diagnostics;
 using AlphaMode = SharpDX.Direct2D1.AlphaMode;
 using Factory = SharpDX.Direct2D1.Factory;
 using FactoryType = SharpDX.Direct2D1.FactoryType;

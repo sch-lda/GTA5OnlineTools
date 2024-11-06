@@ -8,7 +8,7 @@ namespace GTA5MenuExtra.Views.HeistsEditor.Doomsday;
 /// </summary>
 public partial class MoneyView : UserControl
 {
-    private const int player_ratio = 1960755 + 812 + 50;    
+    private const int player_ratio = 1960755 + 812 + 50;
     /*private const int player_money = 262145 + 9176;         // joaat("GANGOPS_THE_IAA_JOB_CASH_REWARD")*/
 
     public MoneyView()
@@ -18,7 +18,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Read_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         TextBox_Doomsday_Player1.Text = Globals.Get_Global_Value<int>(player_ratio + 1).ToString();
         TextBox_Doomsday_Player2.Text = Globals.Get_Global_Value<int>(player_ratio + 2).ToString();
@@ -34,7 +34,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Write_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (!int.TryParse(TextBox_Doomsday_Player1.Text, out int player1) ||
            !int.TryParse(TextBox_Doomsday_Player2.Text, out int player2) ||

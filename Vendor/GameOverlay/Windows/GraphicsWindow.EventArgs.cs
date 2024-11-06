@@ -1,6 +1,5 @@
-﻿using System;
-
-using GameOverlay.Drawing;
+﻿using GameOverlay.Drawing;
+using System;
 
 namespace GameOverlay.Windows;
 

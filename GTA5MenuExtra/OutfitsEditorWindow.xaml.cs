@@ -39,7 +39,7 @@ public partial class OutfitsEditorWindow
             return;
 
         var index = ComboBox_OutfitIndex.SelectedIndex;
-        if (index ==-1)
+        if (index == -1)
             return;
 
         Outfits.OutfitIndex = index;
@@ -176,7 +176,7 @@ public partial class OutfitsEditorWindow
 
     private void Button_Read_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         ReadOutfitsData();
 
@@ -185,7 +185,7 @@ public partial class OutfitsEditorWindow
 
     private void Button_Write_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         try
         {

@@ -1,11 +1,10 @@
-﻿using GTA5Menu.Models;
-
-using GTA5HotKey;
+﻿using GTA5Core.Features;
+using GTA5Core.GTA.Enum;
+using GTA5Core.GTA.Rage;
 using GTA5Core.Native;
 using GTA5Core.Offsets;
-using GTA5Core.Features;
-using GTA5Core.GTA.Rage;
-using GTA5Core.GTA.Enum;
+using GTA5HotKey;
+using GTA5Menu.Models;
 using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.ExternalMenu;
@@ -484,49 +483,49 @@ public partial class SelfStateView : UserControl
 
     private void Button_FillHealth_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Player.FillHealth();
     }
 
     private void Button_FillArmor_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Player.FillArmor();
     }
 
     private void Button_ClearWanted_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Player.WantedLevel(0x00);
     }
 
     private void Button_Suicide_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Player.Suicide();
     }
 
     private void Button_ToWaypoint_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Teleport.ToWaypoint();
     }
 
     private void Button_ToObjective_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Teleport.ToObjective();
     }
 
     private void Button_ToCrossHair_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Teleport.ToCrossHair();
     }

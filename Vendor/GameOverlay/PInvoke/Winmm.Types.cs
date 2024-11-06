@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GameOverlay.PInvoke;
+﻿namespace GameOverlay.PInvoke;
 
 internal enum MultimediaResult : uint
 {

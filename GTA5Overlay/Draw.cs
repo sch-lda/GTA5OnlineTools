@@ -352,7 +352,7 @@ public static class Draw
     /// <param name="boneId"></param>
     public static void DrawBoneDebug(Font font, IBrush brush, long pCPed, float[] boneMatrix, int boneId)
     {
-        var v2Bone = Core.WorldToScreen(Core.GetBonePosition(pCPed, boneMatrix,  boneId));
+        var v2Bone = Core.WorldToScreen(Core.GetBonePosition(pCPed, boneMatrix, boneId));
 
         if (!Core.IsNullVector2(v2Bone))
             _gfx.DrawText(font, 10, brush, v2Bone.X, v2Bone.Y, $"{boneId}");

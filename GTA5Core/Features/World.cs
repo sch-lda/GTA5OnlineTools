@@ -1,7 +1,7 @@
-﻿using GTA5Core.Native;
-using GTA5Core.Offsets;
+﻿using GTA5Core.GTA.Objects;
 using GTA5Core.GTA.Rage;
-using GTA5Core.GTA.Objects;
+using GTA5Core.Native;
+using GTA5Core.Offsets;
 
 namespace GTA5Core.Features;
 

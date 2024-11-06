@@ -1,6 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Onlines;
-using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.ExternalMenu;
 
@@ -49,7 +48,7 @@ public partial class WorldFunctionView : UserControl
 
     private void Button_LocalWeather_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (sender is Button button)
         {
@@ -83,84 +82,84 @@ public partial class WorldFunctionView : UserControl
 
     private void Button_KillNPC_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.KillNPC();
     }
 
     private void Button_KillEnemyNPC_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.KillNPC(true);
     }
 
     private void Button_KillPolice_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.KillPolice();
     }
 
     private void Button_DestroyVehicles_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.DestroyVehicles();
     }
 
     private void Button_DestroyNPCVehicles_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.DestroyNPCVehicles();
     }
 
     private void Button_DestroyEnemyNPCVehicles_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.DestroyNPCVehicles(true);
     }
 
     private void Button_DestroyPoliceVehicles_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.DestroyPoliceVehicles();
     }
 
     private void Button_TeleportNPCToMe_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.TeleportNPCToMe();
     }
 
     private void Button_TeleportEnemyNPCToMe_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.TeleportNPCToMe(true);
     }
 
     private void Button_TeleporNPCTo9999_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.TeleporNPCTo9999();
     }
 
     private void Button_TeleporEnemyNPCTo9999_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.TeleporNPCTo9999(true);
     }
 
     private void Button_RemoveCCTV_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         World.RemoveCCTV();
     }

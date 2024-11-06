@@ -1,7 +1,5 @@
-﻿using System;
-
-using SharpDX.DirectWrite;
-
+﻿using SharpDX.DirectWrite;
+using System;
 using FontFactory = SharpDX.DirectWrite.Factory;
 
 namespace GameOverlay.Drawing;

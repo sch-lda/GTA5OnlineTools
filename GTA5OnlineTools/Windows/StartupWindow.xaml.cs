@@ -5,7 +5,7 @@ namespace GTA5OnlineTools.Windows;
 /// <summary>
 /// StartupWindow.xaml 的交互逻辑
 /// </summary>
-public partial class StartupWindow 
+public partial class StartupWindow
 {
     public StartupWindow()
     {
@@ -26,7 +26,7 @@ public partial class StartupWindow
 
     private void Button_StringToBase64_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var bytes = Encoding.UTF8.GetBytes(TextBox_Password.Text.Trim());
         TextBox_Password.Text = Convert.ToBase64String(bytes);
@@ -34,7 +34,7 @@ public partial class StartupWindow
 
     private void Button_BuildStartup_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var password = TextBox_Password.Text.Trim();
         BuildStartup(password);

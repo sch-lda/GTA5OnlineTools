@@ -1,6 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Onlines;
-using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.ExternalMenu;
 
@@ -103,7 +102,7 @@ public partial class JobHelperView : UserControl
 
     private void Button_CEOCargos_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (sender is Button button)
         {
@@ -120,7 +119,7 @@ public partial class JobHelperView : UserControl
 
     private void Button_CEOSpecialCargos_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (sender is Button button)
         {

@@ -1,6 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Stats;
-using GTA5Shared.Helper;
 
 namespace GTA5MenuExtra.Views.HeistsEditor.Perico;
 
@@ -31,7 +30,7 @@ public partial class DefaultView : UserControl
 
     private async void Button_STAT_Run_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Button_STAT_Run.IsEnabled = false;
         await STAT_Run();

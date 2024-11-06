@@ -1,7 +1,6 @@
-﻿using GTA5Menu.Config;
+﻿using GTA5Core.Features;
+using GTA5Menu.Config;
 using GTA5Menu.Models;
-
-using GTA5Core.Features;
 using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.OnlineTeleport;
@@ -114,7 +113,7 @@ public partial class CustomTeleportView : UserControl
     /// <param name="e"></param>
     private void Button_AddCustomTeleport_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var vector3 = Teleport.GetPlayerPosition();
 
@@ -136,7 +135,7 @@ public partial class CustomTeleportView : UserControl
     /// <param name="e"></param>
     private void Button_EditCustomTeleport_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var tempName = TextBox_CustomName.Text.Trim();
         var tempX = TextBox_Position_X.Text.Trim();
@@ -179,7 +178,7 @@ public partial class CustomTeleportView : UserControl
     /// <param name="e"></param>
     private void Button_DeleteCustomTeleport_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var index = ListBox_CustomTeleports.SelectedIndex;
         if (index == -1)
@@ -198,7 +197,7 @@ public partial class CustomTeleportView : UserControl
     /// <param name="e"></param>
     private void Button_Teleport_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var index = ListBox_CustomTeleports.SelectedIndex;
         if (index == -1)

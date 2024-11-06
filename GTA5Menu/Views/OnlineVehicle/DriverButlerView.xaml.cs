@@ -1,8 +1,6 @@
-﻿using GTA5Menu.Data;
-
+﻿using GTA5Core.Features;
 using GTA5Core.Offsets;
-using GTA5Core.Features;
-using GTA5Shared.Helper;
+using GTA5Menu.Data;
 
 namespace GTA5Menu.Views.OnlineVehicle;
 
@@ -30,7 +28,7 @@ public partial class DriverButlerView : UserControl
 
     private async void Button_RefushPersonalVehicleList_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         _perVehInfos.Clear();
         PerVehInfos.Clear();
@@ -70,7 +68,7 @@ public partial class DriverButlerView : UserControl
 
     private void Button_SpawnPersonalVehicle_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_VehicleInfos.SelectedItem is PerVehInfo info)
             Vehicle.RequestPersonalVehicle(info.Id);
@@ -78,7 +76,7 @@ public partial class DriverButlerView : UserControl
 
     private void Button_GetInOnlinePV_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Online.GetInOnlinePV();
     }

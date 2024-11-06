@@ -1,6 +1,4 @@
-﻿using GTA5Shared.Helper;
-
-namespace GTA5OnlineTools.Views;
+﻿namespace GTA5OnlineTools.Views;
 
 /// <summary>
 /// HomeView.xaml 的交互逻辑

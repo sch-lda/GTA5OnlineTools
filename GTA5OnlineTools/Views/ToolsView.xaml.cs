@@ -1,10 +1,7 @@
-﻿using GTA5OnlineTools.Utils;
-using GTA5OnlineTools.Windows;
-
+﻿using CommunityToolkit.Mvvm.Input;
 using GTA5Core;
+using GTA5OnlineTools.Utils;
 using GTA5Shared.Helper;
-
-using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5OnlineTools.Views;
 
@@ -31,7 +28,7 @@ public partial class ToolsView : UserControl
     [RelayCommand]
     private void ToolsButtonClick(string name)
     {
-        
+
 
         switch (name)
         {

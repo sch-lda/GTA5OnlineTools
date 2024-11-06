@@ -1,8 +1,7 @@
-﻿using GTA5Menu.Data;
-
+﻿using GTA5Core.Features;
 using GTA5Core.GTA;
+using GTA5Menu.Data;
 using GTA5Shared.Helper;
-using GTA5Core.Features;
 
 namespace GTA5Menu.Views.OnlineTeleport;
 
@@ -110,7 +109,7 @@ public partial class MyBlipView : UserControl
 
     private void Button_TeleportToBlip_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_BlipInfos.SelectedItem is BlipInfo info)
         {
@@ -120,7 +119,7 @@ public partial class MyBlipView : UserControl
 
     private void Button_DeleteMyFavorite_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_BlipInfos.SelectedItem is BlipInfo info)
         {

@@ -9,7 +9,7 @@ namespace GTA5MenuExtra.Views.HeistsEditor.Apartment;
 public partial class MoneyView : UserControl
 {
     private const int apart_ratio = 2685444 + 6403;     // +1 +2 +3 +4
-   /* private const int apart_money = 262145 + 9171; //HEIST_FLEECA_JOB_CASH_REWARD*/
+    /* private const int apart_money = 262145 + 9171; //HEIST_FLEECA_JOB_CASH_REWARD*/
 
     public MoneyView()
     {
@@ -18,7 +18,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Read_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         TextBox_Apart_Player1.Text = Globals.Get_Global_Value<int>(apart_ratio).ToString();
 
@@ -33,7 +33,7 @@ public partial class MoneyView : UserControl
 
     private void Button_Write_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (!int.TryParse(TextBox_Apart_Player1.Text, out int player1) ||
 

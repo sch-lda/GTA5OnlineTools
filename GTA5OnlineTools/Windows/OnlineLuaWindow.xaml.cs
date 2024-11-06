@@ -1,9 +1,7 @@
-﻿using GTA5OnlineTools.Data;
+﻿using Downloader;
+using GTA5OnlineTools.Data;
 using GTA5OnlineTools.Utils;
-
 using GTA5Shared.Helper;
-
-using Downloader;
 
 namespace GTA5OnlineTools.Windows;
 
@@ -63,7 +61,7 @@ public partial class OnlineLuaWindow
 
     private async void Refresh_list()
     {
-        
+
 
         try
         {
@@ -126,7 +124,7 @@ public partial class OnlineLuaWindow
     }
     private void Button_RefushList_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Refresh_list();
     }
@@ -134,7 +132,7 @@ public partial class OnlineLuaWindow
 
     private async void Button_StartDownload_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var index = ListBox_DownloadAddress.SelectedIndex;
         if (index == -1)
@@ -181,7 +179,7 @@ public partial class OnlineLuaWindow
 
     private async void Button_CancelDownload_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         StackPanel_ToggleOption.IsEnabled = false;
         Button_StartDownload.IsEnabled = false;
@@ -290,14 +288,14 @@ public partial class OnlineLuaWindow
 
     private void Button_ScriptDir_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         ProcessHelper.OpenDir(FileHelper.Dir_AppData_YimMenu_Scripts);
     }
 
     private void Button_ClearScriptDir_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
 
         FileHelper.ClearDirectory(FileHelper.Dir_AppData_YimMenu_Scripts);

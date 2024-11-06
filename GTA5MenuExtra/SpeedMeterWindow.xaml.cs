@@ -1,7 +1,5 @@
-﻿using GTA5MenuExtra.Views.SpeedMeter;
-
-using GTA5Core.Native;
-using GTA5Shared.Helper;
+﻿using GTA5Core.Native;
+using GTA5MenuExtra.Views.SpeedMeter;
 
 namespace GTA5MenuExtra;
 
@@ -44,7 +42,7 @@ public partial class SpeedMeterWindow
 
     private void Button_RunDraw_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Memory.SetForegroundWindow();
 
@@ -63,7 +61,7 @@ public partial class SpeedMeterWindow
 
     private void Button_StopDraw_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (DrawWindow != null)
         {
@@ -90,6 +88,6 @@ public partial class SpeedMeterWindow
 
     private void RadioButton_SpeedMeterUnit_KPH_Click(object sender, RoutedEventArgs e)
     {
-        DrawData.IsShowMPH   = RadioButton_SpeedMeterUnit_MPH.IsChecked == true;
+        DrawData.IsShowMPH = RadioButton_SpeedMeterUnit_MPH.IsChecked == true;
     }
 }

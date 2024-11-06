@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace MetroSkin.Controls;
+﻿namespace MetroSkin.Controls;
 
 public class Window : System.Windows.Window
 {

@@ -1,6 +1,5 @@
-﻿using GTA5Shared.Helper;
-
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
+using GTA5Shared.Helper;
 
 namespace GTA5MenuExtra;
 

@@ -1,6 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Stats;
-using GTA5Shared.Helper;
 
 namespace GTA5MenuExtra.Views.StatsEditor;
 
@@ -38,7 +37,7 @@ public partial class DefaultView : UserControl
 
     private void Button_ExecuteAutoScript_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var item = ListBox_STATClass.SelectedItem;
         if (item != null)

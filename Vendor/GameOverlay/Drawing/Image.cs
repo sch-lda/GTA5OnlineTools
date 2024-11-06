@@ -1,13 +1,9 @@
-﻿using System;
-using System.IO;
-
-using SharpDX.WIC;
+﻿using GameOverlay.Drawing.Imaging;
 using SharpDX.Direct2D1;
-
-using GameOverlay.Drawing.Imaging;
-
+using SharpDX.WIC;
+using System;
+using System.IO;
 using Bitmap = SharpDX.Direct2D1.Bitmap;
-using PixelFormat = SharpDX.WIC.PixelFormat;
 
 namespace GameOverlay.Drawing;
 

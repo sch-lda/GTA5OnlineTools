@@ -1,6 +1,6 @@
-﻿using GTA5HotKey;
+﻿using GTA5Core.Native;
+using GTA5HotKey;
 using GTA5Overlay;
-using GTA5Core.Native;
 using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.ExternalMenu;
@@ -31,7 +31,7 @@ public partial class ExternalOverlayView : UserControl
 
     private void Button_Overaly_Run_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (overlay == null)
         {
@@ -51,7 +51,7 @@ public partial class ExternalOverlayView : UserControl
 
     private void Button_Overaly_Exit_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         CloseESP();
     }

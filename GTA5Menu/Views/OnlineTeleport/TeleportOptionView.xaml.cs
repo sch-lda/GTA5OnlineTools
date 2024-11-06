@@ -1,5 +1,4 @@
 ﻿using GTA5Core.Features;
-using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.OnlineTeleport;
 
@@ -28,7 +27,7 @@ public partial class TeleportOptionView : UserControl
     /// <param name="e"></param>
     private void Button_ToWaypoint_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Teleport.ToWaypoint();
     }
@@ -40,7 +39,7 @@ public partial class TeleportOptionView : UserControl
     /// <param name="e"></param>
     private void Button_ToObjective_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Teleport.ToObjective();
     }
@@ -54,7 +53,7 @@ public partial class TeleportOptionView : UserControl
     /// <param name="e"></param>
     private void Button_MoveDistance_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         var moveDistance = (float)Slider_MoveDistance.Value;
 

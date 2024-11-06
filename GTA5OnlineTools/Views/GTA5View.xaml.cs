@@ -1,13 +1,11 @@
-﻿using GTA5OnlineTools.Data;
-using GTA5OnlineTools.Windows;
-
+﻿using CommunityToolkit.Mvvm.Input;
 using GTA5Core;
 using GTA5Core.Native;
 using GTA5Menu;
 using GTA5MenuExtra;
+using GTA5OnlineTools.Data;
+using GTA5OnlineTools.Windows;
 using GTA5Shared.Helper;
-
-using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5OnlineTools.Views;
 
@@ -86,7 +84,7 @@ public partial class GTA5View : UserControl
     [RelayCommand]
     private void GTA5ViewClick(string viewName)
     {
-        
+
 
         if (ProcessHelper.IsGTA5Run())
         {
@@ -132,7 +130,7 @@ public partial class GTA5View : UserControl
     [RelayCommand]
     private void GTA5FuncClick(string funcName)
     {
-        
+
 
         switch (funcName)
         {

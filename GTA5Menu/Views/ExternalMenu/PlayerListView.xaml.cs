@@ -1,9 +1,7 @@
-﻿using GTA5Menu.Data;
-
+﻿using GTA5Core.Features;
 using GTA5Core.Native;
 using GTA5Core.Offsets;
-using GTA5Core.Features;
-using GTA5Shared.Helper;
+using GTA5Menu.Data;
 
 namespace GTA5Menu.Views.ExternalMenu;
 
@@ -49,7 +47,7 @@ public partial class PlayerListView : UserControl
 
     private void Button_RefreshPlayerList_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         NetPlayerInfos.Clear();
         TextBox_PlayerInfo.Clear();
@@ -183,7 +181,7 @@ public partial class PlayerListView : UserControl
 
     private void Button_TeleportToPlayer_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         if (ListBox_NetPlayers.SelectedItem is NetPlayerInfo info)
         {

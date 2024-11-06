@@ -1,8 +1,6 @@
-using GTA5MenuExtra.Models;
-
-using GTA5Core.Native;
 using GTA5Core.Features;
-using GTA5Shared.Helper;
+using GTA5Core.Native;
+using GTA5MenuExtra.Models;
 
 namespace GTA5MenuExtra;
 
@@ -166,7 +164,7 @@ public partial class CasinoHackWindow
 
     private void Button_LuckyWheelSlot_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         luckyWheelSlot = ListBox_LuckyWheel.SelectedIndex;
 
@@ -176,7 +174,7 @@ public partial class CasinoHackWindow
 
     private void Button_SlotMachineSlot_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         slotMachineSlot = ListBox_SlotMachine.SelectedIndex;
 
@@ -186,7 +184,7 @@ public partial class CasinoHackWindow
 
     private void Button_RouletteSlot_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         rouletteSlot = ListBox_Roulette.SelectedIndex;
 

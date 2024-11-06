@@ -1,8 +1,7 @@
-﻿using GTA5Core.Native;
-using GTA5Core.Offsets;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using GTA5Core.Features;
-
-using CommunityToolkit.Mvvm.ComponentModel;
+using GTA5Core.Native;
+using GTA5Core.Offsets;
 
 namespace GTA5MenuExtra.Views.SpeedMeter;
 

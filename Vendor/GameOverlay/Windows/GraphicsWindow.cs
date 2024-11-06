@@ -1,8 +1,7 @@
-﻿using System;
+﻿using GameOverlay.Drawing;
+using System;
 using System.Diagnostics;
 using System.Threading;
-
-using GameOverlay.Drawing;
 
 namespace GameOverlay.Windows;
 

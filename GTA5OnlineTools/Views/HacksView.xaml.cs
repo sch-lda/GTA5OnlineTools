@@ -1,13 +1,10 @@
-﻿using GTA5OnlineTools.Utils;
-using GTA5OnlineTools.Models;
-using GTA5OnlineTools.Windows;
-using GTA5OnlineTools.Views.ReadMe;
-
-using GTA5Inject;
+﻿using CommunityToolkit.Mvvm.Input;
 using GTA5Core.Native;
+using GTA5Inject;
+using GTA5OnlineTools.Models;
+using GTA5OnlineTools.Views.ReadMe;
+using GTA5OnlineTools.Windows;
 using GTA5Shared.Helper;
-
-using CommunityToolkit.Mvvm.Input;
 
 namespace GTA5OnlineTools.Views;
 
@@ -46,7 +43,7 @@ public partial class HacksView : UserControl
     [RelayCommand]
     private void HacksClick(string hackName)
     {
-        
+
 
         if (ProcessHelper.IsGTA5Run())
         {
@@ -73,7 +70,7 @@ public partial class HacksView : UserControl
     [RelayCommand]
     private void ReadMeClick(string Name)
     {
-        
+
 
         switch (Name)
         {
@@ -86,7 +83,7 @@ public partial class HacksView : UserControl
     [RelayCommand]
     private void HacksFuncClick(string funcName)
     {
-        
+
 
         switch (funcName)
         {
@@ -108,7 +105,7 @@ public partial class HacksView : UserControl
     {
         try
         {
-            
+
 
             switch (funcName)
             {
@@ -289,7 +286,7 @@ public partial class HacksView : UserControl
     /// YimMenu预设缓存
     /// </summary>
     private void YimMenuGTACacheClick()
-    {   
+    {
 
         var res_cache = $"{FileHelper.ResFiles}.YimMenu.cache.zip";
         var file_cache = $"{FileHelper.Dir_AppData_YimMenu}\\cache.zip";

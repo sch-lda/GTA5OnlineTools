@@ -1,6 +1,5 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Onlines;
-using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.OnlineWeapon;
 
@@ -133,14 +132,14 @@ public partial class WeaponOptionView : UserControl
 
     private void Button_FillCurrentAmmo_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Weapon.FillCurrentAmmo();
     }
 
     private void Button_FillAllAmmo_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Weapon.FillAllAmmo();
     }

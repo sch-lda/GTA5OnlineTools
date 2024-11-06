@@ -1,8 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-
-using GameOverlay.Drawing;
+﻿using GameOverlay.Drawing;
 using GameOverlay.PInvoke;
+using System;
 
 namespace GameOverlay.Windows;
 

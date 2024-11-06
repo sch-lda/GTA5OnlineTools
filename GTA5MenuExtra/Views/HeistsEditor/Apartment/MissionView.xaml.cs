@@ -1,5 +1,4 @@
 ﻿using GTA5Core.Features;
-using GTA5Shared.Helper;
 
 namespace GTA5MenuExtra.Views.HeistsEditor.Apartment;
 
@@ -22,7 +21,7 @@ public partial class MissionView : UserControl
 
     private void Button_HEIST_PLANNING_STAGE_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         STAT_SET_INT("MPx_HEIST_PLANNING_STAGE", -1);
     }

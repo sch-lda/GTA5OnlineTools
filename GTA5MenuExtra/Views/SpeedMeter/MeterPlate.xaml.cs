@@ -1,5 +1,5 @@
-﻿using System.Windows.Shapes;
-using System.Windows.Media.Animation;
+﻿using System.Windows.Media.Animation;
+using System.Windows.Shapes;
 
 namespace GTA5MenuExtra.Views.SpeedMeter;
 

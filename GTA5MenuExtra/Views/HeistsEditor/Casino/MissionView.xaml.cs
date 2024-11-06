@@ -265,7 +265,7 @@ public partial class MissionView : UserControl
 
     private void Button_STAT_Build_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Button_STAT_Run.IsEnabled = false;
         Button_STAT_Build.IsEnabled = false;
@@ -276,7 +276,7 @@ public partial class MissionView : UserControl
 
     private async void Button_STAT_Run_Click(object sender, RoutedEventArgs e)
     {
-        
+
 
         Button_STAT_Run.IsEnabled = false;
         Button_STAT_Build.IsEnabled = false;

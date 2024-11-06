@@ -1,9 +1,7 @@
-﻿using GTA5Menu.Data;
-
+﻿using GTA5Core.Features;
 using GTA5Core.GTA;
 using GTA5Core.GTA.Weapons;
-using GTA5Core.Features;
-using GTA5Shared.Helper;
+using GTA5Menu.Data;
 
 namespace GTA5Menu.Views.OnlineWeapon;
 
@@ -65,7 +63,7 @@ public partial class SpawnWeaponView : UserControl
 
     private async void SpawnWeapon()
     {
-        
+
 
         if (ListBox_WeaponInfos.SelectedItem is ModelInfo info)
         {

@@ -1,9 +1,6 @@
-﻿using GTA5Core.Native;
+﻿using GTA5Core.GTA.Vehicles;
+using GTA5Core.Native;
 using GTA5Core.Offsets;
-using GTA5Core.GTA.Vehicles;
-using System.Security.Policy;
-using System.Threading;
-using System.Windows.Media;
 
 namespace GTA5Core.Features;
 
