@@ -51,9 +51,6 @@ public partial class ToolsView : UserControl
             case "ManualGC":
                 ManualGCClick();
                 break;
-            case "OpenUpdateWindow":
-                OpenUpdateWindowClick();
-                break;
             #endregion
             /////////////////////////
             #region 分组2
@@ -153,17 +150,6 @@ public partial class ToolsView : UserControl
         NotifierHelper.Show(NotifierType.Notification, "执行GC垃圾回收成功");
     }
 
-    /// <summary>
-    /// 打开更新窗口
-    /// </summary>
-    private void OpenUpdateWindowClick()
-    {
-        var UpdateWindow = new UpdateWindow
-        {
-            Owner = MainWindow.MainWindowInstance
-        };
-        UpdateWindow.ShowDialog();
-    }
     #endregion
 
     ////////////////////////////////////////////////////////////////////////

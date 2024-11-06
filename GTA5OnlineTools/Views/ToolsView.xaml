@@ -43,12 +43,6 @@
                 Content="GC垃圾回收"
                 Icon="&#xe63a;"
                 Style="{StaticResource ButtonStyle_Tools}" />
-            <ui:ButtonIcon
-                Command="{Binding ToolsButtonClickCommand}"
-                CommandParameter="OpenUpdateWindow"
-                Content="打开更新窗口"
-                Icon="&#xe6e9;"
-                Style="{StaticResource ButtonStyle_Tools}" />
         </WrapPanel>
         <!--  ////////////////////////////////  -->
         <WrapPanel>

@@ -143,7 +143,7 @@ public class VirtualizingWrapPanel : VirtualizingPanelBase
 
     protected override Size CalculateExtent(Size availableSize)
     {
-        double extentWidth = IsSpacingEnabled && SpacingMode != SpacingMode.None && !double.IsInfinity(GetWidth(availableSize))
+        double extentWidth = SpacingMode != SpacingMode.None && !double.IsInfinity(GetWidth(availableSize))
             ? GetWidth(availableSize)
             : GetWidth(childSize) * itemsPerRowCount;
 
@@ -172,7 +172,7 @@ public class VirtualizingWrapPanel : VirtualizingPanelBase
         double totalItemsWidth = Math.Min(GetWidth(childSize) * itemsPerRowCount, finalWidth);
         double unusedWidth = finalWidth - totalItemsWidth;
 
-        SpacingMode spacingMode = IsSpacingEnabled ? SpacingMode : SpacingMode.None;
+        SpacingMode spacingMode = SpacingMode;
 
         switch (spacingMode)
         {
