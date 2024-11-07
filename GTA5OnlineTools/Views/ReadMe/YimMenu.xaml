@@ -71,7 +71,12 @@
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
                     注入成功后，会出现一个YimMenu的控制台窗口，这个不要关闭，否则游戏会跟着一起关闭，为了防止被反作弊检测，Yimmenu已不允许在游戏运行时解除注入，只能完全退出游戏重新启动。
                 </Paragraph>
-
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    为什么官方版文件大小和官方版并不相同？
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    由于官方版每次注入需要从Github下载语言文件，而Github在中国大陆难以连接，造成注入时可能卡住20s-60s。因此通过反汇编的方法阻止了语言文件下载，语言文件将通过小助手直接释放。同时为了减小小助手大小，dll经过upx压缩，因此校验值和大小均发生改变。
+                </Paragraph>
             </FlowDocument>
         </RichTextBox>
     </UniformGrid>
