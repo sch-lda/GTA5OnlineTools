@@ -87,17 +87,26 @@ public partial class LoadWindow
                 }
 
                 /////////////////////////////////////////////////////////////////////
+                DateTime targetDate = new DateTime(2025, 4, 14);
+                DateTime currentDate = DateTime.Now;
 
-                this.Dispatcher.Invoke(() =>
+                if (currentDate > targetDate)
                 {
-                    var mainWindow = new MainWindow();
-                    // 转移主程序控制权
-                    Application.Current.MainWindow = mainWindow;
-                    // 显示主窗口
-                    mainWindow.Show();
-                    // 关闭初始化窗口
-                    this.Close();
-                });
+                    LoadModel.LoadState = "[安全警告]此程序使用的域名cc2077.site已过期，继续使用可能有被供应链攻击的风险！此版本应停止使用！";
+                }
+                else
+                {
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        var mainWindow = new MainWindow();
+                        // 转移主程序控制权
+                        Application.Current.MainWindow = mainWindow;
+                        // 显示主窗口
+                        mainWindow.Show();
+                        // 关闭初始化窗口
+                        this.Close();
+                    });
+                }
             }
             catch (Exception ex)
             {
