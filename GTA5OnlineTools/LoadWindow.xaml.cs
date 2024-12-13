@@ -92,7 +92,7 @@ public partial class LoadWindow
 
                 if (currentDate > targetDate)
                 {
-                    LoadModel.LoadState = "[安全警告]此程序使用的域名cc2077.site已过期，继续使用可能有被供应链攻击的风险！此版本应停止使用！";
+                    LoadModel.LoadState = "[安全警告]此程序使用的域名cc2077.site已过期，继续使用可能有被供应链攻击的风险！此版本应停止使用！请从小助手官方discord下载新版本！";
                 }
                 else
                 {
