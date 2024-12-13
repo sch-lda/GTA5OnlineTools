@@ -48,8 +48,8 @@ public static class Injector
 
             if (!CheckIsFSLInjected(process))
             {
-                result.Content = $"进程 {process.ProcessName} 未注入过FSL,请先阅读说明";
-                return result;
+                result.Content = $"进程 {process.ProcessName} 未注入过FSL,进入线上将存在较高风险";
+                //return result;
             }
 
             var procHandle = Win32.OpenProcess(ProcessAccessFlags.All, false, process.Id);
