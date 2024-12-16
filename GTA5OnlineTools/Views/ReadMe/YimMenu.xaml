@@ -25,7 +25,7 @@
                     <Hyperlink NavigateUri="https://www.unknowncheats.me/forum/grand-theft-auto-v/476972-yimmenu-1-69-b3337.html" RequestNavigate="Hyperlink_RequestNavigate">https://www.unknowncheats.me/forum/grand-theft-auto-v/476972-yimmenu-1-69-b3337.html</Hyperlink> 发布和更新，像以前的kiddion一样，除此之外没有变化
                 </Paragraph>
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
-                    小助手内同时提供Yimmenu官方版和Mr-X-GTA的第三方版本。官方版本由maybegreat48等核心开发者维护，其可靠性理论上更高，但不再开源，不可使用Alice Lua，中文翻译可能不完全，不包含sch分支的非自由的聊天翻译等更改。Mr-X-GTA是Yimmenu贡献者之一，曾为yimmenu修复多个棘手的问题，Mr-X-GTA移除了R星指出的侵权代码，并继续开源，有Alicelua等特殊使用需要的可以使用Mr-X版本。Mr-X-GTA开源地址
+                    小助手内同时提供Yimmenu官方版和Mr-X-GTA的第三方版本。官方版本由maybegreat48等核心开发者维护，其可靠性理论上更高，但不再开源。Mr-X-GTA是Yimmenu贡献者之一，曾为yimmenu修复多个棘手的问题，Mr-X-GTA移除了R星指出的侵权代码，并继续开源。Mr-X-GTA开源地址
                     <Hyperlink NavigateUri="https://github.com/Mr-X-GTA/YimMenu" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/Mr-X-GTA/YimMenu</Hyperlink>
                 </Paragraph>
                 <Paragraph>
