@@ -37,7 +37,7 @@
             </ui:GroupBoxHack.TitleContent>
             <ui:GroupBoxHack.DescriptionContent>
                 <StackPanel Margin="0,-23,0,0">
-                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="务必点一下说明按钮看看!!!必须先从R星启动器关闭Battleye开关并正确安装FSL v1.3才能使用Yimmenu" />
+                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="务必点一下说明按钮看看!!!必须先从R星启动器关闭Battleye开关并正确安装FSL v1.4才能使用Yimmenu" />
                     <WrapPanel>
                         <Button
                         Background="#FE780A"
