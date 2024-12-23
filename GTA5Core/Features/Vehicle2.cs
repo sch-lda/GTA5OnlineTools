@@ -1,6 +1,6 @@
-﻿using GTA5Core.GTA.Vehicles;
-using GTA5Core.Native;
+﻿using GTA5Core.Native;
 using GTA5Core.Offsets;
+using GTA5Core.GTA.Vehicles;
 
 namespace GTA5Core.Features;
 
@@ -21,6 +21,7 @@ public static class Vehicle2
         "brioso",
         "monstrociti"
     };
+
     /// <summary>
     /// 刷出线上载具
     /// </summary>
@@ -31,40 +32,6 @@ public static class Vehicle2
     /// <returns></returns>
     public static async Task SpawnVehicle(string model, int[] mods, bool isMax, bool isInRoom = false)
     {
-        await Task.Run(() =>
-        {
-            var hashes = RAGE.JOAAT(model);
-
-            var pCPed = Game.GetCPed();
-            var vector3 = Memory.Read<Vector3>(pCPed + CPed.VisualX);
-
-            var pCNavigation = Memory.Read<long>(pCPed + CPed.CNavigation);
-
-            var sin = Memory.Read<float>(pCNavigation + CNavigation.RightX);
-            var cos = Memory.Read<float>(pCNavigation + CNavigation.ForwardX);
-
-            var dist = 5.0f;
-
-            vector3.X += cos * dist;
-            vector3.Y += sin * dist;
-
-            if (isInRoom && (__VEHICLE.IS_THIS_MODEL_A_PLANE(hashes) == 1) || (__VEHICLE.IS_THIS_MODEL_A_HELI(hashes) == 1))
-                vector3.Z = 500f;
-
-            var pedHandle = __PLAYER.PLAYER_PED_ID();
-            var vehicleHandle = vehicle.create_vehicle(hashes, vector3, __ENTITY.GET_ENTITY_HEADING(pedHandle));
-
-            if (isInRoom && (vehicleHandle != 0))
-                __PED.SET_PED_INTO_VEHICLE(pedHandle, vehicleHandle, -1);
-
-            if (isMax && (vehicleHandle != 0))
-            {
-                __VEHICLE.SET_VEHICLE_MOD_KIT(vehicleHandle, 0);
-                for (var i = 0; i <= 49; i++)
-                    __VEHICLE.SET_VEHICLE_MOD(vehicleHandle, i, (__VEHICLE.GET_NUM_VEHICLE_MODS(vehicleHandle, i) - 1), 1);
-            }
-        });
-        /*
         await Task.Run(() =>
         {
             var dist = 5.0f;
@@ -115,7 +82,6 @@ public static class Vehicle2
             Globals.Set_Global_Value(Base.oVMCreate + 27 + 95, 14);              // 拥有载具标志 Ownerflag
             Globals.Set_Global_Value(Base.oVMCreate + 27 + 94, 2);               // 个人载具标志 Personal car ownerflag
         });
-        */
     }
 
     /// <summary>

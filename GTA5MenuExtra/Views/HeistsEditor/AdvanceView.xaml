@@ -13,35 +13,19 @@
     <UniformGrid Columns="3">
         <StackPanel>
             <ui:LabelIcon Content="实验性功能" />
-            <WrapPanel Margin="5,0,5,0" Height="217">
+            <WrapPanel Margin="5,0,5,0">
                 <Button
-                    x:Name="Button_InstantFmMissionControllerANY"
-                    Click="Button_InstantFmMissionControllerANY_Click"
-                    Content="即时完成任务" />
-                <CheckBox
+                    x:Name="Button_InstantFmMissionController"
+                    Click="Button_InstantFmMissionController_Click"
+                    Content="即时完成 公寓抢劫 | 末日豪劫 | 名钻赌场豪劫" />
+                <Button
+                    x:Name="Button_InstantFmMissionController2020"
+                    Click="Button_InstantFmMissionController2020_Click"
+                    Content="即时完成 改装铺合约 | 佩里科岛 | 德瑞" />
+                <Button
                     x:Name="Button_AloneLaunchHeist"
                     Click="Button_AloneLaunchHeist_Click"
-                    Content="允许单人启动任务" />
-                <Button
-                    x:Name="Button_BeginTransactionCasinoHeist"
-                    Click="Button_BeginTransactionCasinoHeist_Click"
-                    Content="超级速通名钻赌场豪劫" />
-                <Button
-                    x:Name="Button_BeginTransactionCayoHeist"
-                    Click="Button_BeginTransactionCayoHeist_Click"
-                    Content="超级速通佩里科岛" />
-                <Button
-                    x:Name="Button_BeginTransactionDoomsdaytHeist"
-                    Click="Button_BeginTransactionDoomsdayHeist_Click"
-                    Content="超级速通末日豪劫" />
-                <Button
-                    x:Name="Button_GreenPlayersAllCrashGame"
-                    Click="Button_GreenPlayersAllCrashGame_Click"
-                    Content="绿色玩家引起的全局崩溃" />
-                <Button
-                    x:Name="Button_GreenPlayersAllTse968269233"
-                    Click="Button_GreenPlayersAllTse968269233_Click"
-                    Content="绿色玩家引起的全局经验脚本事件" />
+                    Content="单人启动任务（这应该允许你能完整的玩末日将至）" />
             </WrapPanel>
         </StackPanel>
     </UniformGrid>

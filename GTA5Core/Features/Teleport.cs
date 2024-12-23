@@ -1,5 +1,7 @@
 using GTA5Core.Native;
 using GTA5Core.Offsets;
+using System.Numerics;
+
 namespace GTA5Core.Features;
 
 public static class Teleport
@@ -55,7 +57,7 @@ public static class Teleport
         if (wayPos == Vector3.Zero)
             return;
 
-        //SetTeleportPosition(wayPos);
+        SetTeleportPosition(wayPos);
         TowaypointForceGroundZ(wayPos);         // 更稳定的native传送
     }
 
@@ -71,83 +73,62 @@ public static class Teleport
             return;
 
         SetTeleportPosition(objPos);
+        SetTeleportCoords(objPos);
     }
 
     /// <summary>
     /// 传送到导航点（Native）
     /// </summary>
-    public static void TowaypointForceGroundZ(Vector3 blipV3)
+    public static async void TowaypointForceGroundZ(Vector3 blipV3)
     {
-        if (blipV3 == Vector3.Zero)
-            return;
-
         Vector3 vec3;
         vec3.X = blipV3.X;
         vec3.Y = blipV3.Y;
         vec3.Z = -255f;
 
-        SetTeleportPosition(vec3);
+        SetTeleportCoords(vec3);
 
-        ulong outValue = native_invoker.alloc_mem(1024); // 分配一个1024字节的内存
-
-        if (__WATER.GET_WATER_HEIGHT(vec3.X, vec3.Y, 800f, outValue) == 1)
+        var tryCount = 0;
+        var pCPed = Game.GetCPed();
+        if (!Vehicle.IsInVehicle(pCPed))
         {
-            vec3.Z = Memory.Read<float>((long)outValue);
-            SetTeleportPosition(vec3);
+            // 21f取决于你的blip的z坐标,详情参考GetBlipPosition函数... 
+            // 进入此代码块的条件,人物通常已经在地下...
+            while (GetPlayerPosition().Z == 21f)
+            {
+                tryCount++;
+
+                for (var i = 0; i <= 8; i++)        // 游戏最高高度通常在800+左右...
+                {
+                    vec3.Z = (i * 100f) + 20f;              // 开始强制加载坐标地面...
+                    SetTeleportCoords(vec3);
+                    vec3.Z = -255f;                 // 游戏引擎会因为这个坐标(-211f以下任何)而将你设置到地面,这就是为什么上面需要增加高度来强迫游戏引擎来强制加载z坐标...
+                    SetTeleportCoords(vec3);
+                }
+
+                if (tryCount == 5)
+                    break;                          // 这里因为可能是海洋尝试5次将结束此循环...
+            }
         }
         else
         {
-            if (__MISC.GET_GROUND_Z_FOR_3D_COORD(vec3.X, vec3.Y, 800f, outValue, 1, 0) == 0)
+            while ((GetCurrentVehiclePosition().Z > 20f) && (GetCurrentVehiclePosition().Z < 21f))
+            {
+                tryCount++;
+
                 for (var i = 0; i <= 8; i++)
                 {
-                    vec3.Z = 850f - (i * 100f);
-                    SetTeleportPosition(vec3);
-                    if (__MISC.GET_GROUND_Z_FOR_3D_COORD(vec3.X, vec3.Y, 800f, outValue, 1, 0) == 1)
-                        break;
+                    vec3.Z = (i * 100f) + 20f;
+                    SetTeleportCoords(vec3);
+                    await Task.Delay(100);
+                    vec3.Z = -255f;
+                    SetTeleportCoords(vec3);
                 }
 
-            vec3.Z = Memory.Read<float>((long)outValue);
-            SetTeleportPosition(vec3);
-        }
-
-        native_invoker.free_mem(outValue); // 释放一个内存只能是已分配的
-
-        //var a = entity.handle_to_ptr(__PLAYER.PLAYER_PED_ID());
-        //var b = entity.ptr_to_handle(a);
-
-        //fire.add_owned_explosion(__PLAYER.PLAYER_PED_ID(), 0, 0, 0, 0, 0f, 1, 0, 0f);
-
-        /*unsafe
-        {
-            Vector3 VEC3 = Parse.Arg(__ENTITY.GET_ENTITY_COORDS(__PLAYER.PLAYER_PED_ID(), 0));
-        }*/
-
-        /*unsafe
-        {
-             int value = 0;
-             if (!stats.get_int(RAGE.JOAAT("mp0_cas_heist_flow"), &value))
-                 return;
-        }*/
-
-        /*unsafe
-        {
-            var vehicles = 0;
-            Vector3 v3 = Parse.Arg(__ENTITY.GET_ENTITY_COORDS(__PLAYER.PLAYER_PED_ID(), 0));
-            var hashes = RAGE.JOAAT("kuruma2");
-
-            if (streaming.request_model(hashes))
-            {
-                var mem = native_invoker.alloc_mem(1024);
-
-                native_invoker.add_special_native(Parse.Arg("CREATE_VEHICLE"), Parse.Arg("activity_creator_prototype_launcher"));
-                vehicles = __VEHICLE.CREATE_VEHICLE(hashes, v3.X, v3.Y, v3.Z, 0, 1, 0, 1);
-                native_invoker.remove_special_native(Parse.Arg("CREATE_VEHICLE"));
-
-                var scr = Parse.Arg(__ENTITY.GET_ENTITY_SCRIPT(vehicles, mem));
-                native_invoker.free_mem(mem);
-                __STREAMING.SET_MODEL_AS_NO_LONGER_NEEDED(hashes);
+                if (tryCount == 5)
+                    break;
             }
-        }*/
+        }
     }
 
     /// <summary>
@@ -166,6 +147,48 @@ public static class Teleport
     }
 
     /// <summary>
+    /// 实体传送功能
+    /// </summary>
+    public static void SetTeleportCoords(Vector3 vector3)
+    {
+        if (Globals.IsOnlineMode())
+        {
+            var pCPed = Game.GetCPed();
+            if (!Vehicle.IsInVehicle(pCPed))
+            {
+                Globals.Set_Global_Value(4521801 + 948 + 0, vector3.X);
+                Globals.Set_Global_Value(4521801 + 948 + 1, vector3.Y);
+                Globals.Set_Global_Value(4521801 + 948 + 2, vector3.Z);
+                Globals.Set_Global_Value(2672855 + 63 + 22, 0);
+                Globals.Set_Global_Value(4521801 + 945, 20);
+
+                //int m_index = Tunables.Index(-1146554960); // int
+                //int m_index = Tunables.Index(3148412336); // uint32_t
+                //int m_index = Tunables.Index(RAGE.JOAAT("TURN_SNOW_ON_OFF")); // rage::joaat
+                //Globals.Set_Global_Value(m_index, 1);
+
+                while (Globals.Get_Global_Value<int>(4521801 + 945) == 20)
+                {
+                }
+
+                Globals.Set_Global_Value(4521801 + 945, -1);
+            }
+            else
+            {
+                Globals.Set_Global_Value(2635563 + 505 + 0, vector3.X);
+                Globals.Set_Global_Value(2635563 + 505 + 1, vector3.Y);
+                Globals.Set_Global_Value(2635563 + 505 + 2, vector3.Z);
+                int player = Globals.Get_Global_Value<int>(2672855);
+                Globals.Set_Global_Value(2657971 + 1 + (player * 465) + 233, 7);
+                Globals.Set_Global_Value(2635563 + 45 + 65, 1);
+
+                while (Globals.Get_Global_Value<int>(2657971 + 1 + (player * 465) + 233) == 7)
+                {
+                }
+            }
+        }
+    }
+    /// <summary>
     /// 坐标传送功能
     /// </summary>
     public static void SetTeleportPosition(Vector3 vector3)
@@ -174,17 +197,8 @@ public static class Teleport
             return;
 
         // 禁用越界死亡
-        // Globals.Set_Global_Value(2738934 + 6958, 1);     // freemode - "TRI_WARP"
+        Globals.Set_Global_Value(2738934 + 6958, 1);     // freemode - "TRI_WARP"
 
-        var pCPed = Game.GetCPed();
-        var pedHandle = __PLAYER.PLAYER_PED_ID();
-
-        if (!Vehicle.IsInVehicle(pCPed))
-            __ENTITY.SET_ENTITY_COORDS(pedHandle, vector3.X, vector3.Y, vector3.Z, 1, 1, 1, 1);
-        else
-            __ENTITY.SET_ENTITY_COORDS(__PED.GET_VEHICLE_PED_IS_IN(pedHandle, 0), vector3.X, vector3.Y, vector3.Z, 1, 1, 1, 1);
-
-        /*
         var pCPed = Game.GetCPed();
 
         if (Vehicle.IsInVehicle(pCPed))
@@ -204,7 +218,6 @@ public static class Teleport
             Memory.Write(pCPed + CPed.VisualX, vector3);
             Memory.Write(pCNavigation + CNavigation.PositionX, vector3);
         }
-        */
     }
 
     /// <summary>

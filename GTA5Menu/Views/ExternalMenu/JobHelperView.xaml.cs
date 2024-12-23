@@ -1,5 +1,6 @@
 ﻿using GTA5Core.Features;
 using GTA5Core.GTA.Onlines;
+using GTA5Shared.Helper;
 
 namespace GTA5Menu.Views.ExternalMenu;
 
@@ -67,9 +68,6 @@ public partial class JobHelperView : UserControl
         // 移除地堡进货延迟
         if (_options.BunkerSupplyDelay)
             Online.BunkerSupplyDelay(true);
-        // 解锁地堡所有研究 (永久)
-        if (_options.UnlockBunkerResearch)
-            Online.UnlockBunkerResearch(true);
 
         // 移除摩托帮进货延迟
         if (_options.MCSupplyDelay)
@@ -102,7 +100,7 @@ public partial class JobHelperView : UserControl
 
     private void Button_CEOCargos_Click(object sender, RoutedEventArgs e)
     {
-
+        // AudioHelper.PlayClickSound();
 
         if (sender is Button button)
         {
@@ -119,7 +117,7 @@ public partial class JobHelperView : UserControl
 
     private void Button_CEOSpecialCargos_Click(object sender, RoutedEventArgs e)
     {
-
+        // AudioHelper.PlayClickSound();
 
         if (sender is Button button)
         {
@@ -205,10 +203,5 @@ public partial class JobHelperView : UserControl
     {
         _options.PayphoneHitCooldown = CheckBox_PayphoneHitCooldown.IsChecked == true;
         Online.PayphoneHitCooldown(_options.PayphoneHitCooldown);
-    }
-
-    private void Button_BunkerSupplyDelay_Click(object sender, RoutedEventArgs e)
-    {
-        Online.UnlockBunkerResearch(true);
     }
 }

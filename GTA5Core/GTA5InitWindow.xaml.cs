@@ -126,13 +126,6 @@ public partial class GTA5InitWindow
 
     private bool PatternInit()
     {
-        Logger("开始初始化《GTA5》本机调用程序");
-        if (native_invoker.load())
-            Logger("已加载《GTA5》本机调用程序");
-
-        Logger("开始初始化《GTA5》禁用反作弊框架");
-        if (native_invoker.disable_anti_cheat())
-            Logger("已禁用《GTA5》禁用反作弊框架");
 
         Logger("开始初始化《GTA5》特征码模块");
 
