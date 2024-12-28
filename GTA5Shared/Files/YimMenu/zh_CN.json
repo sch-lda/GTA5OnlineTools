@@ -795,6 +795,7 @@
   "KICK_FROM_INTERIOR": "踢出室内",
   "KICK_FROM_INTERIOR_DESC": "将玩家从室内踢出去",
   "KICK_HOST_ON_JOIN": "加入战局时踢出主机",
+  "KICK_HOST_TO_STAY_IN_SESSION": "踢出主机以防止被BE踢",
   "KILL_ALL": "杀死所有人",
   "KILL_LIST": "杀戮名单",
   "KILL_LOOP": "循环击杀玩家",
