@@ -106,6 +106,9 @@ public static class Injector
         catch (Exception ex)
         {
             result.Content = ex.Message;
+            if (result.Content.Contains("拒绝访问") || result.Content.Contains("Access is d"))
+                result.Content += " 你真的认真看注入按钮旁的说明了吗?";
+
             return result;
         }
     }
