@@ -143,6 +143,7 @@ public partial class OnlineLuaWindow
         AppendLogger($"Lua名称：{OnlineLuas[index].Name}");
         AppendLogger($"Lua大小: {OnlineLuas[index].Size}");
 
+        FileHelper.CreateDirectory(FileHelper.Dir_AppData_YimMenu_Scripts);
         tempPath = Path.Combine(FileHelper.Dir_AppData_YimMenu_Scripts, "GTA5OnlineLua.zip");
 
         AppendLogger("开始下载...");
