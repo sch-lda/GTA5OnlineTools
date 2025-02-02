@@ -39,12 +39,14 @@ public partial class FSLWindow
         {
             if (key != null)
             {
+                bool isfound = false;
                 object value_steam = key.GetValue(valueName_steam);
                 if (value_steam != null)
                 {
                     GTA5_InstallPath_Steam = value_steam.ToString();
                     if (Directory.Exists(GTA5_InstallPath_Steam))
                     {
+                        isfound = true;
                         Button_GTA_STEAM_Dir.IsEnabled = true;
                         Button_StartDownload_Steam.IsEnabled = true;
                         Button_RM_FSL_Steam.IsEnabled = true;
@@ -57,12 +59,20 @@ public partial class FSLWindow
                     GTA5_InstallPath_Epic = value_epic.ToString();
                     if (Directory.Exists(GTA5_InstallPath_Epic))
                     {
+                        isfound = true;
                         Button_GTA_EPIC_Dir.IsEnabled = true;
                         Button_StartDownload_Epic.IsEnabled = true;
                         Button_RM_FSL_Epic.IsEnabled = true;
                         AppendLogger($"已从注册表获取GTA5 Epic版安装路径：{GTA5_InstallPath_Epic}");
                     }
                 }
+                if (!isfound)
+                {
+                    AppendLogger("未找到GTA5安装路径,如果您安装好从未启动过游戏,请先运行一次GTA5再进入此页面");
+                }
+            }
+            else{
+                AppendLogger("未找到GTA5安装路径,如果您安装好从未启动过游戏,请先运行一次GTA5再进入此页面");
             }
         }
     }
