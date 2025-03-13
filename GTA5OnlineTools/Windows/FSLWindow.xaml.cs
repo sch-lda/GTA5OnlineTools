@@ -13,9 +13,12 @@ public partial class FSLWindow
 {
     private string tempPath = string.Empty;
 
-    private const string fsl_url = "https://sstaticstp.cc2077.site/version.dll";
+    private const string fsl_url = "https://sstaticstp.cc2077.site/version_legacy.dll";
+    private const string fsl_url_enhanced = "https://sstaticstp.cc2077.site/version_enhanced.dll";
     private string GTA5_InstallPath_Steam = string.Empty;
     private string GTA5_InstallPath_Epic = string.Empty;
+    private string GTA5_InstallPath_Steam_enhanced = string.Empty;
+    private string GTA5_InstallPath_Epic_enhanced = string.Empty;
     private HttpClient _httpClient = new();
 
     public FSLWindow()
@@ -32,14 +35,17 @@ public partial class FSLWindow
         Button_RM_FSL_Steam.IsEnabled = false;
         Button_RM_FSL_Epic.IsEnabled = false;
 
-        string registryPath = @"SOFTWARE\WOW6432Node\Rockstar Games\Grand Theft Auto V";
+        string registryPath_legacy = @"SOFTWARE\WOW6432Node\Rockstar Games\Grand Theft Auto V";
+        string registryPath_enhanced = @"SOFTWARE\WOW6432Node\Rockstar Games\GTA V Enhanced";
+
         string valueName_steam = "InstallFolderSteam";
         string valueName_epic = "InstallFolderEpic";
-        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(registryPath))
+        bool isfound = false;
+        
+        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(registryPath_legacy))
         {
             if (key != null)
             {
-                bool isfound = false;
                 object value_steam = key.GetValue(valueName_steam);
                 if (value_steam != null)
                 {
@@ -50,7 +56,7 @@ public partial class FSLWindow
                         Button_GTA_STEAM_Dir.IsEnabled = true;
                         Button_StartDownload_Steam.IsEnabled = true;
                         Button_RM_FSL_Steam.IsEnabled = true;
-                        AppendLogger($"已从注册表获取GTA5 Steam版安装路径：{GTA5_InstallPath_Steam}");
+                        AppendLogger($"已从注册表获取GTA5传承版-Steam安装路径：{GTA5_InstallPath_Steam}");
                     }
                 }
                 object value_epic = key.GetValue(valueName_epic);
@@ -63,18 +69,57 @@ public partial class FSLWindow
                         Button_GTA_EPIC_Dir.IsEnabled = true;
                         Button_StartDownload_Epic.IsEnabled = true;
                         Button_RM_FSL_Epic.IsEnabled = true;
-                        AppendLogger($"已从注册表获取GTA5 Epic版安装路径：{GTA5_InstallPath_Epic}");
+                        AppendLogger($"已从注册表获取GTA5传承版-Epic安装路径：{GTA5_InstallPath_Epic}");
                     }
-                }
-                if (!isfound)
-                {
-                    AppendLogger("未找到GTA5安装路径,如果您安装好从未启动过游戏,请先运行一次GTA5再进入此页面");
                 }
             }
             else{
-                AppendLogger("未找到GTA5安装路径,如果您安装好从未启动过游戏,请先运行一次GTA5再进入此页面");
+                AppendLogger("未找到GTA5传承版安装路径,如果您安装后从未启动过游戏,请先运行一次GTA5再进入此页面");
             }
         }
+        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(registryPath_enhanced))
+        {
+            if (key != null)
+            {
+                object value_steam = key.GetValue(valueName_steam);
+                if (value_steam != null)
+                {
+                    GTA5_InstallPath_Steam_enhanced = value_steam.ToString();
+                    if (Directory.Exists(GTA5_InstallPath_Steam_enhanced))
+                    {
+                        isfound = true;
+                        Button_GTA_STEAM_Dir.IsEnabled = true;
+                        Button_StartDownload_Steam.IsEnabled = true;
+                        Button_RM_FSL_Steam.IsEnabled = true;
+                        AppendLogger($"已从注册表获取GTA5增强版-Steam安装路径：{GTA5_InstallPath_Steam_enhanced}");
+                    }
+                }
+                object value_epic = key.GetValue(valueName_epic);
+                if (value_epic != null)
+                {
+                    GTA5_InstallPath_Epic_enhanced = value_epic.ToString();
+                    if (Directory.Exists(GTA5_InstallPath_Epic_enhanced))
+                    {
+                        isfound = true;
+                        Button_GTA_EPIC_Dir.IsEnabled = true;
+                        Button_StartDownload_Epic.IsEnabled = true;
+                        Button_RM_FSL_Epic.IsEnabled = true;
+                        AppendLogger($"已从注册表获取GTA5增强版-Epic安装路径：{GTA5_InstallPath_Epic_enhanced}");
+                    }
+                }
+
+            }
+            else
+            {
+                AppendLogger("未找到GTA5增强版安装路径,如果您安装后从未启动过游戏,请先运行一次GTA5再进入此页面");
+            }
+        }
+
+        if (!isfound)
+        {
+            AppendLogger("未找到GTA5增强版或传承版的安装路径,如果您安装后从未启动过游戏,请先运行一次GTA5再进入此页面");
+        }
+
     }
 
     private void AppendLogger(string log)
@@ -85,15 +130,33 @@ public partial class FSLWindow
 
     private async void Button_StartDownload_Steam_Click(object sender, RoutedEventArgs e)
     {
-        await StartDownload(GTA5_InstallPath_Steam);
+        if (!string.IsNullOrEmpty(GTA5_InstallPath_Steam_enhanced))
+        {
+            AppendLogger("开始为GTA5增强版-Steam 下载FSL");
+            await StartDownload(GTA5_InstallPath_Steam_enhanced, true);
+        }
+        if (!string.IsNullOrEmpty(GTA5_InstallPath_Steam))
+        {
+            AppendLogger("开始为GTA5传承版-Steam 下载FSL");
+            await StartDownload(GTA5_InstallPath_Steam, false);
+        }
     }
 
     private async void Button_StartDownload_Epic_Click(object sender, RoutedEventArgs e)
     {
-        await StartDownload(GTA5_InstallPath_Epic);
+        if (!string.IsNullOrEmpty(GTA5_InstallPath_Epic_enhanced))
+        {
+            AppendLogger("开始为GTA5增强版-Epic 下载FSL");
+            await StartDownload(GTA5_InstallPath_Epic_enhanced, true);
+        }
+        if (!string.IsNullOrEmpty(GTA5_InstallPath_Epic))
+        {
+            AppendLogger("开始为GTA5传承版-Epic 下载FSL");
+            await StartDownload(GTA5_InstallPath_Epic, false);
+        }
     }
 
-    private async Task StartDownload(string installPath)
+    private async Task StartDownload(string installPath, bool isEnhanced)
     {
         Button_StartDownload_Steam.IsEnabled = false;
         Button_StartDownload_Epic.IsEnabled = false;
@@ -107,7 +170,8 @@ public partial class FSLWindow
 
         try
         {
-            using (var response = await _httpClient.GetAsync(fsl_url, HttpCompletionOption.ResponseHeadersRead))
+            string download_url = isEnhanced ? fsl_url_enhanced : fsl_url;
+            using (var response = await _httpClient.GetAsync(download_url, HttpCompletionOption.ResponseHeadersRead))
             {
                 response.EnsureSuccessStatusCode();
                 var totalBytes = response.Content.Headers.ContentLength;
@@ -177,12 +241,18 @@ public partial class FSLWindow
 
     private void Button_RM_FSL_Steam_Click(object sender, RoutedEventArgs e)
     {
+        AppendLogger("尝试移除传承版FSL");
         RemoveFile(GTA5_InstallPath_Steam);
+        AppendLogger("尝试移除增强版FSL");
+        RemoveFile(GTA5_InstallPath_Steam_enhanced);
     }
 
     private void Button_RM_FSL_Epic_Click(object sender, RoutedEventArgs e)
     {
+        AppendLogger("尝试移除传承版FSL");
         RemoveFile(GTA5_InstallPath_Epic);
+        AppendLogger("尝试移除增强版FSL");
+        RemoveFile(GTA5_InstallPath_Epic_enhanced);
     }
 
     private void RemoveFile(string installPath)
@@ -209,6 +279,7 @@ public partial class FSLWindow
     private void Button_GTA_STEAM_Dir_Click(object sender, RoutedEventArgs e)
     {
         ProcessHelper.OpenDir(GTA5_InstallPath_Steam);
+        ProcessHelper.OpenDir(GTA5_InstallPath_Steam_enhanced);
     }
     private void Button_FSL_Dir_Click(object sender, RoutedEventArgs e)
     {
@@ -217,5 +288,6 @@ public partial class FSLWindow
     private void Button_GTA_EPIC_Dir_Click(object sender, RoutedEventArgs e)
     {
         ProcessHelper.OpenDir(GTA5_InstallPath_Epic);
+        ProcessHelper.OpenDir(GTA5_InstallPath_Epic_enhanced);
     }
 }
