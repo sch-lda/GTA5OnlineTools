@@ -18,7 +18,9 @@ public static class ProcessHelper
     /// <returns>正在运行返回true，未运行返回false</returns>
     public static bool IsGTA5Run()
     {
-        return IsAppRun("GTA5");
+        if (IsAppRun("GTA5") || IsAppRun("GTA5_Enhanced"))
+            return true;
+        return false;
     }
 
     /// <summary>

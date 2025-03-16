@@ -86,6 +86,18 @@ public partial class LoadWindow
                     LoggerHelper.Warn("YimMenu.dll2文件正在被占用，跳过释放");
                 }
 
+                // 判断NewBase.dll 文件是否存在 是否被占用
+                if (!File.Exists(FileHelper.File_YimMenu_DLL_V2) ||
+                    !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_V2))
+                {
+                    FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2, FileHelper.File_YimMenu_DLL_V2);
+                    LoggerHelper.Info("释放NewBase.dll文件成功");
+                }
+                else
+                {
+                    LoggerHelper.Warn("NewBase.dll文件正在被占用，跳过释放");
+                }
+
                 /////////////////////////////////////////////////////////////////////
                 DateTime targetDate = new DateTime(2025, 4, 14);
                 DateTime currentDate = DateTime.Now;

@@ -29,7 +29,7 @@
                     <Hyperlink NavigateUri="https://github.com/Mr-X-GTA/YimMenu" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/Mr-X-GTA/YimMenu</Hyperlink>
                 </Paragraph>
                 <Paragraph>
-                    FSL现在已成为Yimmenu的依赖项，必须先下载FSL改名为version.dll然后放在GTA5游戏根目录才能主持线上战局。不预先安装FSL直接注入Yimmenu你可能很快被封禁。
+                    必须先下载FSL改名为version.dll然后放在GTA5游戏根目录才能主持线上战局。
                     FSL下载地址:
                     <Hyperlink NavigateUri="https://www.unknowncheats.me/forum/grand-theft-auto-v/616977-fsl-local-gtao-saves.html" RequestNavigate="Hyperlink_RequestNavigate">https://www.unknowncheats.me/forum/grand-theft-auto-v/616977-fsl-local-gtao-saves.html</Hyperlink> .您也可以使用 YimMenu页面的 FSL管理 功能一键安装FSL
                 </Paragraph>

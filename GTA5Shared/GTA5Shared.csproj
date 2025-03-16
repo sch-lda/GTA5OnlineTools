@@ -40,12 +40,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="Files\Cache\BincoHax.exe" />
-        <EmbeddedResource Include="Files\Cache\LSCHax.exe" />
 		<EmbeddedResource Include="Files\Cache\Notepad2.exe" />
 		<EmbeddedResource Include="Files\Cache\CloudflareSpeedTest.exe" />
 		<EmbeddedResource Include="Files\Cache\stat.txt" />
         <EmbeddedResource Include="Files\YimMenu\cache.zip" />
+        <EmbeddedResource Include="Files\YimMenu\NewBase.dll" />
 		<EmbeddedResource Include="Files\YimMenu\YimMenu.dll" />
 		<EmbeddedResource Include="Files\YimMenu\YimMenu_uc.dll" />
 		<EmbeddedResource Include="Files\YimMenu\zh_CN.json" />

@@ -19,6 +19,7 @@ public partial class HacksView : UserControl
     public HacksModel HacksModel { get; set; } = new();
 
     private readonly YimMenu YimMenu = new();
+    private readonly YimMenuV2 YimMenuV2 = new();
 
     private OnlineLuaWindow OnlineLuaWindow = null;
     private FSLWindow FSLWindow = null;
@@ -55,6 +56,9 @@ public partial class HacksView : UserControl
                 case "YimMenu_x":
                     YimMenuClick2();
                     break;
+                case "YimMenu_v2":
+                    YimMenuClick3();
+                    break;
             }
         }
         else
@@ -76,6 +80,9 @@ public partial class HacksView : UserControl
         {
             case "YimMenu":
                 ShowReadMe(YimMenu);
+                break;
+            case "YimMenuV2":
+                ShowReadMe(YimMenuV2);
                 break;
         }
     }
@@ -115,20 +122,33 @@ public partial class HacksView : UserControl
                 case "YimMenuDirectory":
                     YimMenuDirectoryClick();
                     break;
+                case "YimMenuV2Directory":
+                    YimMenuV2DirectoryClick();
+                    break;
+
                 case "YimMenuScriptsDirectory":
                     YimMenuScriptsDirectoryClick();
                     break;
                 case "EditYimMenuConfig":
                     EditYimMenuConfigClick();
                     break;
+                case "EditYimMenuV2Config":
+                    EditYimMenuV2ConfigClick();
+                    break;
                 case "ViewYimMenuLogger":
                     ViewYimMenuLoggerClick();
+                    break;
+                case "ViewYimMenuV2Logger":
+                    ViewYimMenuV2LoggerClick();
                     break;
                 case "YimMenuGTACache":
                     YimMenuGTACacheClick();
                     break;
                 case "ResetYimMenuConfig":
                     ResetYimMenuConfigClick();
+                    break;
+                case "ResetYimMenuV2Config":
+                    ResetYimMenuV2ConfigClick();
                     break;
                     #endregion
             }
@@ -245,7 +265,25 @@ public partial class HacksView : UserControl
         else
             NotifierHelper.Show(NotifierType.Error, $"YimMenu菜单注入失败\n错误信息：{result.Content}");
     }
+    private static void YimMenuClick3()
+    {
+        Process gta5Process;
+        if (Memory.GTA5ProId == 0)
+        {
+            var pArray = Process.GetProcessesByName("GTA5_Enhanced");
+            gta5Process = pArray.First();
+        }
+        else
+        {
+            gta5Process = Memory.GTA5Process;
+        }
 
+        var result = Injector.DLLInjector(gta5Process.Id, FileHelper.File_YimMenu_DLL_V2, true);
+        if (result.IsSuccess)
+            NotifierHelper.Show(NotifierType.Success, "YimMenu V2菜单注入成功");
+        else
+            NotifierHelper.Show(NotifierType.Error, $"YimMenu V2菜单注入失败\n错误信息：{result.Content}");
+    }
     #endregion
 
     #region 其他额外功能
@@ -258,6 +296,13 @@ public partial class HacksView : UserControl
         ProcessHelper.OpenDir(FileHelper.Dir_AppData_YimMenu);
     }
 
+    /// <summary>
+    /// YimMenuV2配置目录
+    /// </summary>
+    private void YimMenuV2DirectoryClick()
+    {
+        ProcessHelper.OpenDir(FileHelper.Dir_AppData_YimMenu_V2);
+    }
     /// <summary>
     /// YimMenu脚本目录
     /// </summary>
@@ -275,11 +320,27 @@ public partial class HacksView : UserControl
     }
 
     /// <summary>
+    /// YimMenuV2配置文件
+    /// </summary>
+    private void EditYimMenuV2ConfigClick()
+    {
+        ProcessHelper.Notepad2EditTextFile(FileHelper.File_AppData_YimMenu_V2_Settings);
+    }
+
+    /// <summary>
     /// YimMenu错误日志
     /// </summary>
     private void ViewYimMenuLoggerClick()
     {
         ProcessHelper.Notepad2EditTextFile(FileHelper.File_AppData_YimMenu_Logger);
+    }
+
+    /// <summary>
+    /// YimMenuV2错误日志
+    /// </summary>
+    private void ViewYimMenuV2LoggerClick()
+    {
+        ProcessHelper.Notepad2EditTextFile(FileHelper.File_AppData_YimMenu_V2_Logger);
     }
 
     /// <summary>
@@ -321,6 +382,27 @@ public partial class HacksView : UserControl
             NotifierHelper.Show(NotifierType.Success, "重置YimMenu配置文件成功");
         }
     }
+
+    /// <summary>
+    /// 重置YimMenu配置文件
+    /// </summary>
+    private void ResetYimMenuV2ConfigClick()
+    {
+        if (FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_V2))
+        {
+            NotifierHelper.Show(NotifierType.Warning, "YimMenuV2被占用，请先卸载YimMenu菜单后再执行操作");
+            return;
+        }
+
+        if (MessageBox.Show($"你确定要重置YimMenuV2配置文件吗？\n\n将清空「{FileHelper.Dir_AppData_YimMenu_V2}」文件夹，如有重要文件请提前备份",
+            "重置YimMenu配置文件", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+        {
+            FileHelper.ClearDirectory(FileHelper.Dir_AppData_YimMenu_V2);
+
+            NotifierHelper.Show(NotifierType.Success, "重置YimMenuV2配置文件成功");
+        }
+    }
+
     #endregion
 
     /// <summary>

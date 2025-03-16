@@ -28,7 +28,7 @@
                     <Button
                         Command="{Binding HacksClickCommand}"
                         CommandParameter="YimMenu_o"
-                        Content="注入官方版" />
+                        Content="官方版(未更新)" />
                     <Button
                         Command="{Binding HacksClickCommand}"
                         CommandParameter="YimMenu_x"
@@ -37,7 +37,7 @@
             </ui:GroupBoxHack.TitleContent>
             <ui:GroupBoxHack.DescriptionContent>
                 <StackPanel Margin="0,-23,0,0">
-                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="务必点一下说明按钮看看!!!必须先从R星启动器关闭Battleye开关并正确安装FSL v1.4才能使用Yimmenu" />
+                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="适用于传承版.务必点一下说明按钮看看!!!必须先从R星启动器关闭Battleye开关才能使用Yimmenu" />
                     <WrapPanel>
                         <Button
                         Background="#FE780A"
@@ -58,7 +58,7 @@
                         Background="#34A853"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="ViewYimMenuLogger"
-                        Content="错误日志" />
+                        Content="程序日志" />
                         <Button
                         Background="#CA64EA"
                         Command="{Binding ExtraClickCommand}"
@@ -85,9 +85,49 @@
             Title="FSL管理"
             Command="{Binding HacksFuncClickCommand}"
             CommandParameter="FSLmanage"
-            Description="下载安装FSL"
+            Description="为传承版和增强版    安装FSL"
             Icon="&#xE72E;"
             Style="{StaticResource ButtonStyle_HacksFunc}" />
+        <ui:GroupBoxHack
+            Title="YimMenu V2 早期测试版"
+            Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/NewBase.png" Width="541" Height="186" Background="White">
+            <ui:GroupBoxHack.TitleContent>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5,0,5,0" VerticalAlignment="Center"><Hyperlink Command="{Binding ReadMeClickCommand}" CommandParameter="YimMenuV2"><Run Text="说明"/></Hyperlink></TextBlock>
+                    <Button
+                        Command="{Binding HacksClickCommand}"
+                        CommandParameter="YimMenu_v2"
+                        Content="注入" />
+                </StackPanel>
+            </ui:GroupBoxHack.TitleContent>
+            <ui:GroupBoxHack.DescriptionContent>
+                <StackPanel Margin="0,-23,0,0">
+                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="适用于增强版.暂无中文翻译.必须先从R星启动器关闭Battleye开关." />
+                    <WrapPanel>
+                        <Button
+                            Background="#FE780A"
+                            Command="{Binding ExtraClickCommand}"
+                            CommandParameter="YimMenuV2Directory"
+                            Content="配置目录" />
+                        <Button
+                            Background="#34A853"
+                            Command="{Binding ExtraClickCommand}"
+                            CommandParameter="EditYimMenuV2Config"
+                            Content="配置文件" />
+                        <Button
+                            Background="#34A853"
+                            Command="{Binding ExtraClickCommand}"
+                            CommandParameter="ViewYimMenuV2Logger"
+                            Content="程序日志" />
+                        <Button
+                            Background="#EA4335"
+                            Command="{Binding ExtraClickCommand}"
+                            CommandParameter="ResetYimMenuV2Config"
+                            Content="重置配置文件" />
+                    </WrapPanel>
+                </StackPanel>
+            </ui:GroupBoxHack.DescriptionContent>
+        </ui:GroupBoxHack>
 
     </WrapPanel>
 

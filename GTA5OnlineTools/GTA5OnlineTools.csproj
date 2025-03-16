@@ -45,8 +45,9 @@
 
     <ItemGroup>
         <Resource Include="Assets\Favicon.ico" />
-        <Resource Include="Assets\Hacks\YimMenu.png" />
-    </ItemGroup>
+		<Resource Include="Assets\Hacks\YimMenu.png" />
+		<Resource Include="Assets\Hacks\NewBase.png" />
+	</ItemGroup>
 
     <ItemGroup>
 	<EmbeddedResource Include="Files\lua_index_yimmenu.json" />

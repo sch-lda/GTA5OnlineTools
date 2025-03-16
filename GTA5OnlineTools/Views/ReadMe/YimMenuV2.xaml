@@ -1,0 +1,60 @@
+﻿<UserControl
+    x:Class="GTA5OnlineTools.Views.ReadMe.YimMenuV2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="600"
+    d:DesignWidth="1100"
+    Style="{StaticResource UserControlStyle_Loaded}"
+    mc:Ignorable="d">
+
+    <UniformGrid Columns="2">
+        <RichTextBox Margin="5,5,2.5,5" Style="{StaticResource RichTextBoxStyle_ReadMe}">
+            <FlowDocument>
+                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
+                    注意
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    现在使用Yimmenu请确保实时关注Yimmenu unknowncheats论坛、Matrix群组(可以从Github discussion获取链接)、小助手Discord内的消息，并随时做好被封禁的心理准备。非必要不建议开挂。
+                </Paragraph>
+
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    由于增强版更换了编译器，适用于传承版的Yimmenu所有功能全部失效.
+                    Yimmenu V2是maybegreat48以Yimmenu菜单为基础，为GTA V增强版重写的菜单，目前处于早期测试阶段，功能较少.
+                    Yimmenu V2官方GitHub仓库
+                    <Hyperlink NavigateUri="https://github.com/YimMenu/YimMenuV2/tree/enhanced" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/YimMenu/YimMenuV2/tree/enhanced</Hyperlink>
+                </Paragraph>                
+
+            </FlowDocument>
+        </RichTextBox>
+        <!--  ////////////////////  -->
+        <RichTextBox Margin="2.5,5,5,5" Style="{StaticResource RichTextBoxStyle_ReadMe}">
+            <FlowDocument>
+                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
+                    崩溃问题
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    如果注入后立刻就崩溃，这一般是缓存导致的，请重启游戏，并清空YimMenuV2配置文件（就是那个YimMenuV2文件夹），然后进入邀请战局（不建议去公共战局，故事模式也可以），这时再注入YimMenu，然后按照提示在线上模式更新游戏缓存即可
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
+                    按钮
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    注入成功后，按键盘上的Insert键(笔记本电脑可能需要配合Fn键)显示/隐藏菜单，使用鼠标操作
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    如果鼠标卡在屏幕中心不动，请在游戏中按ESC->设置->键盘/鼠标->鼠标输入方法，改成原始输入即可
+                </Paragraph>
+
+                <Paragraph Style="{StaticResource ParagraphStyle_Title}">
+                    提示
+                </Paragraph>
+                <Paragraph Style="{StaticResource ParagraphStyle_Content}">
+                    注入成功后，会出现一个YimMenu的控制台窗口，这个不要关闭，否则游戏会跟着一起关闭。
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </UniformGrid>
+
+</UserControl>
