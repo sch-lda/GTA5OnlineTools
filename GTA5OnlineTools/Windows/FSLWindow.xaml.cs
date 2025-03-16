@@ -36,7 +36,8 @@ public partial class FSLWindow
         Button_RM_FSL_Epic.IsEnabled = false;
 
         string registryPath_legacy = @"SOFTWARE\WOW6432Node\Rockstar Games\Grand Theft Auto V";
-        string registryPath_enhanced = @"SOFTWARE\WOW6432Node\Rockstar Games\GTA V Enhanced";
+        string registryPath_enhanced_steam = @"SOFTWARE\WOW6432Node\Rockstar Games\GTA V Enhanced";
+        string registryPath_enhanced_epic = @"SOFTWARE\WOW6432Node\Rockstar Games\GTAV Enhanced";
 
         string valueName_steam = "InstallFolderSteam";
         string valueName_epic = "InstallFolderEpic";
@@ -73,11 +74,8 @@ public partial class FSLWindow
                     }
                 }
             }
-            else{
-                AppendLogger("未找到GTA5传承版安装路径,如果您安装后从未启动过游戏,请先运行一次GTA5再进入此页面");
-            }
         }
-        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(registryPath_enhanced))
+        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(registryPath_enhanced_steam))
         {
             if (key != null)
             {
@@ -94,6 +92,12 @@ public partial class FSLWindow
                         AppendLogger($"已从注册表获取GTA5增强版-Steam安装路径：{GTA5_InstallPath_Steam_enhanced}");
                     }
                 }
+            }
+        }
+        using (RegistryKey key = Registry.LocalMachine.OpenSubKey(registryPath_enhanced_epic))
+        {
+            if (key != null)
+            {
                 object value_epic = key.GetValue(valueName_epic);
                 if (value_epic != null)
                 {
@@ -107,11 +111,6 @@ public partial class FSLWindow
                         AppendLogger($"已从注册表获取GTA5增强版-Epic安装路径：{GTA5_InstallPath_Epic_enhanced}");
                     }
                 }
-
-            }
-            else
-            {
-                AppendLogger("未找到GTA5增强版安装路径,如果您安装后从未启动过游戏,请先运行一次GTA5再进入此页面");
             }
         }
 
