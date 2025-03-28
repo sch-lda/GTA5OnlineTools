@@ -14,7 +14,7 @@ public partial class OnlineLuaWindow
 
     private string tempPath = string.Empty;
 
-    private const string yimMenu = $"https://blog.cc2077.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release//YimMenu.json";
+    private const string yimMenu = $"https://blog.schplus.site/https://raw.githubusercontent.com/sch-lda/GTA5OnlineLua/refs/heads/main/Release//YimMenu.json";
 
     public ObservableCollection<LuaInfo> OnlineLuas { get; set; } = new();
 
