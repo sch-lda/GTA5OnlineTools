@@ -99,12 +99,12 @@ public partial class LoadWindow
                 }
 
                 /////////////////////////////////////////////////////////////////////
-                DateTime targetDate = new DateTime(2026, 3, 15);
+                DateTime targetDate = new DateTime(2026, 4, 6);
                 DateTime currentDate = DateTime.Now;
 
                 if (currentDate > targetDate)
                 {
-                    LoadModel.LoadState = "[安全警告]schplus.site已过期，继续使用可能有被供应链攻击的风险！此版本应停止使用！请从小助手官方discord下载新版本！";
+                    LoadModel.LoadState = "[安全警告]1007890.xyz已过期，继续使用可能有被供应链攻击的风险！此版本应停止使用！请从小助手官方discord下载新版本！";
                 }
                 else
                 {

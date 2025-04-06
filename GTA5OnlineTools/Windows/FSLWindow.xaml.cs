@@ -13,8 +13,8 @@ public partial class FSLWindow
 {
     private string tempPath = string.Empty;
 
-    private const string fsl_url = "https://sstaticstp.schplus.site/version_legacy.dll";
-    private const string fsl_url_enhanced = "https://sstaticstp.schplus.site/version_enhanced.dll";
+    private const string fsl_url = "https://sstaticstp.1007890.xyz/version_legacy.dll";
+    private const string fsl_url_enhanced = "https://sstaticstp.1007890.xyz/version_enhanced.dll";
     private string GTA5_InstallPath_Steam = string.Empty;
     private string GTA5_InstallPath_Epic = string.Empty;
     private string GTA5_InstallPath_Steam_enhanced = string.Empty;
