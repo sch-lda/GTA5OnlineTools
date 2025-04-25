@@ -15,6 +15,8 @@ public partial class FSLWindow
 
     private const string fsl_url = "https://sstaticstp.1007890.xyz/version_legacy.dll";
     private const string fsl_url_enhanced = "https://sstaticstp.1007890.xyz/version_enhanced.dll";
+    private const string fsl_v2_url = "https://sstaticstp.1007890.xyz/WINMM.dll";
+
     private string GTA5_InstallPath_Steam = string.Empty;
     private string GTA5_InstallPath_Epic = string.Empty;
     private string GTA5_InstallPath_Steam_enhanced = string.Empty;
@@ -131,11 +133,13 @@ public partial class FSLWindow
     {
         if (!string.IsNullOrEmpty(GTA5_InstallPath_Steam_enhanced))
         {
+            RemoveFile(GTA5_InstallPath_Steam_enhanced, true);
             AppendLogger("开始为GTA5增强版-Steam 下载FSL");
             await StartDownload(GTA5_InstallPath_Steam_enhanced, true);
         }
         if (!string.IsNullOrEmpty(GTA5_InstallPath_Steam))
         {
+            RemoveFile(GTA5_InstallPath_Steam, true);
             AppendLogger("开始为GTA5传承版-Steam 下载FSL");
             await StartDownload(GTA5_InstallPath_Steam, false);
         }
@@ -145,11 +149,13 @@ public partial class FSLWindow
     {
         if (!string.IsNullOrEmpty(GTA5_InstallPath_Epic_enhanced))
         {
+            RemoveFile(GTA5_InstallPath_Epic_enhanced, true);
             AppendLogger("开始为GTA5增强版-Epic 下载FSL");
             await StartDownload(GTA5_InstallPath_Epic_enhanced, true);
         }
         if (!string.IsNullOrEmpty(GTA5_InstallPath_Epic))
         {
+            RemoveFile(GTA5_InstallPath_Epic, true);
             AppendLogger("开始为GTA5传承版-Epic 下载FSL");
             await StartDownload(GTA5_InstallPath_Epic, false);
         }
@@ -169,7 +175,7 @@ public partial class FSLWindow
 
         try
         {
-            string download_url = isEnhanced ? fsl_url_enhanced : fsl_url;
+            string download_url = fsl_v2_url;
             using (var response = await _httpClient.GetAsync(download_url, HttpCompletionOption.ResponseHeadersRead))
             {
                 response.EnsureSuccessStatusCode();
@@ -241,20 +247,20 @@ public partial class FSLWindow
     private void Button_RM_FSL_Steam_Click(object sender, RoutedEventArgs e)
     {
         AppendLogger("尝试移除传承版FSL");
-        RemoveFile(GTA5_InstallPath_Steam);
+        RemoveFile(GTA5_InstallPath_Steam, false);
         AppendLogger("尝试移除增强版FSL");
-        RemoveFile(GTA5_InstallPath_Steam_enhanced);
+        RemoveFile(GTA5_InstallPath_Steam_enhanced, false);
     }
 
     private void Button_RM_FSL_Epic_Click(object sender, RoutedEventArgs e)
     {
         AppendLogger("尝试移除传承版FSL");
-        RemoveFile(GTA5_InstallPath_Epic);
+        RemoveFile(GTA5_InstallPath_Epic, false);
         AppendLogger("尝试移除增强版FSL");
-        RemoveFile(GTA5_InstallPath_Epic_enhanced);
+        RemoveFile(GTA5_InstallPath_Epic_enhanced, false);
     }
 
-    private void RemoveFile(string installPath)
+    private void RemoveFile(string installPath, bool is_upgrade)
     {
         string filePath = Path.Combine(installPath, "version.dll");
         if (File.Exists(filePath))
@@ -262,16 +268,33 @@ public partial class FSLWindow
             if (!FileHelper.IsOccupied(filePath))
             {
                 File.Delete(filePath);
-                AppendLogger("已删除version.dll");
+                AppendLogger("已删除旧版FSL: version.dll");
             }
             else
             {
-                AppendLogger("version.dll被占用,无法删除请先关闭GTA5.");
+                AppendLogger("version.dll被占用,无法删除,请先关闭GTA5.");
+            }
+        }
+
+        if (is_upgrade)
+            return;
+
+        filePath = Path.Combine(installPath, "WINMM.dll");
+        if (File.Exists(filePath))
+        {
+            if (!FileHelper.IsOccupied(filePath))
+            {
+                File.Delete(filePath);
+                AppendLogger("已删除WINMM.dll");
+            }
+            else
+            {
+                AppendLogger("WINMM.dll被占用,无法删除请先关闭GTA5.");
             }
         }
         else
         {
-            AppendLogger("version.dll不存在,无需移除");
+            AppendLogger("WINMM.dll不存在,无需移除");
         }
     }
 
