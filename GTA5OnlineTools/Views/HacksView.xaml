@@ -28,7 +28,7 @@
                     <Button
                         Command="{Binding HacksClickCommand}"
                         CommandParameter="YimMenu_o"
-                        Content="官方版(未更新)" />
+                        Content="官方版(停更)" />
                     <Button
                         Command="{Binding HacksClickCommand}"
                         CommandParameter="YimMenu_x"
@@ -37,7 +37,7 @@
             </ui:GroupBoxHack.TitleContent>
             <ui:GroupBoxHack.DescriptionContent>
                 <StackPanel Margin="0,-23,0,0">
-                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="适用于传承版.务必点一下说明按钮看看!!!必须先从R星启动器关闭Battleye开关才能使用Yimmenu" />
+                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="适用于传承版,没有活跃的贡献者参与开发,部分功能失效,建议游玩GTA V增强版.务必阅读说明.必须先从R星启动器关闭Battleye开关" />
                     <WrapPanel>
                         <Button
                         Background="#FE780A"
@@ -63,7 +63,7 @@
                         Background="#CA64EA"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="YimMenuGTACache"
-                        Content="预置缓存" />
+                        Content="无效按钮" />
                         <Button
                         Background="#EA4335"
                         Command="{Binding ExtraClickCommand}"
@@ -85,11 +85,11 @@
             Title="FSL管理"
             Command="{Binding HacksFuncClickCommand}"
             CommandParameter="FSLmanage"
-            Description="为传承版和增强版    安装FSL"
+            Description="为传承版和增强版        安装FSL v2"
             Icon="&#xE72E;"
             Style="{StaticResource ButtonStyle_HacksFunc}" />
         <ui:GroupBoxHack
-            Title="YimMenu V2 早期测试版"
+            Title="YimMenu V2 (仍在开发)"
             Image="pack://application:,,,/GTA5OnlineTools;component/Assets/Hacks/NewBase.png" Width="541" Height="186" Background="White">
             <ui:GroupBoxHack.TitleContent>
                 <StackPanel Orientation="Horizontal">
@@ -102,7 +102,7 @@
             </ui:GroupBoxHack.TitleContent>
             <ui:GroupBoxHack.DescriptionContent>
                 <StackPanel Margin="0,-23,0,0">
-                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="适用于增强版.暂无中文翻译.必须先从R星启动器关闭Battleye开关." />
+                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="适用于增强版,处于正在开发但不完善的阶段,不支持中文,不支持Lua脚本.必须先从R星启动器关闭Battleye开关." />
                     <WrapPanel>
                         <Button
                             Background="#FE780A"

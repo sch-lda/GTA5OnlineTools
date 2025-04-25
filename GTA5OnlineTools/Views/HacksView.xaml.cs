@@ -348,7 +348,7 @@ public partial class HacksView : UserControl
     /// </summary>
     private void YimMenuGTACacheClick()
     {
-
+        return;
         var res_cache = $"{FileHelper.ResFiles}.YimMenu.cache.zip";
         var file_cache = $"{FileHelper.Dir_AppData_YimMenu}\\cache.zip";
 

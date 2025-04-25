@@ -21,7 +21,7 @@
 
                 <Paragraph Style="{StaticResource ParagraphStyle_Content}">
                     由于增强版更换了编译器，适用于传承版的Yimmenu所有功能全部失效.
-                    Yimmenu V2是maybegreat48以Yimmenu菜单为基础，为GTA V增强版重写的菜单，目前处于早期测试阶段，功能较少.
+                    Yimmenu V2是maybegreat48以Yimmenu菜单为基础，为GTA V增强版重写的菜单，目前仍处于未完成阶段，与yim v1相比功能较少且不支持Lua脚本。
                     Yimmenu V2官方GitHub仓库
                     <Hyperlink NavigateUri="https://github.com/YimMenu/YimMenuV2/tree/enhanced" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/YimMenu/YimMenuV2/tree/enhanced</Hyperlink>
                 </Paragraph>
