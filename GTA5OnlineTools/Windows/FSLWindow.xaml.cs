@@ -143,6 +143,8 @@ public partial class FSLWindow
             AppendLogger("开始为GTA5传承版-Steam 下载FSL");
             await StartDownload(GTA5_InstallPath_Steam, false);
         }
+
+        Button_RM_FSL_Steam.IsEnabled = true;
     }
 
     private async void Button_StartDownload_Epic_Click(object sender, RoutedEventArgs e)
@@ -159,6 +161,8 @@ public partial class FSLWindow
             AppendLogger("开始为GTA5传承版-Epic 下载FSL");
             await StartDownload(GTA5_InstallPath_Epic, false);
         }
+
+        Button_RM_FSL_Epic.IsEnabled = true;
     }
 
     private async Task StartDownload(string installPath, bool isEnhanced)
@@ -206,10 +210,7 @@ public partial class FSLWindow
                 }
 
                 AppendLogger("下载完成,下次启动GTA时FSL将自动注入");
-                Button_StartDownload_Steam.IsEnabled = true;
-                Button_StartDownload_Epic.IsEnabled = true;
-                Button_RM_FSL_Steam.IsEnabled = true;
-                Button_RM_FSL_Epic.IsEnabled = true;
+
             }
         }
         catch (Exception ex)
