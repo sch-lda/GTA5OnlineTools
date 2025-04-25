@@ -206,6 +206,10 @@ public partial class FSLWindow
                 }
 
                 AppendLogger("下载完成,下次启动GTA时FSL将自动注入");
+                Button_StartDownload_Steam.IsEnabled = true;
+                Button_StartDownload_Epic.IsEnabled = true;
+                Button_RM_FSL_Steam.IsEnabled = true;
+                Button_RM_FSL_Epic.IsEnabled = true;
             }
         }
         catch (Exception ex)
