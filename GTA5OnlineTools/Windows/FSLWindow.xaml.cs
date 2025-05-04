@@ -174,7 +174,7 @@ public partial class FSLWindow
 
         ResetUIState();
 
-        tempPath = Path.Combine(installPath, "version.dll");
+        tempPath = Path.Combine(installPath, "WINMM.dll");
         AppendLogger("开始下载...");
 
         try

@@ -136,7 +136,7 @@ public static class Injector
     {
         foreach (ProcessModule module in process.Modules)
         {
-            if (module.ModuleName == "version.dll")
+            if (module.ModuleName == "WINMM.dll")
             {
                 return true;
             }
