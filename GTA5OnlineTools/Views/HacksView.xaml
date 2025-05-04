@@ -28,7 +28,7 @@
                     <Button
                         Command="{Binding HacksClickCommand}"
                         CommandParameter="YimMenu_o"
-                        Content="官方版(停更)" />
+                        Content="官方版(停更)" IsEnabled="False" />
                     <Button
                         Command="{Binding HacksClickCommand}"
                         CommandParameter="YimMenu_x"
@@ -63,7 +63,7 @@
                         Background="#CA64EA"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="YimMenuGTACache"
-                        Content="无效按钮" />
+                        Content="无效按钮" IsEnabled="False" />
                         <Button
                         Background="#EA4335"
                         Command="{Binding ExtraClickCommand}"
