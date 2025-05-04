@@ -30,10 +30,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtualizingWrapPanel", "Ve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormLib", "Vendor\WinFormLib\WinFormLib.csproj", "{60D184AA-F649-42C4-865A-6814BAB9EEAF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTA5MenuExtra", "GTA5MenuExtra\GTA5MenuExtra.csproj", "{43538105-9FD4-4EA4-AF29-90EECD69294E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTA5Overlay", "GTA5Overlay\GTA5Overlay.csproj", "{D063A21B-4657-4528-A12C-7E156C840525}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -122,22 +118,6 @@ Global
 		{60D184AA-F649-42C4-865A-6814BAB9EEAF}.Release|Any CPU.Build.0 = Release|x64
 		{60D184AA-F649-42C4-865A-6814BAB9EEAF}.Release|x64.ActiveCfg = Release|x64
 		{60D184AA-F649-42C4-865A-6814BAB9EEAF}.Release|x64.Build.0 = Release|x64
-		{43538105-9FD4-4EA4-AF29-90EECD69294E}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{43538105-9FD4-4EA4-AF29-90EECD69294E}.Debug|Any CPU.Build.0 = Debug|x64
-		{43538105-9FD4-4EA4-AF29-90EECD69294E}.Debug|x64.ActiveCfg = Debug|x64
-		{43538105-9FD4-4EA4-AF29-90EECD69294E}.Debug|x64.Build.0 = Debug|x64
-		{43538105-9FD4-4EA4-AF29-90EECD69294E}.Release|Any CPU.ActiveCfg = Release|x64
-		{43538105-9FD4-4EA4-AF29-90EECD69294E}.Release|Any CPU.Build.0 = Release|x64
-		{43538105-9FD4-4EA4-AF29-90EECD69294E}.Release|x64.ActiveCfg = Release|x64
-		{43538105-9FD4-4EA4-AF29-90EECD69294E}.Release|x64.Build.0 = Release|x64
-		{D063A21B-4657-4528-A12C-7E156C840525}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{D063A21B-4657-4528-A12C-7E156C840525}.Debug|Any CPU.Build.0 = Debug|x64
-		{D063A21B-4657-4528-A12C-7E156C840525}.Debug|x64.ActiveCfg = Debug|x64
-		{D063A21B-4657-4528-A12C-7E156C840525}.Debug|x64.Build.0 = Debug|x64
-		{D063A21B-4657-4528-A12C-7E156C840525}.Release|Any CPU.ActiveCfg = Release|x64
-		{D063A21B-4657-4528-A12C-7E156C840525}.Release|Any CPU.Build.0 = Release|x64
-		{D063A21B-4657-4528-A12C-7E156C840525}.Release|x64.ActiveCfg = Release|x64
-		{D063A21B-4657-4528-A12C-7E156C840525}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -31,7 +31,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\GTA5Inject\GTA5Inject.csproj" />
-        <ProjectReference Include="..\GTA5MenuExtra\GTA5MenuExtra.csproj" />
         <ProjectReference Include="..\GTA5Menu\GTA5Menu.csproj" />
     </ItemGroup>
 

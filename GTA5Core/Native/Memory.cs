@@ -1,5 +1,4 @@
-﻿using GTA5Core.Offsets;
-
+﻿
 namespace GTA5Core.Native;
 
 public static class Memory
@@ -48,7 +47,6 @@ public static class Memory
         GTA5ProBaseAddress = 0;
         GTA5ProHandle = IntPtr.Zero;
 
-        Pointers.Reset();
     }
 
     /// <summary>

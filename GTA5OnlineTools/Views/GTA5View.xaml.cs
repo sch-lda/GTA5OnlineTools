@@ -1,8 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using GTA5Core;
-using GTA5Core.Native;
 using GTA5Menu;
-using GTA5MenuExtra;
 using GTA5OnlineTools.Data;
 using GTA5OnlineTools.Windows;
 using GTA5Shared.Helper;
@@ -35,40 +32,6 @@ public partial class GTA5View : UserControl
 
         /////////////////////////////////////////////////
 
-        NavDictionary.Add("GTA5MenuWindow", new()
-        {
-            Type = typeof(GTA5MenuWindow),
-            Window = null
-        });
-
-        NavDictionary.Add("HeistsEditorWindow", new()
-        {
-            Type = typeof(HeistsEditorWindow),
-            Window = null
-        });
-        NavDictionary.Add("StatsEditorWindow", new()
-        {
-            Type = typeof(StatsEditorWindow),
-            Window = null
-        });
-        NavDictionary.Add("OutfitsEditorWindow", new()
-        {
-            Type = typeof(OutfitsEditorWindow),
-            Window = null
-        });
-        NavDictionary.Add("CasinoHackWindow", new()
-        {
-            Type = typeof(CasinoHackWindow),
-            Window = null
-        });
-        NavDictionary.Add("SpeedMeterWindow", new()
-        {
-            Type = typeof(SpeedMeterWindow),
-            Window = null
-        });
-
-        /////////////////////////////////////////////////
-
         NavDictionary.Add("ProfilesWindow", new()
         {
             Type = typeof(ProfilesWindow),
@@ -85,53 +48,11 @@ public partial class GTA5View : UserControl
     private void GTA5ViewClick(string viewName)
     {
 
-
-        if (ProcessHelper.IsGTA5Run())
-        {
-            // GTA5内存模块初始化窗口
-            if (!Memory.IsInitialized)
-            {
-                var gta5InitWindow = new GTA5InitWindow
-                {
-                    Owner = MainWindow.MainWindowInstance
-                };
-                if (gta5InitWindow.ShowDialog() == false)
-                    return;
-            }
-
-            switch (viewName)
-            {
-                case "ExternalMenu":
-                    ExternalMenuClick();
-                    break;
-                case "HeistsEditor":
-                    HeistsEditorClick();
-                    break;
-                case "StatsEditor":
-                    StatsEditorClick();
-                    break;
-                case "OutfitsEditor":
-                    OutfitsEditorClick();
-                    break;
-                case "CasinoHack":
-                    CasinoHackClick();
-                    break;
-                case "SpeedMeter":
-                    SpeedMeterClick();
-                    break;
-            }
-        }
-        else
-        {
-            NotifierHelper.Show(NotifierType.Warning, "未发现《GTA5》进程，请先运行《GTA5》游戏");
-        }
     }
 
     [RelayCommand]
     private void GTA5FuncClick(string funcName)
     {
-
-
         switch (funcName)
         {
             case "StoryProfiles":
@@ -199,38 +120,6 @@ public partial class GTA5View : UserControl
         }
     }
 
-    #region 第三方模块按钮点击事件
-    private void ExternalMenuClick()
-    {
-        AutoOpenWindow("GTA5MenuWindow");
-    }
-
-    private void HeistsEditorClick()
-    {
-        AutoOpenWindow("HeistsEditorWindow");
-    }
-
-    private void StatsEditorClick()
-    {
-        AutoOpenWindow("StatsEditorWindow");
-    }
-
-    private void OutfitsEditorClick()
-    {
-        AutoOpenWindow("OutfitsEditorWindow");
-    }
-
-    private void CasinoHackClick()
-    {
-        AutoOpenWindow("CasinoHackWindow");
-    }
-
-    private void SpeedMeterClick()
-    {
-        AutoOpenWindow("SpeedMeterWindow");
-    }
-    #endregion
-
     ///////////////////////////////////////////////////////////////////
 
     /// <summary>
@@ -238,18 +127,7 @@ public partial class GTA5View : UserControl
     /// </summary>
     private void CloseAllGTA5Window()
     {
-        Memory.CloseHandle();
 
-        this.Dispatcher.Invoke(() =>
-        {
-            AutoCloseWindow("GTA5MenuWindow");
-
-            AutoCloseWindow("HeistsEditorWindow");
-            AutoCloseWindow("StatsEditorWindow");
-            AutoCloseWindow("OutfitsEditorWindow");
-            AutoCloseWindow("CasinoHackWindow");
-            AutoCloseWindow("SpeedMeterWindow");
-        });
     }
 
     ///////////////////////////////////////////////////////////////////

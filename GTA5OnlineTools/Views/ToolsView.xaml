@@ -33,12 +33,6 @@
                 Style="{StaticResource ButtonStyle_Tools}" />
             <ui:ButtonIcon
                 Command="{Binding ToolsButtonClickCommand}"
-                CommandParameter="ReInitGTA5Mem"
-                Content="重新初始化GTA5内存模块"
-                Icon="&#xe978;"
-                Style="{StaticResource ButtonStyle_Tools}" />
-            <ui:ButtonIcon
-                Command="{Binding ToolsButtonClickCommand}"
                 CommandParameter="ManualGC"
                 Content="GC垃圾回收"
                 Icon="&#xe63a;"

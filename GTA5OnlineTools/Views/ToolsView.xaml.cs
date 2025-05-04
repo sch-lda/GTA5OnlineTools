@@ -42,9 +42,6 @@ public partial class ToolsView : UserControl
             case "InitCPDPath":
                 InitCPDPathClick();
                 break;
-            case "ReInitGTA5Mem":
-                ReInitGTA5MemClick();
-                break;
             case "ManualGC":
                 ManualGCClick();
                 break;
@@ -122,20 +119,6 @@ public partial class ToolsView : UserControl
         }
     }
 
-    /// <summary>
-    /// 重新初始化GTA5内存模块
-    /// </summary>
-    private void ReInitGTA5MemClick()
-    {
-        GTA5View.ActionCloseAllGTA5Window();
-
-        // GTA5内存模块初始化窗口
-        var gta5InitWindow = new GTA5InitWindow(false)
-        {
-            Owner = MainWindow.MainWindowInstance
-        };
-        gta5InitWindow.ShowDialog();
-    }
 
     /// <summary>
     /// GC垃圾回收
