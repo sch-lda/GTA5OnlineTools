@@ -48,7 +48,7 @@ public static class Injector
 
             if (!CheckIsFSLInjected(process))
             {
-                result.Content = $"进程 {process.ProcessName} 未注入过FSL,进入线上将存在较高风险";
+                result.Content = $"进程 {process.ProcessName} 未注入过FSL，建议先安装FSL以降低封号风险";
                 //return result;
             }
 
