@@ -17,6 +17,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Files\YimMenu\font.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
         <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
         <PackageReference Include="NLog" Version="5.3.4" />
@@ -44,6 +48,7 @@
 		<EmbeddedResource Include="Files\Cache\CloudflareSpeedTest.exe" />
 		<EmbeddedResource Include="Files\Cache\stat.txt" />
         <EmbeddedResource Include="Files\YimMenu\cache.zip" />
+        <EmbeddedResource Include="Files\YimMenu\font.ttf" />
         <EmbeddedResource Include="Files\YimMenu\NewBase.dll" />
 		<EmbeddedResource Include="Files\YimMenu\YimMenu.dll" />
 		<EmbeddedResource Include="Files\YimMenu\YimMenu_uc.dll" />

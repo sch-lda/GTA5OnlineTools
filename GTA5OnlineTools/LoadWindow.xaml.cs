@@ -91,6 +91,12 @@ public partial class LoadWindow
                     !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_V2))
                 {
                     FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2, FileHelper.File_YimMenu_DLL_V2);
+                    // 检查目录是否存在，如果不存在则创建
+                    if (!Directory.Exists(FileHelper.Dir_AppData_YimMenu_V2))
+                    {
+                        Directory.CreateDirectory(FileHelper.Dir_AppData_YimMenu_V2);
+                    }
+                    FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2_Font, FileHelper.File_AppData_YimMenu_V2_Font);
                     LoggerHelper.Info("释放NewBase.dll文件成功");
                 }
                 else

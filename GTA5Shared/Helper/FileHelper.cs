@@ -10,6 +10,7 @@ public static class FileHelper
     public const string Res_YimMenu_YimMenu = $"{ResFiles}.YimMenu.YimMenu_uc.dll";
     public const string Res_YimMenu_YimMenu_X = $"{ResFiles}.YimMenu.YimMenu.dll";
     public const string Res_YimMenu_YimMenu_V2 = $"{ResFiles}.YimMenu.NewBase.dll";
+    public const string Res_YimMenu_YimMenu_V2_Font = $"{ResFiles}.YimMenu.font.ttf";
     public const string Res_YimMenu_IndexCN = $"{ResFiles}.YimMenu.index_cn.json";
     public const string Res_YimMenu_IndexTW = $"{ResFiles}.YimMenu.index_tw.json";
     public const string Res_YimMenu_ZHCN = $"{ResFiles}.YimMenu.zh_CN.json";
@@ -57,6 +58,7 @@ public static class FileHelper
     public static string File_AppData_YimMenu_Logger { get; private set; }
     public static string File_AppData_YimMenu_V2_Settings { get; private set; }
     public static string File_AppData_YimMenu_V2_Logger { get; private set; }
+    public static string File_AppData_YimMenu_V2_Font { get; private set; }
 
     //////////////////////////////////////////////////////////////////
 
@@ -106,6 +108,7 @@ public static class FileHelper
 
         File_AppData_YimMenu_V2_Settings = Path.Combine(Dir_AppData_YimMenu_V2, "settings.json");
         File_AppData_YimMenu_V2_Logger = Path.Combine(Dir_AppData_YimMenu_V2, "cout.log");
+        File_AppData_YimMenu_V2_Font = Path.Combine(Dir_AppData_YimMenu_V2, "font.ttf");
 
         File_Cache_Notepad2 = Path.Combine(Dir_Cache, "Notepad2.exe");
         File_Cache_CloudflareSpeedTest = Path.Combine(Dir_Cache, "CloudflareSpeedTest.exe");
