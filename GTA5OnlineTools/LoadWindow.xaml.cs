@@ -63,7 +63,7 @@ public partial class LoadWindow
                 FileHelper.ExtractResFile(FileHelper.Res_Cache_Notepad2, FileHelper.File_Cache_Notepad2);
 
                 // 判断YimMenu.dll文件是否存在 是否被占用
-                if (!File.Exists(FileHelper.File_YimMenu_DLL) ||
+                if (!File.Exists(FileHelper.File_YimMenu_DLL) &&
                     !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL))
                 {
                     FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu, FileHelper.File_YimMenu_DLL);
@@ -75,7 +75,7 @@ public partial class LoadWindow
                 }
 
                 // 判断YimMenu.dll Mr_X 文件是否存在 是否被占用
-                if (!File.Exists(FileHelper.File_YimMenu_DLL_X) ||
+                if (!File.Exists(FileHelper.File_YimMenu_DLL_X) &&
                     !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_X))
                 {
                     FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_X, FileHelper.File_YimMenu_DLL_X);
@@ -98,7 +98,7 @@ public partial class LoadWindow
                 }
 
                 // 判断NewBase.dll 文件是否存在 是否被占用
-                if (!File.Exists(FileHelper.File_YimMenu_DLL_V2) ||
+                if (!File.Exists(FileHelper.File_YimMenu_DLL_V2) &&
                     !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_V2))
                 {
                     FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2, FileHelper.File_YimMenu_DLL_V2);
