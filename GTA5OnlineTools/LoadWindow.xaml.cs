@@ -86,17 +86,22 @@ public partial class LoadWindow
                     LoggerHelper.Warn("YimMenu.dll2文件正在被占用，跳过释放");
                 }
 
+                // 检查目录是否存在，如果不存在则创建
+                if (!Directory.Exists(FileHelper.Dir_AppData_YimMenu_V2))
+                {
+                    Directory.CreateDirectory(FileHelper.Dir_AppData_YimMenu_V2);
+                }
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2_Font, FileHelper.File_AppData_YimMenu_V2_Font);
+
+                if (!File.Exists(FileHelper.Res_YimMenu_YimMenu_V2_Font)) { 
+                    LoggerHelper.Error("字体释放失败"); 
+                }
+
                 // 判断NewBase.dll 文件是否存在 是否被占用
                 if (!File.Exists(FileHelper.File_YimMenu_DLL_V2) ||
                     !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_V2))
                 {
                     FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2, FileHelper.File_YimMenu_DLL_V2);
-                    // 检查目录是否存在，如果不存在则创建
-                    if (!Directory.Exists(FileHelper.Dir_AppData_YimMenu_V2))
-                    {
-                        Directory.CreateDirectory(FileHelper.Dir_AppData_YimMenu_V2);
-                    }
-                    FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2_Font, FileHelper.File_AppData_YimMenu_V2_Font);
                     LoggerHelper.Info("释放NewBase.dll文件成功");
                 }
                 else
