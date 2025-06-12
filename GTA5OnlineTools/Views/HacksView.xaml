@@ -102,7 +102,7 @@
             </ui:GroupBoxHack.TitleContent>
             <ui:GroupBoxHack.DescriptionContent>
                 <StackPanel Margin="0,-23,0,0">
-                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="适用于增强版,处于正在开发但不完善的阶段,不支持中文,不支持Lua脚本.必须先从R星启动器关闭Battleye开关." />
+                    <TextBlock Foreground="Red" TextWrapping="Wrap" Text="适用于增强版,处于正在开发但不完善的阶段,由yeahsch进行初步汉化,不支持Lua脚本.必须先从R星启动器关闭Battleye开关." />
                     <WrapPanel>
                         <Button
                             Background="#FE780A"
