@@ -45,7 +45,11 @@
             <Button
                 x:Name="Button_ReplaceStroyModeProfiles"
                 Click="Button_ReplaceStroyModeProfiles_Click"
-                Content="开始替换故事模式存档" />
+                Content="替换存档(传承版)" />
+            <Button
+                x:Name="Button_ReplaceStroyModeProfiles_Enhanced"
+                Click="Button_ReplaceStroyModeProfiles_Enhanced_Click"
+                Content="替换存档(增强版)" />
 
             <TextBlock Style="{StaticResource TextBlockStyle_Hint}">
                 提示：替换的存档为 SGTA50000 文件
