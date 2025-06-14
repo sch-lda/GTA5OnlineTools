@@ -267,6 +267,13 @@ public partial class HacksView : UserControl
     }
     private static void YimMenuClick3()
     {
+        if (!Directory.Exists(FileHelper.Dir_AppData_YimMenu_V2))
+            Directory.CreateDirectory(FileHelper.Dir_AppData_YimMenu_V2);
+
+        if (!File.Exists(FileHelper.File_AppData_YimMenu_V2_Font))
+            FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2_Font, FileHelper.File_AppData_YimMenu_V2_Font);
+
+
         Process gta5Process;
         if (Memory.GTA5ProId == 0)
         {
