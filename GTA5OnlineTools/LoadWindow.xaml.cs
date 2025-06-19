@@ -63,8 +63,7 @@ public partial class LoadWindow
                 FileHelper.ExtractResFile(FileHelper.Res_Cache_Notepad2, FileHelper.File_Cache_Notepad2);
 
                 // 判断YimMenu.dll文件是否存在 是否被占用
-                if (!File.Exists(FileHelper.File_YimMenu_DLL) &&
-                    !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL))
+                if (!FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL))
                 {
                     FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu, FileHelper.File_YimMenu_DLL);
                     LoggerHelper.Info("释放YimMenu.dll文件成功");
@@ -74,9 +73,8 @@ public partial class LoadWindow
                     LoggerHelper.Warn("YimMenu.dll文件正在被占用，跳过释放");
                 }
 
-                // 判断YimMenu.dll Mr_X 文件是否存在 是否被占用
-                if (!File.Exists(FileHelper.File_YimMenu_DLL_X) &&
-                    !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_X))
+                // 判断YimMenu.dll Mr_X 文件 是否被占用
+                if (!FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_X))
                 {
                     FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_X, FileHelper.File_YimMenu_DLL_X);
                     LoggerHelper.Info("释放YimMenu.dll2文件成功");
@@ -97,12 +95,11 @@ public partial class LoadWindow
                     LoggerHelper.Error("字体释放失败"); 
                 }
 
-                // 判断NewBase.dll 文件是否存在 是否被占用
-                if (!File.Exists(FileHelper.File_YimMenu_DLL_V2) &&
-                    !FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_V2))
+                // 判断NewBase.dll 文件 是否被占用
+                if (!FileHelper.IsOccupied(FileHelper.File_YimMenu_DLL_V2))
                 {
                     FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2, FileHelper.File_YimMenu_DLL_V2);
-                    LoggerHelper.Info("释放NewBase.dll文件成功");
+                    LoggerHelper.Info("释放Yim V2文件成功");
                 }
                 else
                 {
