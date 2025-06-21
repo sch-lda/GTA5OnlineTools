@@ -25,15 +25,15 @@
                 你需要从开始菜单打开Rockstar启动器，登录，在左边选中Grand Theft Auto V，然后点右上角的设置，关闭里面的Battleye开关，遵循Yimmenu页面的 说明 页面的要求使用Yimmenu。使用前请确保您已实时关注小助手官方Discord中的公告、常见问题解答、yimmenu-fsl、github频道的消息 以及 unknowncheats论坛的Yimmenu帖子、Yimmenu Matrix群组(可以从Github discussion获取链接)的消息，并随时做好被封禁的心理准备。
             </Paragraph>
             <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16">
-                软件无法自动更新，也无法自动检查更新。请关注Discord群组中的Github频道获取更新推送。
+                软件不会自动更新，请关注Discord群组中的Github频道获取更新推送。
             </Paragraph>
             <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16">
-                此修改版的Github地址为:
+                此修改版的Github地址为(仅包含源码,不发布程序):
                 <Hyperlink NavigateUri="https://github.com/sch-lda/GTA5OnlineTools" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/sch-lda/GTA5OnlineTools</Hyperlink>
                 
             </Paragraph>
             <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16">
-                自动构建仓库地址为
+                自动构建仓库地址为(所有二进制文件汇总到此仓库构建发布)
                 <Hyperlink NavigateUri="https://github.com/sch-lda/yctest2" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/sch-lda/yctest2</Hyperlink>
             </Paragraph>
             <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16" Foreground ="Red">
