@@ -234,7 +234,8 @@ public partial class MainWindow
         {
             // calc self sha256
 
-            var self_path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var self_path = Environment.ProcessPath;
+            LoggerHelper.Debug($"当前软件路径: {self_path}");
             string sha256 = "sha256:" + CalculateSHA256(self_path);
             LoggerHelper.Info($"当前软件SHA256: {sha256}");
             LoggerHelper.Info("获取云端构建信息...");
