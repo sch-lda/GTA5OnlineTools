@@ -29,12 +29,20 @@
             </Paragraph>
             <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16">
                 此修改版的Github地址为:
-                <Hyperlink NavigateUri="https://github.com/sch-lda/GTA5OnlineTools">https://github.com/sch-lda/GTA5OnlineTools</Hyperlink>
+                <Hyperlink NavigateUri="https://github.com/sch-lda/GTA5OnlineTools" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/sch-lda/GTA5OnlineTools</Hyperlink>
+                
             </Paragraph>
             <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16">
                 自动构建仓库地址为
-                <Hyperlink NavigateUri="https://github.com/sch-lda/yctest2">https://github.com/sch-lda/yctest2</Hyperlink>
+                <Hyperlink NavigateUri="https://github.com/sch-lda/yctest2" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/sch-lda/yctest2</Hyperlink>
             </Paragraph>
+            <Paragraph Style="{StaticResource ParagraphStyle_Content}" FontSize="16" Foreground ="Red">
+                此程序最新版本下载地址为(点击访问)
+                <Hyperlink NavigateUri="https://redirect.1007890.xyz/res1" RequestNavigate="Hyperlink_RequestNavigate">https://redirect.1007890.xyz/res1</Hyperlink> 
+                <LineBreak/>如果无法访问，请使用备用Github地址
+                <Hyperlink NavigateUri="https://github.com/sch-lda/yctest2/releases/download/CI/GTA5OnlineTools.exe" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/sch-lda/yctest2/releases/download/CI/GTA5OnlineTools.exe</Hyperlink> 
+            </Paragraph>
+
         </FlowDocument>
     </RichTextBox>
     

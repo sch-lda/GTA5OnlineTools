@@ -17,6 +17,12 @@ public partial class MainModel : ObservableObject
     private Version appVersion;
 
     /// <summary>
+    /// 程序版本号
+    /// </summary>
+    [ObservableProperty]
+    private string status;
+
+    /// <summary>
     /// 程序运行时间
     /// </summary>
     [ObservableProperty]

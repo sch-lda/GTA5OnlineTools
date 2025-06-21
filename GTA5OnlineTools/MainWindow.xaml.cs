@@ -1,8 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using GTA5OnlineTools.Data;
 using GTA5OnlineTools.Models;
 using GTA5OnlineTools.Utils;
 using GTA5OnlineTools.Views;
 using GTA5Shared.Helper;
+using System.Security.Cryptography;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace GTA5OnlineTools;
 
@@ -78,6 +82,8 @@ public partial class MainWindow
         MainModel.AppRunTime = "00:00:00";
         MainModel.AppVersion = CoreUtil.ClientVersion;
 
+        MainModel.Status = "检查完整性...";
+
         // 更新主窗口UI线程
         new Thread(UpdateUiThread)
         {
@@ -93,13 +99,12 @@ public partial class MainWindow
         }.Start();
 
         // 检查更新线程
-        /*
         new Thread(CheckUpdateThread)
         {
             Name = "CheckUpdateThread",
             IsBackground = true
         }.Start();
-        */
+        
     }
 
     /// <summary>
@@ -207,4 +212,75 @@ public partial class MainWindow
         }
     }
 
+    static string CalculateSHA256(string filePath)
+    {
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            using (FileStream stream = File.OpenRead(filePath))
+            {
+                byte[] hashBytes = sha256.ComputeHash(stream);
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        }
+    }
+
+    /// <summary>
+    /// 检查更新线程
+    /// </summary>
+
+    private async void CheckUpdateThread()
+    {
+        try
+        {
+            // calc self sha256
+
+            var self_path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string sha256 = "sha256:" + CalculateSHA256(self_path);
+            LoggerHelper.Info($"当前软件SHA256: {sha256}");
+            LoggerHelper.Info("获取云端构建信息...");
+
+            var remote_digest = await HttpHelper.DownloadString("https://antfcc0.1007890.xyz/golt_hash");
+            LoggerHelper.Info($"云端构建信息: {remote_digest}");
+            if (string.IsNullOrEmpty(remote_digest))
+            {
+                return;
+            }
+            if (remote_digest == sha256)
+            {
+                LoggerHelper.Info("当前软件已是最新版本");
+                MainModel.Status = "已是最新版本";
+                return;
+            }
+            else
+            {
+                LoggerHelper.Warn("当前软件不是最新版本");
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    Status_Text.Foreground = new SolidColorBrush(Colors.Red); // 使用Color结构
+                    MainModel.Status = "新版本可用，请重新下载！";
+                });
+            }
+
+
+        }
+        catch (Exception ex)
+        {
+            LoggerHelper.Error("获取云端构建信息失败", ex);
+            return;
+        }
+
+        return;
+    }
+
+    /// <summary>
+    /// 超链接请求导航事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+    {
+        LoggerHelper.Info($"打开链接: {e.Uri.OriginalString}");
+        ProcessHelper.OpenLink(e.Uri.OriginalString);
+        e.Handled = true;
+    }
 }

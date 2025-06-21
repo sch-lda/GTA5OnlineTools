@@ -91,7 +91,7 @@ public partial class LoadWindow
                 }
                 FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2_Font, FileHelper.File_AppData_YimMenu_V2_Font);
 
-                if (!File.Exists(FileHelper.Res_YimMenu_YimMenu_V2_Font)) { 
+                if (!File.Exists(FileHelper.File_AppData_YimMenu_V2_Font)) { 
                     LoggerHelper.Error("字体释放失败"); 
                 }
 

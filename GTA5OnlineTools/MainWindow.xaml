@@ -40,7 +40,12 @@
                 VerticalAlignment="Center"
                 DockPanel.Dock="Right"
                 Orientation="Horizontal">
-                <TextBlock Margin="5" Text="{Binding MainModel.AppVersion, StringFormat='v{0}', FallbackValue='1.0.0.0'}" />
+                <TextBlock x:Name="Status_Text" Margin="5" Text="{Binding MainModel.Status, FallbackValue='错误'}" >
+                    <Hyperlink NavigateUri="https://discord.gg/7GuNzajfhD" RequestNavigate="Hyperlink_RequestNavigate">
+                        &#xe6e3;
+                    </Hyperlink>
+                </TextBlock>
+                    
                 <Border
                     Width="2"
                     Margin="5"
