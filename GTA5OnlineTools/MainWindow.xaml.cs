@@ -285,13 +285,13 @@ public partial class MainWindow
             LoggerHelper.Info($"云端构建信息: {remote_digest}");
             if (string.IsNullOrEmpty(remote_digest))
             {
+                MainModel.Status = "网络连接失败";
                 return;
             }
             if (remote_digest == sha256)
             {
                 LoggerHelper.Info("当前软件已是最新版本");
                 MainModel.Status = "小助手已最新";
-                return;
             }
             else
             {
@@ -323,7 +323,7 @@ public partial class MainWindow
                     {
                         Status_Text.Foreground = new SolidColorBrush(Colors.Red); // 使用Color结构
                     });
-                        MainModel.Status += "YimV2需更新.";
+                    MainModel.Status += "YimV2需更新.";
                 }
 
             }
