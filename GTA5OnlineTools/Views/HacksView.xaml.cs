@@ -257,7 +257,7 @@ public partial class HacksView : UserControl
 
         await Task.Delay(100);
 
-        if (File.Exists(FileHelper.File_YimMenu_DLL_V1_Online))
+        if (!File.Exists(FileHelper.File_YimMenu_DLL_V1_Online))
         {
             NotifierHelper.Show(NotifierType.Warning, "YimMenu V1在线版本不存在，请先到Yim管理菜单下载");
             return;
@@ -315,7 +315,7 @@ public partial class HacksView : UserControl
         if (!File.Exists(FileHelper.File_AppData_YimMenu_V2_Font))
             FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2_Font, FileHelper.File_AppData_YimMenu_V2_Font);
 
-        if (File.Exists(FileHelper.File_YimMenu_DLL_V2_Online))
+        if (!File.Exists(FileHelper.File_YimMenu_DLL_V2_Online))
         {
             NotifierHelper.Show(NotifierType.Warning, "YimMenu V2在线版本不存在，请先到Yim管理菜单下载");
             return;
