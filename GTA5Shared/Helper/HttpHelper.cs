@@ -39,6 +39,23 @@ public static class HttpHelper
         return string.Empty;
     }
 
+    ///<summary>
+    /// Http post
+    /// </summary>
+    public static async Task<string> PostAsync(string url, string golt_commit_hash, string yimv2_file_hash)
+    {
+        var request = new RestRequest(url, Method.Post);
+        request.AddJsonBody(new
+        {
+            golt_commit_hash = golt_commit_hash,
+            yimv2_file_hash = yimv2_file_hash
+        });
+        var response = await client.ExecuteAsync(request);
+        if (response.StatusCode == HttpStatusCode.OK)
+            return response.Content ?? string.Empty;
+        return string.Empty;
+    }
+
     /// <summary>
     /// 刷新DNS缓存
     /// </summary>

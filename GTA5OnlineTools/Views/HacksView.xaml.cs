@@ -23,6 +23,7 @@ public partial class HacksView : UserControl
 
     private OnlineLuaWindow OnlineLuaWindow = null;
     private FSLWindow FSLWindow = null;
+    private YimDLWindow YimDLWindow = null;
 
     public HacksView()
     {
@@ -50,14 +51,17 @@ public partial class HacksView : UserControl
         {
             switch (hackName)
             {
-                case "YimMenu_o":
-                    YimMenuClick();
+                case "YimMenu_Local":
+                    YimMenuClick_Local();
                     break;
-                case "YimMenu_x":
-                    YimMenuClick2();
+                case "YimMenu_Online":
+                    YimMenuClick_Online();
                     break;
                 case "YimMenu_v2":
-                    YimMenuClick3();
+                    YimMenu_V2_Local_Click();
+                    break;
+                case "YimMenu_v2_Online":
+                    YimMenu_V2_Online_Click();
                     break;
             }
         }
@@ -99,6 +103,12 @@ public partial class HacksView : UserControl
                 break;
             case "FSLmanage":
                 FSLClick();
+                break;
+            case "YimDL":
+                YimDLClick();
+                break;
+            case "ntf":
+                NotificationClick();
                 break;
         }
     }
@@ -177,51 +187,7 @@ public partial class HacksView : UserControl
     /// <summary>
     /// YimMenu点击事件
     /// </summary>
-    private async void YimMenuClick()
-    {
-        try
-        {
-            // 释放Yimmenu官中语言文件
-            FileHelper.CreateDirectory(FileHelper.Dir_AppData_YimMenu_Translations);
-
-            // 是否使用繁体中文
-            if (HacksModel.IsYimMenuLangZhTw)
-            {
-                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_IndexTW, FileHelper.File_YimMenu_IndexTW);
-                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_ZHTW, FileHelper.File_YimMenu_ZHTW);
-            }
-            else
-            {
-                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_IndexCN, FileHelper.File_YimMenu_IndexCN);
-                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_ZHCN, FileHelper.File_YimMenu_ZHCN);
-            }
-        }
-        catch (Exception ex)
-        {
-            LoggerHelper.Error($"释放Yimmenu官中语言文件失败，异常信息：{ex.Message}");
-        }
-
-        await Task.Delay(100);
-
-        // 由于玩家可能只使用YimMenu，GTA5Core模块不会初始化，这里要单独处理
-        Process gta5Process;
-        if (Memory.GTA5ProId == 0)
-        {
-            var pArray = Process.GetProcessesByName("GTA5");
-            gta5Process = pArray.First();
-        }
-        else
-        {
-            gta5Process = Memory.GTA5Process;
-        }
-
-        var result = Injector.DLLInjector(gta5Process.Id, FileHelper.File_YimMenu_DLL, true);
-        if (result.IsSuccess)
-            NotifierHelper.Show(NotifierType.Success, "YimMenu菜单注入成功");
-        else
-            NotifierHelper.Show(NotifierType.Error, $"YimMenu菜单注入失败\n错误信息：{result.Content}");
-    }
-    private async void YimMenuClick2()
+    private async void YimMenuClick_Local()
     {
         try
         {
@@ -265,7 +231,57 @@ public partial class HacksView : UserControl
         else
             NotifierHelper.Show(NotifierType.Error, $"YimMenu菜单注入失败\n错误信息：{result.Content}");
     }
-    private static void YimMenuClick3()
+    private async void YimMenuClick_Online()
+    {
+        try
+        {
+            // 释放Yimmenu官中语言文件
+            FileHelper.CreateDirectory(FileHelper.Dir_AppData_YimMenu_Translations);
+
+            // 是否使用繁体中文
+            if (HacksModel.IsYimMenuLangZhTw)
+            {
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_IndexTW, FileHelper.File_YimMenu_IndexTW);
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_ZHTW, FileHelper.File_YimMenu_ZHTW);
+            }
+            else
+            {
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_IndexCN, FileHelper.File_YimMenu_IndexCN);
+                FileHelper.ExtractResFile(FileHelper.Res_YimMenu_ZHCN, FileHelper.File_YimMenu_ZHCN);
+            }
+        }
+        catch (Exception ex)
+        {
+            LoggerHelper.Error($"释放Yimmenu官中语言文件失败，异常信息：{ex.Message}");
+        }
+
+        await Task.Delay(100);
+
+        if (File.Exists(FileHelper.File_YimMenu_DLL_V1_Online))
+        {
+            NotifierHelper.Show(NotifierType.Warning, "YimMenu V1在线版本不存在，请先到Yim管理菜单下载");
+            return;
+        }
+
+        // 由于玩家可能只使用YimMenu，GTA5Core模块不会初始化，这里要单独处理
+        Process gta5Process;
+        if (Memory.GTA5ProId == 0)
+        {
+            var pArray = Process.GetProcessesByName("GTA5");
+            gta5Process = pArray.First();
+        }
+        else
+        {
+            gta5Process = Memory.GTA5Process;
+        }
+
+        var result = Injector.DLLInjector(gta5Process.Id, FileHelper.File_YimMenu_DLL_V1_Online, true);
+        if (result.IsSuccess)
+            NotifierHelper.Show(NotifierType.Success, "YimMenu菜单注入成功");
+        else
+            NotifierHelper.Show(NotifierType.Error, $"YimMenu菜单注入失败\n错误信息：{result.Content}");
+    }
+    private static void YimMenu_V2_Local_Click()
     {
         if (!Directory.Exists(FileHelper.Dir_AppData_YimMenu_V2))
             Directory.CreateDirectory(FileHelper.Dir_AppData_YimMenu_V2);
@@ -291,6 +307,38 @@ public partial class HacksView : UserControl
         else
             NotifierHelper.Show(NotifierType.Error, $"YimMenu V2菜单注入失败\n错误信息：{result.Content}");
     }
+    private static void YimMenu_V2_Online_Click()
+    {
+        if (!Directory.Exists(FileHelper.Dir_AppData_YimMenu_V2))
+            Directory.CreateDirectory(FileHelper.Dir_AppData_YimMenu_V2);
+
+        if (!File.Exists(FileHelper.File_AppData_YimMenu_V2_Font))
+            FileHelper.ExtractResFile(FileHelper.Res_YimMenu_YimMenu_V2_Font, FileHelper.File_AppData_YimMenu_V2_Font);
+
+        if (File.Exists(FileHelper.File_YimMenu_DLL_V2_Online))
+        {
+            NotifierHelper.Show(NotifierType.Warning, "YimMenu V2在线版本不存在，请先到Yim管理菜单下载");
+            return;
+        }
+
+        Process gta5Process;
+        if (Memory.GTA5ProId == 0)
+        {
+            var pArray = Process.GetProcessesByName("GTA5_Enhanced");
+            gta5Process = pArray.First();
+        }
+        else
+        {
+            gta5Process = Memory.GTA5Process;
+        }
+
+        var result = Injector.DLLInjector(gta5Process.Id, FileHelper.File_YimMenu_DLL_V2_Online, true);
+        if (result.IsSuccess)
+            NotifierHelper.Show(NotifierType.Success, "YimMenu V2菜单注入成功");
+        else
+            NotifierHelper.Show(NotifierType.Error, $"YimMenu V2菜单注入失败\n错误信息：{result.Content}");
+    }
+
     #endregion
 
     #region 其他额外功能
@@ -472,6 +520,45 @@ public partial class HacksView : UserControl
                 FSLWindow.Show();
             }
         }
+    }
+
+    /// <summary>
+    /// 打开YimDL下载窗口
+    /// </summary>
+    private void YimDLClick()
+    {
+        if (YimDLWindow == null)
+        {
+            YimDLWindow = new YimDLWindow();
+            YimDLWindow.Show();
+        }
+        else
+        {
+            if (YimDLWindow.IsVisible)
+            {
+                if (!YimDLWindow.Topmost)
+                {
+                    YimDLWindow.Topmost = true;
+                    YimDLWindow.Topmost = false;
+                }
+
+                YimDLWindow.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                YimDLWindow = null;
+                YimDLWindow = new YimDLWindow();
+                YimDLWindow.Show();
+            }
+        }
+    }
+    private void NotificationClick()
+    {
+        var NotificationWindow = new NotificationWindow
+        {
+            Owner = MainWindow.MainWindowInstance
+        };
+        NotificationWindow.ShowDialog();
     }
 
 }

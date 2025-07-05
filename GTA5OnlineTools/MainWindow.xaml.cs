@@ -7,6 +7,7 @@ using GTA5Shared.Helper;
 using System.Security.Cryptography;
 using System.Windows.Input;
 using System.Windows.Media;
+using GTA5OnlineTools.Windows;
 
 namespace GTA5OnlineTools;
 
@@ -212,7 +213,7 @@ public partial class MainWindow
         }
     }
 
-    static string CalculateSHA256(string filePath)
+    static string CalculateSHA256_File(string filePath)
     {
         using (SHA256 sha256 = SHA256.Create())
         {
@@ -221,6 +222,27 @@ public partial class MainWindow
                 byte[] hashBytes = sha256.ComputeHash(stream);
                 return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
             }
+        }
+    }
+    static string CalculateHash_String(string input)
+    {
+        // 选择哈希算法（这里使用SHA256）
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            // 将字符串转换为字节数组
+            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+
+            // 计算哈希值
+            byte[] hashBytes = sha256.ComputeHash(inputBytes);
+
+            // 将字节数组转换为十六进制字符串
+            StringBuilder sb = new StringBuilder();
+            foreach (byte b in hashBytes)
+            {
+                sb.Append(b.ToString("x2")); // "x2"表示两位小写的十六进制
+            }
+
+            return sb.ToString();
         }
     }
 
@@ -232,11 +254,30 @@ public partial class MainWindow
     {
         try
         {
-            // calc self sha256
+            LoggerHelper.Info("开始检查新公告...");
+            var remote_notification = await HttpHelper.DownloadString("https://sstaticstp.1007890.xyz/golt_notification.txt");
+            var NotificationHash = CalculateHash_String(remote_notification);
+            var LocalNotificationHash = IniHelper.ReadValue("Notification", "Hash");
+            if (string.IsNullOrEmpty(LocalNotificationHash) || LocalNotificationHash != NotificationHash)
+            {
+                LoggerHelper.Info("发现未读公告，显示通知窗口...");
+                this.Dispatcher.Invoke(() =>
+                {
+                    var NotificationWindow = new NotificationWindow
+                    {
+                        Owner = this
+                    };
+                    NotificationWindow.ShowDialog();
+                });
+            }
+            else
+            {
+                LoggerHelper.Info("没有新公告");
+            }
 
             var self_path = Environment.ProcessPath;
             LoggerHelper.Debug($"当前软件路径: {self_path}");
-            string sha256 = "sha256:" + CalculateSHA256(self_path);
+            string sha256 = "sha256:" + CalculateSHA256_File(self_path);
             LoggerHelper.Info($"当前软件SHA256: {sha256}");
             LoggerHelper.Info("获取云端构建信息...");
 
@@ -249,7 +290,7 @@ public partial class MainWindow
             if (remote_digest == sha256)
             {
                 LoggerHelper.Info("当前软件已是最新版本");
-                MainModel.Status = "已是最新版本";
+                MainModel.Status = "小助手已最新";
                 return;
             }
             else
@@ -257,11 +298,60 @@ public partial class MainWindow
                 LoggerHelper.Warn("当前软件不是最新版本");
                 Application.Current.Dispatcher.Invoke(() =>
                 {
-                    Status_Text.Foreground = new SolidColorBrush(Colors.Red); // 使用Color结构
-                    MainModel.Status = "新版本可用，请重新下载！";
+                    Status_Text.Foreground = new SolidColorBrush(Colors.Purple); // 使用Color结构
+                    MainModel.Status = "小助手不是最新！";
                 });
             }
 
+            var YimmenuV2_path = FileHelper.File_YimMenu_DLL_V2_Online;
+
+            if (File.Exists(YimmenuV2_path)) 
+            {
+                var currentHash_V2 = "sha256:" + CalculateSHA256_File(YimmenuV2_path);
+                var remote_digest_V2 = await HttpHelper.DownloadString("https://antfcc0.1007890.xyz/yimv2_hash");
+                if (string.IsNullOrEmpty(remote_digest_V2))
+                {
+                    MainModel.Status += "YimV2状态未知.";
+                }
+                if (remote_digest_V2 == currentHash_V2)
+                {
+                    MainModel.Status += "YimV2已最新.";
+                }
+                else
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        Status_Text.Foreground = new SolidColorBrush(Colors.Red); // 使用Color结构
+                    });
+                        MainModel.Status += "YimV2需更新.";
+                }
+
+            }
+
+            var YimmenuV1_path = FileHelper.File_YimMenu_DLL_V1_Online;
+
+            if (File.Exists(YimmenuV1_path))
+            {
+                var currentHash_V1 = "sha256:" + CalculateSHA256_File(YimmenuV1_path);
+                var remote_digest_V1 = await HttpHelper.DownloadString("https://antfcc0.1007890.xyz/yimv1_hash");
+                if (string.IsNullOrEmpty(remote_digest_V1))
+                {
+                    MainModel.Status += "YimV1状态未知.";
+                }
+                if (remote_digest_V1 == currentHash_V1)
+                {
+                    MainModel.Status += "YimV1已最新.";
+                }
+                else
+                {
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        Status_Text.Foreground = new SolidColorBrush(Colors.Red); // 使用Color结构
+                    });
+
+                    MainModel.Status += "YimV1需更新.";
+                }
+            }
 
         }
         catch (Exception ex)

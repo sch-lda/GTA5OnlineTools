@@ -39,6 +39,8 @@ public static class FileHelper
     public static string File_YimMenu_DLL { get; private set; }
     public static string File_YimMenu_DLL_X { get; private set; }
     public static string File_YimMenu_DLL_V2 { get; private set; }
+    public static string File_YimMenu_DLL_V2_Online { get; private set; }
+    public static string File_YimMenu_DLL_V1_Online { get; private set; }
     public static string File_YimMenu_IndexCN { get; private set; }
     public static string File_YimMenu_IndexTW { get; private set; }
     public static string File_YimMenu_ZHCN { get; private set; }
@@ -116,6 +118,8 @@ public static class FileHelper
         File_YimMenu_DLL = Path.Combine(Dir_YimMenu, "YimMenu_uc.dll");
         File_YimMenu_DLL_X = Path.Combine(Dir_YimMenu, "YimMenu.dll");
         File_YimMenu_DLL_V2 = Path.Combine(Dir_YimMenu, "NewBase.dll");
+        File_YimMenu_DLL_V2_Online = Path.Combine(Dir_YimMenu, "NewBase_net.dll");
+        File_YimMenu_DLL_V1_Online = Path.Combine(Dir_YimMenu, "YimMenu_net.dll");
 
         File_YimMenu_IndexCN = Path.Combine(Dir_AppData_YimMenu_Translations, "index.json");
         File_YimMenu_IndexTW = Path.Combine(Dir_AppData_YimMenu_Translations, "index.json");
