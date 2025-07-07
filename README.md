@@ -1,3 +1,5 @@
+## sch的分支，小助手已经永久停更了，仅用于注入Yimmenu。这里不发布二进制文件，详见 https://github.com/sch-lda/yctest2
+
 # GTA5线上小助手
 
 一个完全免费的GTA5线上模式小工具
