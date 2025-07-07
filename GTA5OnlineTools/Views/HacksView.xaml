@@ -60,11 +60,6 @@
                         CommandParameter="ViewYimMenuLogger"
                         Content="程序日志" />
                         <Button
-                        Background="#CA64EA"
-                        Command="{Binding ExtraClickCommand}"
-                        CommandParameter="YimMenuGTACache"
-                        Content="无效按钮" IsEnabled="False" />
-                        <Button
                         Background="#EA4335"
                         Command="{Binding ExtraClickCommand}"
                         CommandParameter="ResetYimMenuConfig"
@@ -114,6 +109,11 @@
                             CommandParameter="YimMenuV2Directory"
                             Content="配置目录" />
                         <Button
+                            Background="#FE780A"
+                            Command="{Binding ExtraClickCommand}"
+                            CommandParameter="YimMenuV2ScriptsDirectory"
+                            Content="脚本目录" />
+                        <Button
                             Background="#34A853"
                             Command="{Binding ExtraClickCommand}"
                             CommandParameter="EditYimMenuV2Config"
@@ -133,10 +133,10 @@
             </ui:GroupBoxHack.DescriptionContent>
         </ui:GroupBoxHack>
         <ui:ButtonIcon
-            Title="网络版Yim管理"
+            Title="网络版Yim"
             Command="{Binding HacksFuncClickCommand}"
             CommandParameter="YimDL"
-            Description="在线更新Yimmenu"
+            Description="启用网络版Yimmenu和在线更新功能"
             Icon="&#xE72E;"
             Style="{StaticResource ButtonStyle_HacksFunc}" />
         <ui:ButtonIcon

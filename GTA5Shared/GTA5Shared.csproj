@@ -47,7 +47,6 @@
 		<EmbeddedResource Include="Files\Cache\Notepad2.exe" />
 		<EmbeddedResource Include="Files\Cache\CloudflareSpeedTest.exe" />
 		<EmbeddedResource Include="Files\Cache\stat.txt" />
-        <EmbeddedResource Include="Files\YimMenu\cache.zip" />
         <EmbeddedResource Include="Files\YimMenu\font.ttf" />
         <EmbeddedResource Include="Files\YimMenu\NewBase.dll" />
 		<EmbeddedResource Include="Files\YimMenu\YimMenu.dll" />

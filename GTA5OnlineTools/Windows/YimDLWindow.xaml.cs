@@ -109,7 +109,7 @@ public partial class YimDLWindow
         else
         {
             TextBox_Logger.AppendText("YimMenuV1 与云端不一致,开始重新下载...\n");
-            if (!FileHelper.IsOccupied(YimmenuV2_path))
+            if (!FileHelper.IsOccupied(YimmenuV1_path))
             {
                 await StartDownload(YimmenuV1_path, YimmenuV1_url);
                 TextBox_Logger.AppendText("YimMenuV1 重新下载完成。\n");
